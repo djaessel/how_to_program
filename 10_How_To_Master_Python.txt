@@ -1,0 +1,21 @@
+https://youtu.be/IUZTbEaDo0U
+
+Hier in diesem Video über den Python Einstieg erwähnt er kurz, 
+dass es wichtig ist zu wissen was du machen willst.
+
+Das ist eben auch was ich versucht habe zu sagen.
+Mit C/C++ kannst du eigentlich fast alles machen und programmieren.
+Egal ob Apps für Smartphones oder Hardware die ein (echtes) Auto steuert.
+
+Mit Java kann man auch vieles, ist aber eben an java gebunden.
+Manche Frameworks (Softwarepakete die dir viel Arbeit abnehmen und eine Basis bilden) bevorzugen 
+auch bestimmte Sprachen bzw. sind dafür ausgelegt und entwickelt worden.
+
+Android Apps zum Beispiel sind mittels Android Studio eher an Java gebunden, 
+jedoch gibt es eben auch die Möglichkeit über Qt (oder andere Frameworks) C/C++ zu nehmen oder ganz andere Sprachen.
+Python ist für Smartphone Apps eher nicht geeignet. Was aber eben nicht heißt, dass du damit nicht einsteigen kannst.
+Wie gesagt, würde ich an deiner Stelle erst mal mit Python anfangen um grundsätzlich mal 
+Erfahrungen beim Programmieren zu sammeln und ein gewisses Grundverständis zu erhalten.
+
+Danach solltest du dich aber mit C++ beschäftigen (was eine ganz andere Liga ist und auch ich da noch viel lernen kann).
+

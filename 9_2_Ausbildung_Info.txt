@@ -1,0 +1,59 @@
+Und wegen deiner Ausbildung, ich hatte eben das Glück, dass mein Chef sich ziemlich gut auskannte in allem und 
+auch Kurse an der Hochschule gab usw. weshalb ich mit vielen Dingen zu tun hatte und noch gehabt hätte, 
+wäre ich nicht gegangen, weil mir alles zu viel wurde.
+
+Die meisten anderen in der Klasse hatten normale Chefs oder sogar schlechte.
+Es gab meist nur eine Programmiersprache im Betrieb und kaum mal Wissensaustausch 
+über die konkreten Arbeitsaufgaben hinaus.
+Manche wurde sogar fürs Lager aufräumen oder Staubsaugen abgerichtet. xD Also so richtig große.
+
+Wenn man richtig Pech hatte, dann wurde in der Berufsschule kaum was vermittelt und bei der Arbeit auch nicht, 
+weil keiner richtig Ahnung hatte oder das Wissen von den 90er Jahren stammte.
+
+Ich musste natürlich auch das meiste selbst lernen, 
+aber wenigstens konnte ich meinen Chef immer mal wieder was fragen oder einen Kollegen und 
+wir hatten auch alle paar Wochen mal so spezielle Tage an denen wir uns mal den Firmeneigenen Server angeschaut haben 
+(wie man ihn wartet, was drauf läuft, wie man ihn von außen ansteuert etc.).
+
+Wenn du eben Pech haben solltest kriegst du so was alles nicht und nur Aufgaben, 
+die du dann irgendwie alleine lösen musst, ohne wirkliche Hilfe.
+
+Natürlich wäre es gut, wenn du dich schon vor deiner Ausbildung etwas darauf vorbereitest 
+(außer du weißt schon jetzt von einer sehr guten Firma bei der du gut einsteigen kannst ohne Vorwissen).
+
+Ich helfe dir gerne mit meinem begrenzten Wissen, das aber ausreichen sollte für deinen Einstieg.
+Wir könnten das ganze ja mit irgendwas praktischem verbinden, 
+weil Theorie macht in der Programmierbranche wenig Sinn 
+(auch wenn es in der Schule und UNI leider sehr hoch gehalten wird).
+
+Entweder ich geb dir weiterhin kleine Aufgaben, die du lösen sollst oder wir arbeiten gemeinsam an irgendwas, 
+das du vielleicht auch später brauchen kannst. Also falls du irgendwelche Ideen hast, nur los.
+
+Am besten sind für den Anfang aber irgendwelche Spaßprogramme oder 
+eben kleinere Projekte um Erfolgserlebnisse zu haben und den Überblick nicht zu verlieren.
+
+Bei mir waren das zum Beispiel kleine dumme Spiele oder 
+Programme um Spieldateien einfacher zu bearbeiten (Textdateien mit Einstellungen).
+
+Aber auch so was wie eine eigene Progressbar und eben am Ende dieses MountBlade Studio Ding, 
+was dann doch ziemlich groß, wenn auch unnötig wurde.
+
+--
+
+Übrigens, ich schaue mir die Videos die ich dir schicke meistens komplett an, 
+damit ich auch weiß was ich dir da schicke und geb hier und da ein paar Kommentare ab, 
+wenn vielleicht noch was wichtiges vergessen wurde.
+
+Viele von den Videos dich ich dir schicke gab es damals nicht oder zumindest nicht so und 
+wenn wusste ich auch nicht wonach ich suchen sollte.
+Mit Linux habe ich ja auch erst wirklich angefangen als ich es bei der Arbeit ständig brauchte.
+Davor hab ich nur ein bisschen mit Kali Linux rumgespielt 
+(ein paar Beispiel Exploits erstellt und mich cool gefühlt, weil ich die Kamera von meinem Laptop hacken konnte ^^)
+
+Ich musste mir alles irgendwie herleiten und hab dann teils mehr durch Zufall das gefunden, was ich wollte oder brauchte.
+Oder eben später dann durch die Arbeit (Linux, Qt Framework, PHP, ...)
+
+Deshalb hoffe ich, dass ich dir alles wichtige gleich so mitgeben kann.
+Dinge die eben später hoffentlich weiterhelfen und am Anfang gut wäre, 
+wenn man sie weiß oder zumindest mal gesehen hat.
+

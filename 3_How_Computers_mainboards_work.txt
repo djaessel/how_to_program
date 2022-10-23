@@ -1,0 +1,37 @@
+https://youtu.be/nFmRJyYpXf4
+
+Hier auch noch ein Kanal der das Thema etwas ausführlicher und Schritt für Schritt erklärt:
+https://www.youtube.com/channel/UCQdZltW7bh1ta-_nCH7LWYw/videos
+(nur falls du Interesse haben solltest wie alles funktioniert, 
+also der Computer an sich und wie man ihn direkt anspricht etc.)
+
+Hab vor ein paar Jahren mal diesen Kanal gefunden und sogar mal für meine Abschlussprüfung auf dem TG verwendet.
+Leider war ich damals etwas zu dumm für das ganze, daran war aber nicht der Kanal schuld, 
+sondern einfach nur ich und meine Inkomptemz. :D
+
+Hatte aber trotzdem am Ende dann ein kleines Betriebssystem.
+
+--
+
+Ich schreibe dir deshalb so viel davon, weil es eben echt immens hilft wenn man diese erstmal komplizierten und
+komplexen Zusammenhängen wenigstens teilweise versteht.
+
+Denn Python macht ja wirklich alles sehr einfach, was für deinen Einstieg auch gut ist, 
+aber um das ganze generell zu begreifen sind solche Exkurse nicht verkehrt.
+
+Generell mal zu verstehen wie C/C++ funktioniert und Assembly Code ist niemals falsch.
+Wenn du aber hinterher nur ganz viele Fragen hast und nichts verstanden hast ist das auch ganz gut, 
+es zeigt, dass du zumindest interessiert bist.
+
+Denn auch ich hab da sehr, sehr viele Fragen und verstehe nicht so viel.
+
+--
+
+Und nicht abgeschreckt sein oder denken: Oh nein, dann ist programmieren doch nichts für mich!
+Du musst es wie gesagt nicht verstehen (also diese OS Videos mit Assembly etc.).
+Aber wenn doch, dann ist das natürlich mega.
+
+Ist eben nur um Interesse zu wecken oder vielleicht teilweise zu stillen.
+Am besten ist aber wenn du wirklich erst mal mit Python vertraut wirst und 
+ein paar Programme damit geschrieben und verstanden hast.
+

@@ -1,0 +1,5 @@
+Die Aufgabe ist:
+- Aktualisiere die VK Preise in der Preisliste
+- Der VK soll wie folgt berechnet werden: VK = 3 * EK
+- Falls der UVP (unverbindliche Preisempfehlung) größer ist, dann nehme diesen Wert
+

@@ -1,0 +1,5 @@
+Hier noch ein paar Tipps und hilfreiche Websites:
+https://www.w3schools.com/python/
+https://stackoverflow.com/
+https://superuser.com/
+http://geeksforgeeks.org/

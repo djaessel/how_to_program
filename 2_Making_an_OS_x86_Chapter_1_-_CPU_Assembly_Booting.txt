@@ -1,0 +1,32 @@
+https://www.youtube.com/watch?v=MwPjvJ9ulSc
+
+Und hier dann noch die Lektion über Computer im Allgemeinen.
+Du kannst dir gerne mal alle Videos in dieser Reihe angucken.
+Wichtig ist: Du musst nicht alles (beim ersten Mal) verstehen.
+Hauptsache du hast es mal gesehen und vielleicht das ein oder andere mitgenommen.
+
+Also diese Reihe ist eben um wirklch low-level zu verstehen was im Computer passiert und 
+gibt einen Einstieg in Assembly und C im Zusammenhang mit dem Versuche der Entwicklung eines Betriebssystems. 
+Das Thema mag vielleicht ziemlich schwierig und komplex sein, aber anschauen schadet nicht.
+Verlangt ja keiner das du alles verstehst und schon gar nicht das du es nachmachst.
+Es geht nur darum, dass du eben auch einen tieferen Einblick in die Materie bekommst.
+Und auch keine Angst, du wirst mit ziemlicher Sicherheit nie wieder mit Assembly Code in Berührung kommen
+im Berufsleben, außer natürlich du gehst zu irgendwelchen Hardwareentwicklern.
+
+--
+
+Tja und diese Video Reihe ist auch was man bei uns auf dem Technischen Gymnasium gelehrt hat 
+nur viel komplizierter und manchmal war der Lehrer auch nicht da und 
+hat zuvor fälschlicherweise ungeprüft was von Wikipedia ausgedruckt... das nicht ganz richtig war. :D
+
+Am Gymnasium gab es zwei Fächer für Informatik, das eine war hauptsächlich Programmieren und 
+eben verstehen was Objektorientierte und Prozedurale Programmiersprachen machen und so was.
+Das andere Fach war eher hardwarenah, so wie diese Videos und man hat dann auch so Boards in Assembly oder C programmiert.
+Aber leider durften wir keine Roboter programmieren die rumfahren (so wie andere Klassen vor uns :/ ).
+
+Also wenn du diese Videos verstehen solltest
+(es geht wirklich nur darum, dass du es mal gesehen hast und vielleicht später mal drauf zurückkommen kannst), 
+dann kannst du dir eigentlich das TG in Informatik sparen und vermutlich auch den Einstieg auf der Uni.
+Und wir haben in der Schule kein Betriebssystem programmiert oder dergleichen, also viel weniger als in diesen paar Videos.
+Dafür viel länger, langweiliger und nicht gerade Praxisnahe Sachen ... Schule eben. :D
+

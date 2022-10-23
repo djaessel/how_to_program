@@ -1,0 +1,12 @@
+https://youtu.be/ajy1PHWYeyQ
+
+Hier hab ich noch ein Video das einen kleinen Vergleich aufzeigt zwischen C und Python und 
+auch ein paar nützliche Tipps falls du mal mit Linux arbeiten wirst.
+
+Falls du aber lieber mit Windows programmieren willst und trotzdem vielleicht ein paar Linux Befehle 
+oder tools nutzen willst, dann sind ein paar davon auch bei der Git Bash Console dabei (z.B. auch vim).
+
+Git brauchst du ja langfristig so oder so, auch eines der Dinge, die ich gerne früher kennen gelernt hätte.
+Als ich damals angefangen habe, gab es dann immer verschiedene Ordner mit Versionsnummer o.ä., 
+das war vielleicht ein Salat am Ende.
+

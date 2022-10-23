@@ -1,0 +1,35 @@
+Hier ist ein Video warum du Linux verwenden solltest 
+(zumindest wenn du programmierst und die Wahl hast):
+https://youtu.be/otDOHt_Jges
+
+Dieses Video erklärt die Vorteile ziemlich gut und du kannst ja wie gesagt Windows parallel behalten, 
+entweder in einer virtuellen Maschine (wie ich, dann kannst du Windows innerhalb Linux starten) oder 
+eben Dual-Boot (dann wählst du beim Hochfahren aus welches Betriebsystem du nimmst und Standard wäre z.B. Ubuntu Linux).
+
+Andersrum geht es natürlich auch, dass du Linux in einer virtuellen Maschine laufen lässt.
+Ist nur vielleicht etwas unpraktischer.
+
+Wenn du aber eben auch ab und zu Spiele spielen willst, die auf Linux (noch) nicht gut laufen, 
+dann ist Dual-Boot wahrscheinlich am besten.
+
+Jenachdem ob du eben beide Betriebsysteme gleichzeitig benötigst oder nur eins zur gegebenen Zeit.
+In diesem Video geht es eher um Debian basiertes Linux, was ich auch empfehlen kann (Ubuntu ist Debian basiert), 
+was bedeutet, dass das grundlegende System ein Debian Linux ist und darauf baut dann das jeweilige System auf.
+Bei der Arbeit hatten wir auch Debian die meiste Zeit. Es ist ziemlich stabil, wird viel getestet usw.
+
+Nur falls du ein anderes Linux für deine Interessen besser finden solltest, musst du bedenken, dass es eben sein kann, 
+dass viele Befehle usw. ganz anders heißen oder funktionieren oder gar nicht so vorhanden sind.
+Es gibt z.B. Arch Linux was auch bekannter ist.
+
+--
+
+In dem Video wird gesagt, dass man Linux nach Updates nicht neustarten muss.
+Das stimmt auch, aber nur in 99,99% der Fälle.
+
+Wenn zum Beispiel der Kernel (das Hauptprogramm - hast du vielleicht in ein paar vorherigen Videos schon gehört) 
+ein Update bekommt bzw. ein neuer Kernel installiert wurde und du diesen nutzen willst, 
+dann muss man schon noch neustarten.
+
+Oder eben in ganz wenigen Fällen, wenn es um spezielle Hardware geht, 
+die nur beim Kernel start installiert oder gestartet werden kann (warum auch immer).
+

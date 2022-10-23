@@ -1,0 +1,116 @@
+Dann hab ich noch das hier:
+https://youtu.be/wBp0Rb-ZJak
+
+Es ist ein Kurs ~7h über Linux.
+Wahrscheinlich brauchst du die Hälfte davon gar nicht und ehrlich gesagt, 
+weiß ich auch manches davon nicht oder nicht gut, aber vielleicht hilft es trotzdem weiter, 
+solltest du einsteigen wollen.
+
+Und natürlich kannst du immer auch selbst Sachen suchen, 
+ich versuch nur was rauszusuchen, was vielleicht von meiner Seite empfehlenswert ist.
+
+--
+
+Wegen VirtualBox und dem Linux Komplett-Kurs:
+Was vielleicht jetzt noch nicht unbedingt wichtig ist, aber eigentlich immer dabei sein sollte 
+ -> VirtualBox Extension PackDas findet man etwas weiter unten unter dem eigentlichen Programm Download.
+
+Es ist eine Erweiterung mit der man beispielsweise Support für USB Laufwerke usw. hinzufügen kann.
+Das wird dann interessant, wenn du beispielsweise einen an deinen Computer angeschlossenen USB 
+an die virtuelle Maschine weiterleiten willst, sodass dieser so funktioniert 
+als wäre er an den virtuellen Computer angeschlossen.
+Damit hatte ich am Anfang manchmal Probleme.
+
+Beim erstellen der virtuellen Maschine nimmt er nur 20GB (weil das für das System auch reicht).
+Das könnte aber natürlich später schnell mehr werden und dann ist der Speicher voll.
+
+Deshalb entweder gleich mehr nehmen, da es ohnehin nur wirklich ausgefüllt wird, 
+wenn es auch verwendet wird, also auf deinem echten System.
+
+Oder aber mit folgendem Befehl nachjustieren:
+
+VBoxManage modifymedium disk "C:\Path\to\the\disk\Ubuntu.vdi" --resize 81920
+
+Die Zahlen nach dem --resize Argument sind die neue Größe in MB
+
+--
+
+Außerdem meint er in dem Video, dass man nur 1 Prozessor nehmen soll wegen Performance.
+Ich glaube das hängt von der Hardware ab. In meinem Fall, waren die Hälfte er Maxanzahl besser.
+Nur 1 Prozessor zu nehmen halte ich nicht für sinnvoll, wenn du wirklkch damit arbeiten willst.
+Vielleicht hat sich das mit der Performance in den letzten Jahren auch geändert.
+
+--
+
+Beim Swap File sagt er, man soll 5GB nehmen.
+Mein Chef meinte mal, man sollte das doppelte vom echten Arbeitsspeicher nehmen.
+Also wenn du z.B. 16GB Arbeitsspeicher hast, nimmst du hier 32GB.
+Was aber natürlich ziemlich viel ist, also 16GB könnten da dann auch reichen.
+Das ganze kommt aber natürlich aus der Zeit, in der es nicht viel Arbeitsspeicher gab und 
+da war es durchaus sinnvoll das doppelte zu nehmen.
+
+Das Betriebsystem kümmert sich dann in der Regel darum, dass Daten die ncht direkt im Arbeitsspeicher (RAM) gebraucht werden, 
+in dieser SWAP Datei zwischengespeichert werden und dann auf der Festplatte (in diesem Fall der virtuellen Festplatte) liegen.
+Was hierbei zu beachten ist, was du alles später am laufen haben wirst (IDEs, Browser, Steam, usw.).
+Denn wenn zu viel echter Arbeitsspeicher gebraucht wird, werden natürlich auch Daten in der SWAP Datei gespeichert.
+Nur dass diese dann eben auch ständig gebraucht und überschrieben werden würden 
+(also wenn man zu viele Sachen offen hat bzw. zu viel echter RAM gebraucht wird).
+Das wird dazu führen, dass die virtuelle (oder auch echte) Maschine immer langsamer wird.
+Im schlimmsten Fall würde sie aber normal weiterlaufen, jedoch über längere Zeit deine Festplatte schädigen.
+Also eben dann auch die echte, weil diese ja am Ende genutzt wird, wenn auch in einem abgegrenzten Bereich.
+
+--
+
+Abgesehen davon, sieht Ubuntu mittlererweile auch besser order zumindest anders aus.
+Aber es ist nicht verkehrt verschiedene Ansichten und Versionen zu sehen.
+Wenn man später mal richtig programmiert, kommt man da sowieso nicht wirklich herum.
+Denn wie auch bei Windows ändert sich bei größeren Versionssprüngen ab und an auch mal was, 
+eine Bibliothek gibt es in einer neuen Version nicht standardmäßig oder "offiziell" gar nicht mehr und solche Sachen.
+
+Bei Linux gibt es aber in der Regel immer jemand der dann entsprechende Backports, das heißt ein Repository 
+also Quelle von Bibliotheken und dergleichen zur Verfügung stellt.
+Oder man kann teils auch einfach die alten Quellen nebst den neuen einfügen und 
+dann auch wieder von den alten Quellen etwas installieren.
+Dabei muss man aber aufpassen ob es kompatibel ist mit neueren Paketen.
+Bei kleinen Programmen oder Bibliotheken ist das meist kein Problem, 
+aber größer zusammenhängende Pakete muss man dann anders behandeln.
+
+Ich sag das nur, damit du es schon mal gehört/gesehen hast.
+Bei meiner Arbeit ist mir das auch ab und an vorgekommen und 
+da musste ich dann erst mal lernen wie das wirklich funktioniert mit den Paketen bei Linux.
+
+Was bei Linux am Anfang echt hilfreich ist sind die Befehle "man", "vim" und "grep", sowie "aptitude".
+
+- "man" ist dafür da um herauszufinden was man mit einzelnen Programmen und Befehlen machen kann oder wie man sie benutzt.
+
+- "vim" oder "vi" ist einer der Konsolentexteditoren.
+  Er ist ziemlich lightweight und kann mehr als man denkt.
+  Besonders hilfreich wenn man mal auf Servern arbeitet, 
+  die keine GUI haben oder man einfach lieber in der Konsole arbeitet.
+  Hat auch ein paar hilfreiche Shortcuts. Mein Chef wollte, dass ich damit arbeite.
+  Es gibt da auch ein Tutorial von vim selber.
+  Wenn man einmal reingekommen ist (man muss längst nicht alles damit machen können), 
+  geht es eigentlich recht schnell und gut.
+
+- "grep" ist zum Filtern von Befehlsausgaben nach bestimmten Worten oder Werten 
+  die darin vorkommen sollen (meist) per Zeile.
+
+- Dann gibt es noch "aptitude", was eine verbesserte Version von den Standard Paketmanagern apt bzw. apt-get ist.
+  Man kann damit einfach verschiedene Versionen von Paketen prüfen und installieren 
+  (falls man es unbedingt braucht, ansonsten nimmt es immer das beste bzw. neueste Paket laut Version).
+  Und man kann damit auch einfach in der Konsole Pakete suchen und dergleichen.
+
+- "vim" muss man manchmal erst installieren und "aptitude" auch.
+
+- Und außerdem noch "locate".
+  Dabei kann man zunächst den "updatedb" Command ausführen 
+  (nur wenn sich wirklich was geändert hat, also neue Dateien hinzugefügt wurden oder Pfade sich geändert haben).
+  Dann kann man "locate <such-text>" angeben und alle Pfade mit dem entsprechenden Suchtext werden ausgegeben.
+  In Kombination mit grep könnte das so aussehen:
+
+  $ updatedb
+  $ locate editor | grep .conf
+
+  Was dann erstmal die Datenbank aktualisiert und schließlich überall nach "editor" such, 
+  aber nur die Ergebnisse rausfiltert die auch ".conf" enthalten.
+

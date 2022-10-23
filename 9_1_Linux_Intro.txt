@@ -1,0 +1,12 @@
+Oh und falls du schon darüber nachgedacht hast auf Linux umzusteigen, 
+kann ich dir ein paar Linux Distros empfehlen.
+
+Es ist aber auf jeden Fall ratsam zumindest mittels Virtueller Maschine irgendein Windows 7 - 11 zu besitzen.
+Gerade als Entwickler, weil ja trotzdem viele Windows verwenden.
+Du könntest natürlich auch auf MacOS umsteigen, bin aber persönlich kein Fan.
+
+Muss aber jeder selbst wissen.
+
+--
+
+
