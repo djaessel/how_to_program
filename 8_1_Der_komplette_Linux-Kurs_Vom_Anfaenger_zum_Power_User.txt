@@ -192,5 +192,27 @@ Das spart unnötige commits und Kopfzerbrechen.
 
 --
 
+Github - Access Token:
+Was sich auch in der Zwischenzeit geändert hat, ist der Zugang zu git via Terminal.
+Früher konnte man einfach den Benutzernamen und das github Kennwort nehmen.
+Jetzt muss man erst ein spezielles Token generieren.
+
+1. Das kannst du indem du auf github.com oben rechts auf dein Profil klickst.
+2. > Settings / Einstellungen
+3. Links ganz unten > Developer Settings / Entwicklereinstellungen
+4. Personal access tokens (3. von oben)
+5. Tokens (classic) [fürs erste]
+6. Generate new token (classic)
+7. Hier musst du nun folgendes setzen:
+  - Expiration date (wie du es gern hast)
+  - check repo (alles)
+  - check user (alles)
+  - check project (alles)
+8. Jetzt sollte dir ein ein Token angezeigt werden
+9. WICHTIG! Kopiere diesen Token an einen sicheren Ort
+   Du wirst ihn nie wieder sehen, aber natürlich brauchen.
+10. Jetzt kannst du wie gewohnt im Terminal den Benutzer angeben
+    und als Kennwort nun dieses spezielle Token angeben.
+
 
 
