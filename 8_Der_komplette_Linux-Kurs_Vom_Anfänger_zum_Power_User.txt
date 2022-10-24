@@ -114,3 +114,26 @@ Was bei Linux am Anfang echt hilfreich ist sind die Befehle "man", "vim" und "gr
   Was dann erstmal die Datenbank aktualisiert und schließlich überall nach "editor" such, 
   aber nur die Ergebnisse rausfiltert die auch ".conf" enthalten.
 
+--
+
+Beim "chmod" Command kann man auch anstatt von den drei Ziffern menschlich besser verständliche Werte übergeben.
+Um die Gruppen Berechtigungen zu ändern zum Beispiel:
+
+chmod g+wr file.txt
+
+Wobei "g" für "group" steht, das "+" für hinzufügen und "wr" sind die entsprechenden Berechtigungen.
+Dieser Befehl setzt bzw. fügt die "write" und "read" Berechtigungen hinzu, falls nicht bereits gesetzt.
+
+Andersherum, wenn man diese entfernen will, kann man einfach ein "-" anstatt dem "+" und schon hat die
+"group" (Gruppe) keine Lese- und Schreibberechtigungen mehr.
+
+Für der User ist der Buchstabe "u" und für Public/Other ist es "o"
+
+Berechtigungen:
+  - 'r' (read)
+  - 'w' (write)
+  - 'x' (executable/access granted)
+
+Mehr Informationen:
+https://www.redhat.com/sysadmin/suid-sgid-sticky-bit
+
