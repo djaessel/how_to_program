@@ -214,5 +214,7 @@ Jetzt muss man erst ein spezielles Token generieren.
 10. Jetzt kannst du wie gewohnt im Terminal den Benutzer angeben
     und als Kennwort nun dieses spezielle Token angeben.
 
+--
 
+(bin bis 04:00:00 gekommen bis jetzt)
 
