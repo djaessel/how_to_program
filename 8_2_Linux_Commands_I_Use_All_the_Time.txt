@@ -66,4 +66,12 @@ Was auch noch wichtig ist:
   einen Benutzer mit Administrator-/Systemrechten.
   (Das kann hilfreich sein, wenn du online Befehlsangaben siehst.)
 
+- mv
+  Mit diesem Command kannst du nicht nur Dateien und Ordner verschieben, sondern auch umbenennen.
+  Die Datei file1.txt kannst du einfach so in file2000.txt ändern:
+  mv file1.txt file2000.txt
+  Order den Ordner "maxFiles" in "oldFiles" umbenennen:
+  mv maxFiles oldFiles
+  (wobei der Inhalt des Ordners nicht relevant ist, anders wie bei dem "cp" command oder anderen.)
+
 
