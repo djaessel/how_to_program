@@ -148,3 +148,12 @@ Dabei kann man doch TAB benutzen für autofill und Pfeiltasten um vorherige Befe
 Aber naja, ansonsten soweit nicht schlecht denke ich.
 (bin aktuell bei 02:45:00)
 
+--
+
+Services:
+Bei manchen Diensten gibt es restart und reload als Parameter.
+Der Unterschied ist, dass "reload" versucht den Dienst mit allen Verbindungen (z.B. aktive User eines Webservers)
+am Laufen zu halten und nur die Config neuladen, wobei "restart" alles stoppt und dann wieder startet.
+
+(aktuell bin ich bei 03:00:00)
+
