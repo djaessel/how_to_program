@@ -2,3 +2,13 @@ https://youtu.be/VchuKL44s6E
 
 Dieses Video sollte dir für den Einstieg das wichtigste vermitteln! :)
 
+--
+
+Was für dich vielleicht auch noch interessant sein könnte:
+Egal mit welchem Betriebsystem, kannst du auch mittels Python entsprechende Konsolen Befehle ausführen.
+Dabei solltest du natürlich beachten, dass du die richtigen Befehle beim richtigen Betriebsystem ausführst.
+
+https://www.askpython.com/python-modules/python-system-command
+
+Hilfreich hierbei sind sys.platform oder das platform Modul.
+
