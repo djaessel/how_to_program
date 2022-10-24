@@ -157,3 +157,21 @@ am Laufen zu halten und nur die Config neuladen, wobei "restart" alles stoppt un
 
 (aktuell bin ich bei 03:00:00)
 
+--
+
+Wenn er dann über die IDEs spricht musste ich immer an die Schulzeit denken und wie die Lehrer uns
+keine IDEs (oder nur welche von den 90ern) erlaubt haben. xD
+Ich verstehe bis heute nicht was das für einen Sinn gemacht hat, weil es Neueinsteiger nur noch mehr
+demotiviert meiner Meinung nach. Aber natürlich ist es auch gut, wenn man ohne programmieren kann.
+
+--
+
+In dem Video wird es mit github erklärt, da es ja auch normal der Standard für git ist bzw. war.
+Leider wurde github in den letzten paar Jahren an Microsoft verkauft, so wie manche andere tolle Sachen.
+An sich ändert das nichts für dich, es heißt nur, dass deine Projekte, auch wenn sie als "privat" gekennzeichnet sind,
+nicht wirklich sicher sind und Microsoft Mitarbeiter diese einsehen können (wenn man mal was Neues brauch :D).
+Als alternativen gibt es noch gitlab oder gitea o.ä. wobei diese ähnlich funktionieren wie github.
+Du kannst aber auch erstmal nur lokal arbeiten und trotzdem git verwenden.
+Wenn du aber eben Code schnell mit anderen (z.B. mir) teilen willst, solltest du schon überlegen ob
+du nicht irgendein online Repository anlegen willst.
+
