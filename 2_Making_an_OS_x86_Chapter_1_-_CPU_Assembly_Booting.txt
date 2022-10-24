@@ -30,3 +30,8 @@ dann kannst du dir eigentlich das TG in Informatik sparen und vermutlich auch de
 Und wir haben in der Schule kein Betriebssystem programmiert oder dergleichen, also viel weniger als in diesen paar Videos.
 Dafür viel länger, langweiliger und nicht gerade Praxisnahe Sachen ... Schule eben. :D
 
+--
+
+Alle weiteren Videos dieser Serie gibt es hier:
+https://www.youtube.com/watch?v=APiHPkPmwwU&list=PLm3B56ql_akNcvH8vvJRYOc7TbYhRs19M&index=2
+
