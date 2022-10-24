@@ -13,7 +13,8 @@ ich versuch nur was rauszusuchen, was vielleicht von meiner Seite empfehlenswert
 
 Wegen VirtualBox und dem Linux Komplett-Kurs:
 Was vielleicht jetzt noch nicht unbedingt wichtig ist, aber eigentlich immer dabei sein sollte 
- -> VirtualBox Extension PackDas findet man etwas weiter unten unter dem eigentlichen Programm Download.
+ -> VirtualBox Extension Pack
+Das findet man etwas weiter unten unter dem eigentlichen Programm Download.
 
 Es ist eine Erweiterung mit der man beispielsweise Support für USB Laufwerke usw. hinzufügen kann.
 Das wird dann interessant, wenn du beispielsweise einen an deinen Computer angeschlossenen USB 
@@ -136,4 +137,14 @@ Berechtigungen:
 
 Mehr Informationen:
 https://www.redhat.com/sysadmin/suid-sgid-sticky-bit
+
+--
+
+Außerdem wollte ich noch anfügen, dass ich hier auch noch das ein oder andere gelernt habe.
+Schadet also wirklich nicht. :)
+
+Was bei diesem langen Video schade war, dass er die Befehle immer und immer wieder von Hand getippt hat.
+Dabei kann man doch TAB benutzen für autofill und Pfeiltasten um vorherige Befehle zu verwenden.
+Aber naja, ansonsten soweit nicht schlecht denke ich.
+(bin aktuell bei 02:45:00)
 
