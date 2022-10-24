@@ -1,0 +1,8 @@
+https://youtu.be/DczDS4hN0Zc
+
+Falls du lieber das Tutorial von VIM selbst auspobieren willst.
+Dann einfach nachdem du vim installiert hast "vimtutor" ausführen.
+Das sollte dir alles was du brauchst und noch mehr beibringen.
+
+(Denke aber das Video hier ist auch okay, so wie es ist.)
+
