@@ -1,0 +1,48 @@
+https://youtu.be/Y3w4avIJw9g
+
+Ein paar Befehle die ich noch wichtig fand:
+
+- cat <file-path>
+  Damit kann man den Inhalt jeder Datei im Terminal ausgeben.
+  Macht natürlich in den meisten Fällen nur bei textbasierten Dateien Sinn, kann aber schon mal helfen.
+
+- lsb_release -a
+  Gibt aus welches Betriebsystem du verwendest, die Version, dessen Codename und 
+  eine Beschreibung z.B. ob es ein LTS (long-term-support) System ist.
+  
+- bash <file-path>
+- sh <file-path>
+  Mit diesen Commands kann man Shell Skripte ausführen.
+  Hierbei handelt es sich in der Regel um .sh Dateien.
+  Diese kann man meist auch einfach mit ./filename.sh ausführen,
+  aber falls aus irgendeinem Grund der Pfad zum bash Programm nicht stimmt oder angegeben ist, kann das helfen.
+  
+- echo "Text"
+  Mit diesem Befehl kann man zum einen Text ausgeben, aber eben auch spezielle OS Variablen
+  (z.B. "echo $PATH" -> was den Inhalt der PATH Variable im Terminal ausgibt)
+
+- export <VARIABLE_NAME>=<Inhalt>
+  Damit kann man OS Variablen setzen oder überschreiben.
+  Beispielsweise: export $PATH=$PATH:/home/martin
+  Was der Beispielcommand macht, er fügt den Pfad "/home/martin" hinten an die PATH Variable an.
+  WICHTIG!!! -> Vergisst man hier "$PATH:" wird die gesamte Variable auf den einen Pfad gesetzt.
+  Das kann in diesem Fall immense Folgen haben, also mit Vorsicht benutzen.
+
+--
+
+Dann noch ein kleiner Hinweis für Automation und Einstellungen.
+Wenn du einen bestimmten Bash Befehl (z.B. eine globale OS Variable ändern/setzen)
+immer beim Login ausführen willst, kannst du dies in der ".bashrc" Datei machen.
+Jeder Benutzer (auch root) hat diese Datei in dessen Ordner ("/home/martin/.bashrc").
+
+In dieser Datei kann man auch Aliase für Befehle setzen, die Terminal Farben usw.
+Bei Ubuntu sollte dies schon alles soweit stimmen, bei Debian oder anderen,
+kann es sein, dass man ggf. Änderungen vornehmen will.
+(z.B. "alias ll='ls -hal'" --> dieser Befehl erstellt einen Alias Befehl fürs Terminal.
+Damit kannst du dann anstatt jedesmal "ls -hal" einzugeben, einfach "ll" machen.
+[h=human readable; a=all files; l=long listing])
+
+--
+
+
+
