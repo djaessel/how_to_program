@@ -1,0 +1,38 @@
+https://youtu.be/xca3Ywf54N0
+
+Was auch noch ganz hilfreich sein kann:
+
+aptitude versions <package-name>
+
+Das zeigt auf welche Versionen installiert und verfügbar sind.
+
+--
+
+In dem Video zeigt er wie man mittels '_' am Ende das Paket entfernen kann oder ähnliche Dinge.
+Was aber für dich vielleicht mehr Sinn macht, sind folgende Befehle.
+
+aptitude purge <package-name>
+
+Das wird versuchen alle erstellen Dateien bzw. Dateiänderungen und extra installierten Pakete
+samt dem eigentlichen Paket zu entfernen.
+
+-
+
+aptitude remove <package-name>
+
+Hierbei wird meist nur das angegebene Paket entfernt und ggf. andere die davon abhängig sind.
+Es wird also nicht immer alles entfernt.
+(Hilfreich wenn man manche Daten für später behalten will.)
+
+-
+
+aptitude search <search-term> | grep ^i
+
+Hier werden erstmal alle Pakete die den entsprechenden Text enthalten geladen und
+dann mittels grep nur die Pakete davon angezeigt, die bereits installiert sind.
+Also die, die am Anfang in der Liste ein 'i' haben.
+Nicht installierte Pakete haben in der Regel 'p'.
+Es kann auch 'v' (virtuelles Paket) geben, wenn ein Paket nicht oder nicht mehr
+vorhanden ist, aber für Kompatibilität noch in der Liste auftaucht und ggf. auf ein anderes Paket weiterleitet.
+
+
