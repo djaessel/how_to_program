@@ -6,3 +6,9 @@ Das sollte dir alles was du brauchst und noch mehr beibringen.
 
 (Denke aber das Video hier ist auch okay, so wie es ist.)
 
+Du kannst das ganze aber auch unter Windows benutzen, solange du git installiert hast.
+
+Einfach in einem Ordner Rechtsklick und im Kontextmenü "Git Bash Here" anklicken.
+Danach kannst du das git pseudo Linux (was sehr abgespeckt ist) verwenden.
+Es hat auch vim und vimtutor und einige andere Programme vorinstalliert.
+
