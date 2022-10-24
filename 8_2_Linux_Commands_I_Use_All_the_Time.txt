@@ -44,5 +44,26 @@ Damit kannst du dann anstatt jedesmal "ls -hal" einzugeben, einfach "ll" machen.
 
 --
 
+Was auch noch wichtig ist:
+- exit
+- logout
+- CTRL+D [Tastenkombination]
+  Damit kannst du aus dem jeweiligen Terminal gehen, also ausloggen oder auf die nächste untere Stufe wechseln.
+  Wenn du also vom normalen Benutzer auf root gewechselt hast, kommst du damit wieder zum normalen Benutzer.
+
+- reboot
+  Ist denk ich selberklärend. Braucht aber manchmal root Rechte, also sudo davor.
+
+- shutdown
+  Kennst du auch, verhält sich aber etwas anders.
+  Beispielsweise "shutdown 5" Fährt den Computer in 5 Minuten herunter.
+  "shutdown -c" bricht einen vorherigen shutdown Befehl ab.
+
+- $ und #
+  In der Regel wird in Linux mit einem '$' vor der Terminaleingabe gezeigt, dass es sich um einen normalen Benutzer handelt.
+  Also zum Beispiel peter, welcher dann eben nur seine entsprechenden Berechtigungen hat.
+  Befindet sich ein '#' vor der Eingabe handelt es sich in der Regel um den root User bzw. 
+  einen Benutzer mit Administrator-/Systemrechten.
+  (Das kann hilfreich sein, wenn du online Befehlsangaben siehst.)
 
 
