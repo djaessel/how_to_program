@@ -175,3 +175,22 @@ Du kannst aber auch erstmal nur lokal arbeiten und trotzdem git verwenden.
 Wenn du aber eben Code schnell mit anderen (z.B. mir) teilen willst, solltest du schon überlegen ob
 du nicht irgendein online Repository anlegen willst.
 
+--
+
+Git:
+Um es dir später ein bisschen einfacher zu machen.
+Der Standard von git, wie es einen Pull behandelt hat sich irgendwann geändert.
+Es geht darum ob gemerged wird oder ein rebase ausgeführt wird.
+Für dich ist nur wichtig, dass es als Standard "rebase" sein sollte.
+Das kannst du mit folgendem Befehl sicherstellen:
+git config --global pull.rebase true
+
+Das sorgt dafür, dass nur bei überschneidenden Dateiänderungen ein merge notwendig ist.
+Also ein Vergleich zwischen den verschiedenen Zuständen einer Datei.
+Mit "rebase" werden dann die Änderungen anhand des Änderungsdatums bzw. der Reihenfolge an das aktuelle Repository angefügt.
+Das spart unnötige commits und Kopfzerbrechen.
+
+--
+
+
+
