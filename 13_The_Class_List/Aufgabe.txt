@@ -1,0 +1,28 @@
+Erstelle eine Liste von Schülern, die in einer Klasse sind.
+
+- Jeder Schüler muss seinen Vor- und Nachnamen angeben
+- Das Alter jedes Schülers ist auch wichtig
+- Die Firma (falls vorhanden) bei der er arbeitet
+  --> kann leer gelassen werden, wenn nicht vorhanden
+- Die Lieblingsprogrammiersprache, wenn vorhanden
+- Am Ende die Klasse zu der er gehört
+- folgende Klassen gibt es:
+  - TGIE, TGMTE
+  - TGJ1/1, TGJ1/2
+  - TGJ2/1, TGJ2/2
+  - TGJ3/1, TGJ3/2
+- Nach der Eingabe sollen alle Schüler nach Klasse sortiert ausgegeben werden.
+  --> Ausgegeben werden sollen: Nachname, Firma, Klasse
+
+BONUS:
+- Speichere die Informationen ab, wobei jede Klasse einer eigene Datei entspricht
+- Lese beim erneuten Starten des Programms die vorherigen Daten wieder ein, sodass diese ergänzt werden können
+- Verwende sinnvolle Namen für die Klassendateien
+
+EXTRA BONUS:
+- Füge jeder Klasse einen Lehrer hinzu
+- Lehrer werden in einer separaten Datei gespeichert
+- Erhoben werden: ID, Vor-/Nachname, Lehrende Fächer
+- In einer weiteren neuen Datei werden die Lehrer den entsprechenden Klassen samt Fach zugeordnet
+
+
