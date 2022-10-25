@@ -29,5 +29,9 @@ Bonus:
 Extra Bonus:
 - Lasse den Taschenrechner mittels Datei arbeiten
   --> Die Werte sollen so aussehen wie von Hand eingegebene Daten
+  --> Am Ende der Berechnungen mit "x" beenden
+  --> jede Zahl bzw. Funktion ist eine Zeile
+- Füge die Funktion "c" hinzu
+  --> diese soll die vorherigen Werte wieder auf 0 setzen
 
 
