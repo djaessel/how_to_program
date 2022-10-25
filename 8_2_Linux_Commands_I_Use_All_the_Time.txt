@@ -74,4 +74,6 @@ Was auch noch wichtig ist:
   mv maxFiles oldFiles
   (wobei der Inhalt des Ordners nicht relevant ist, anders wie bei dem "cp" command oder anderen.)
 
+- source <file-name>
+  Hiermit kann man auch noch Shell-Skripte ausführen und die Werte in der aktuellen Session verwenden.
 
