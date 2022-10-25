@@ -22,6 +22,12 @@ Die anderen Fälle können wie Syntaxfehler bzw. falsche Eingaben gehandhabt wer
 Das bedeutet, spezielle Funktionen müssen nicht gegeben sein,
 lediglich die oben aufgeführten Funktionen im Standard.
 
+Die spezielle Aufrufweise von echo mit "echo.", "echo,", "echo;" und "echo:"
+kann vernachlässigt werden. Wenn du willst kannst du es aber hinzufügen.
+Was dabei passiert, ist lediglich eine leere Zeile auszugeben.
+
+(Tipp: Das kann später hilfreich sein, wenn man in einem Skript leere Zeile ausgeben möchte.)
+
 
 Bonus:
 
@@ -41,4 +47,8 @@ Extra Bonus:
 - Gib die Möglichkeit ein Skript auszuführen, dass die Befehle deines CMDs
   so verarbeitet, als würdest du sie von Hand eingeben (vgl. call und Batch).
 
+Nice to have:
+- Modifiziere das Programm so, dass es bei einem Skriptaufruf leere Zeilen ignoriert
+  und keine Leerzeile nach jedem Command ausgibt, nur einmal am Ende vielleicht.
+(Das hier habe ich nicht implementiert, kannst es aber gerne trotzdem machen. :) )
 
