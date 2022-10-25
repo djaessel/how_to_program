@@ -1,0 +1,33 @@
+
+Erstelle einen kleinen Konsolentaschenrechner.
+
+Er soll folgende Funktionen haben:
+  - Addieren (+)
+  - Subtrahieren (-)
+  - Multiplikation (*)
+  - Divison (/)
+
+Es soll immer erst eine Zahl eingegeben werden.
+Danach soll das Funktionszeichen angegeben werden.
+Und schließlich wieder eine neue Zahl.
+Dann wird ein Ergebnis ausgegeben und man kann entscheiden,
+ob man weiter mit der aktuellen Zahl arbeiten will.
+
+Es sollen erst mal nur ganze Zahlen berücksichtigt werden.
+
+Sobald "x" eingegeben wird, soll der Taschenrechner beendet werden.
+
+
+Bonus:
+
+- Erweitere den Taschenrechner um Kommazahlen
+- Füge folgende neue Funktionen hinzu:
+  - Hochzahlen (^)
+  - Quadratwurzel (\)
+
+
+Extra Bonus:
+- Lasse den Taschenrechner mittels Datei arbeiten
+  --> Die Werte sollen so aussehen wie von Hand eingegebene Daten
+
+
