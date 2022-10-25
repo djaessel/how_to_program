@@ -121,11 +121,17 @@ def command_help():
     print_help_info("CD", "Zeigt den Namen des aktuellen Verzeichnisses an bzw. ändert diesen.")
     print_help_info("CHDIR", "Zeigt den Namen des aktuellen Verzeichnisses an bzw. ändert diesen.")
     print_help_info("CLS", "Löscht den Bildschirminhalt.")
+    print_help_info("COPY", "Kopiert eine oder mehrere Dateien an eine andere Stelle.")
+    print_help_info("DEL", "Löscht eine oder mehrere Dateien.")
     print_help_info("DIR", "Listet die Dateien und Unterverzeichnisse eines Verzeichnisses auf.")
     print_help_info("ECHO", "Zeigt Meldungen an bzw. schaltet die Befehlsanzeige ein oder aus.")
+    print_help_info("ERASE", "Löscht eine oder mehrere Dateien.")
     print_help_info("EXIT", "Beendet das Programm CMD.EXE (Befehlsinterpreter).")
     print_help_info("HELP", "Zeigt Hilfeinformationen zu Windows-Befehlen an.")
+    print_help_info("MD", "Erstellt ein Verzeichnis.")
+    print_help_info("MKDIR", "Erstellt ein Verzeichnis.")
     print_help_info("MOVE", "Verschiebt ein oder mehrere Dateien von einem Verzeichnis in ein anderes.")
+    print_help_info("RMDIR", "Löscht ein Verzeichnis.")
 
 
 def command_move(command_data):
@@ -149,6 +155,64 @@ def command_move(command_data):
         print("Syntaxfehler.")
 
 
+def command_copy(command_data):
+    l = len(command_data)
+    if l == 2:
+        path = command_data[1]
+        if os.path.exists(path):
+            print("Die Datei kann nicht in sich selbst kopiert werden.")
+            print("\t\t", "0 Datei(en) kopiert.")
+        else:
+            print("Das System kann die angegebene Datei nicht finden.")
+    elif l == 3:
+        old_path = command_data[1]
+        new_path = command_data[2]
+        if os.path.exists(old_path):
+            shutil.copy(old_path, new_path)
+            print("\t\t", "1 Datei(en) kopiert.")
+        else:
+            print("Das System kann die angegebene Datei nicht finden.")
+    else:
+        print("Syntaxfehler.")
+
+
+def command_del(command_data):
+    l = len(command_data)
+    if l == 2:
+        path = command_data[1]
+        if os.path.exists(path):
+            os.remove(path)
+        else:
+            path = os.path.realpath(path)
+            print(f"{path} konnte nicht gefunden werden")
+    else:
+        print("Syntaxfehler.")
+
+
+def command_mkdir(command_data):
+    l = len(command_data)
+    if l == 2:
+        path = command_data[1]
+        if not os.path.exists(path):
+            os.mkdir(path)
+        else:
+            print(f'Ein Unterverzeichnis oder eine Datei mit dem Namen "{path}" existiert bereits.')
+    else:
+        print("Syntaxfehler.")
+
+
+def command_rmdir(command_data):
+    l = len(command_data)
+    if l == 2:
+        path = command_data[1]
+        if os.path.exists(path):
+            os.rmdir(path)
+        else:
+            print("Das System kann die angegebene Datei nicht finden.")
+    else:
+        print("Syntaxfehler.")
+
+
 def handle_command(command_line):
     command_data = command_line.split()
     command = command_data[0].lower()
@@ -159,7 +223,7 @@ def handle_command(command_line):
         command_cls()
     elif command == "copy":
         command_copy(command_data)
-    elif command == "del":
+    elif command == "del" or command == "erase":
         command_del(command_data)
     elif command == "dir":
         command_dir()
@@ -175,6 +239,9 @@ def handle_command(command_line):
         command_move(command_data)
     elif command == "rmdir":
         command_rmdir(command_data)
+    else:
+        print(f'Der Befehl "{command}" ist entweder falsch geschrieben oder')
+        print("konnte nicht gefunden werden.")
 
     print()
 

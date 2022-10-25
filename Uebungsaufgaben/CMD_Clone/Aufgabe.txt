@@ -15,8 +15,12 @@ Baue die Funktion dieser Befehle in primitiver Form in Python nach.
 Es soll so aussehen, als würde man wirklich CMD verwenden,
 nur eben in einer abgespeckten Version.
 
+Wenn es darum geht ob man eine oder mehrere Dateien bzw. Ordner bearbeiten kann,
+dann bitte nur den Fall für die Einzelvariante berücksichtigen.
+Die anderen Fälle können wie Syntaxfehler bzw. falsche Eingaben gehandhabt werden.
+
 Das bedeutet, spezielle Funktionen müssen nicht gegeben sein,
-lediglich die oben aufgeführen Funktionen im Standard.
+lediglich die oben aufgeführten Funktionen im Standard.
 
 
 Bonus:
@@ -25,6 +29,7 @@ Erweitere dein CMD mit folgenden Befehlen:
   - chdir	-> change directory or show current directory name
   - copy	-> copy files or directories (vgl. Linux: cp)
   - del		-> delete file(s) (vgl. Linux: rm)
+  - erase	-> delete file(s) (vgl. Linux: rm)
   - mkdir	-> create a directory
   - md		-> create a directory (duplicate)
   - rmdir	-> remove a directory (recursivly)
