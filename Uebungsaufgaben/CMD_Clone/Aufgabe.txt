@@ -1,0 +1,36 @@
+
+Erstelle eine Art CMD-Klon, der ein paar gängige Befehle entgegen nimmt.
+Beispielsweise die Navigation, Erstellung, Benennung und Löschung von Dateien.
+
+Befehle in CMD:
+  - cd		-> change directory
+  - cls		-> clears the terminal screen (Linux: clear)
+  - dir		-> list current directory files and folders (vgl. Linux: ls)
+  - echo	-> print messages in terminal
+  - exit	-> exit the terminal (program end)
+  - help	-> print all commands with a basic explanation
+  - move	-> moves files or directories to a new location (vgl. Linux: mv)
+
+Baue die Funktion dieser Befehle in primitiver Form in Python nach.
+Es soll so aussehen, als würde man wirklich CMD verwenden,
+nur eben in einer abgespeckten Version.
+
+
+Bonus:
+
+Erweitere dein CMD mit folgenden Befehlen:
+  - chdir	-> change directory or show current directory name
+  - copy	-> copy files or directories (vgl. Linux: cp)
+  - del		-> delete file(s) (vgl. Linux: rm)
+  - mkdir	-> create a directory
+  - md		-> create a directory (duplicate for Windows)
+  - rmdir	-> remove a directory (recursivly)
+
+
+Extra Bonus:
+
+- Füge einen Befehl hinzu der leere Dateien erstellt (vgl. Linux: touch)
+- Gib die Möglichkeit ein Skript auszuführen, dass die Befehle deines CMDs
+  so verarbeitet, als würdest du sie von Hand eingeben (vgl. call und Batch).
+
+
