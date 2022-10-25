@@ -1,0 +1,12 @@
+DIR
+touch hello_world.txt
+touch hello_world2.txt
+dir
+mkdir TESTUS
+dir
+rmdir TESTUS
+dir
+del hello_world.txt
+erase hello_world2.txt
+dir
+echo All done.
