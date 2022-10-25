@@ -8,10 +8,14 @@ echo_mode = True # bad habit to do it here, but works
 
 
 def command_cd(command_data):
-    if len(command_data) == 2:
+    l = len(command_data)
+    if l == 2:
         path = command_data[1]
         if os.path.exists(path) and os.path.isdir(path):
             os.chdir(path)
+    elif l == 1:
+        current_directory = os.getcwd()
+        print(current_directory)
     else:
         print("Das System kann den angegebenen Pfad nicht finden.")
 
