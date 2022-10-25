@@ -14,3 +14,10 @@ mach einfach eine andere Aufgabe.
 Irgendeine Aufgabe wirst du schon schaffen und dann Stück für Stück
 an die nächste heranwagen. :D
 
+--
+
+Ich habe alle Aufgabe bis jetzt ohne Objektorientierung gelöst,
+da ich auch nicht davon ausgegangen bin, dass du es so lösen würdest.
+
+Später werden ich dann ggf. noch eine objektorientierte Lösung veröffentlichen.
+
