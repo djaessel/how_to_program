@@ -1,0 +1,20 @@
+
+Erstelle ein System in dem Benutzer sich anmelden können und bestimmte Aufgaben ausführen.
+
+Wir nehmen an, dass die Daten bereits erstellt wurden.
+Es gibt eine Datei "employee.csv", welche alle Angestellten mit deren Daten beinhaltet.
+
+- Jeder soll sein Gehalt sehen können.
+- Jeder soll seinen Aufgabenbereich sehen können.
+- Jeder kann den Aufgabenbereich von Kollegen einsehen
+- Der Manager kann auch alle Daten der Angestellten sehen
+- Die Angestellten melden sich mit Username und Password an
+  --> Danach können die Befehle: salary und area eingegeben werden (oder exit zum beenden)
+  --> Für Manager kann diesen Befehlen noch der username eines Angestellten beigefügt werden
+  --> area kann auch von Angestellten mit dem Username eines Kollegen aufgerufen werden
+
+
+Bonus:
+- Gib einem Manager die Möglichkeit einen Angestellten auf Manager-Level zu setzen
+  --> ab da an ist dieser Angestellte auch ein Manager
+
