@@ -146,7 +146,6 @@ Schadet also wirklich nicht. :)
 Was bei diesem langen Video schade war, dass er die Befehle immer und immer wieder von Hand getippt hat.
 Dabei kann man doch TAB benutzen für autofill und Pfeiltasten um vorherige Befehle zu verwenden.
 Aber naja, ansonsten soweit nicht schlecht denke ich.
-(bin aktuell bei 02:45:00)
 
 --
 
@@ -154,8 +153,6 @@ Services:
 Bei manchen Diensten gibt es restart und reload als Parameter.
 Der Unterschied ist, dass "reload" versucht den Dienst mit allen Verbindungen (z.B. aktive User eines Webservers)
 am Laufen zu halten und nur die Config neuladen, wobei "restart" alles stoppt und dann wieder startet.
-
-(aktuell bin ich bei 03:00:00)
 
 --
 
@@ -216,5 +213,28 @@ Jetzt muss man erst ein spezielles Token generieren.
 
 --
 
-(bin bis 04:00:00 gekommen bis jetzt)
+Ab 03:50:00 musst du nicht zwingend zuhören, denn das was er da zeigt ist mehr für Web Developer.
+Falls dich das interessiert, natürlich gerne reinschauen, aber das ganze Meteor Zeug und Node.js ist
+im Moment nicht wichtig für dich und auch ich hatte damit noch nie was zu tun.
+
+Außerdem spricht er noch über MongoDB als Datenbank.
+Natürlich kann man diese und auch andere Datenbanken verwenden.
+Jedoch sollte man, wenn man sich wirklich damit befasst eher etwas wie 
+MySQL / MariaDB, SQLServer, PostgreSQL o. ö.
+verwenden.
+
+Zum Üben kann man natürlich auch erst einmal nur mit (Text-)Dateien arbeiten und
+dann alles darin speichern. CSV-Dateien eignen sich dafür gut.
+CSV steht für Comma-Separated-Value, weil es eben Werte enthält, die mit einem Komma bzw. Semicolon getrennt sind.
+Ist quasi eine simple Version von XLS Dateien und können auch mit Excel bzw. LibreOffice etc. verarbeitet werden.
+
+Wenn du den HTML, JS, Server/Virtual Host, etc. Kram überspringen willst,
+kannst du bei 05:45:00 wieder reinschauen.
+Finde, dass die Info ab da doch nicht schlecht ist, wenn man es weiß.
+
+Und wie immer: Keine Bange, wenn du es (noch) nicht verstehst, lass es langsam angehen.
+
+--
+
+
 
