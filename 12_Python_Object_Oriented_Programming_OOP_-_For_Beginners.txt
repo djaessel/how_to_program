@@ -1,0 +1,18 @@
+
+https://youtu.be/JeznW_7DlB0
+
+Falls du für später üben willst oder vielleicht mit dieser Art der Programmierung
+besser zurecht kommen solltest, hier die objektorientierte Programmierung in Python.
+
+Sprachen die Objektorientierung verwenden:
+ - Java
+ - C/C++ (können aber auch ohne benutzt werden)
+ - PHP (kann auch ohne benutzt werden)
+ - C#
+ - VB
+ - usw.
+
+Damit du einen kleinen Überblick hast.
+Spätestens wenn du mehr machst wird die Objektorientierung irgendwann deinen Weg kreuzen.
+Aber ob du es für Python brauchst bleibt dir überlassen. :)
+
