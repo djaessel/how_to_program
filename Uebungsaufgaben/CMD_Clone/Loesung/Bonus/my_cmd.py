@@ -119,6 +119,7 @@ def print_help_info(command, info):
 
 def command_help():
     print_help_info("CD", "Zeigt den Namen des aktuellen Verzeichnisses an bzw. ändert diesen.")
+    print_help_info("CHDIR", "Zeigt den Namen des aktuellen Verzeichnisses an bzw. ändert diesen.")
     print_help_info("CLS", "Löscht den Bildschirminhalt.")
     print_help_info("DIR", "Listet die Dateien und Unterverzeichnisse eines Verzeichnisses auf.")
     print_help_info("ECHO", "Zeigt Meldungen an bzw. schaltet die Befehlsanzeige ein oder aus.")
@@ -152,10 +153,14 @@ def handle_command(command_line):
     command_data = command_line.split()
     command = command_data[0].lower()
 
-    if command == "cd":
+    if command == "cd" or command == "chdir":
         command_cd(command_data)
     elif command == "cls":
         command_cls()
+    elif command == "copy":
+        command_copy(command_data)
+    elif command == "del":
+        command_del(command_data)
     elif command == "dir":
         command_dir()
     elif command == "echo":
@@ -164,8 +169,12 @@ def handle_command(command_line):
 #        command_exit() # not necessary to do something here
     elif command == "help":
         command_help()
+    elif command == "mkdir" or command == "md":
+        command_mkdir(command_data)
     elif command == "move":
         command_move(command_data)
+    elif command == "rmdir":
+        command_rmdir(command_data)
 
     print()
 

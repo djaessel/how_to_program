@@ -166,6 +166,9 @@ def handle_command(command_line):
         command_help()
     elif command == "move":
         command_move(command_data)
+    else:
+        print(f'Der Befehl "{command}" ist entweder falsch geschrieben oder')
+        print("konnte nicht gefunden werden.")
 
     print()
 
