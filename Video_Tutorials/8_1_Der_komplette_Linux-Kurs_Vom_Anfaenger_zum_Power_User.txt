@@ -239,4 +239,23 @@ Es kann aber auch sein, dass ein paar dieser Dinge in der Schule dran kommen.
 Kommt eben drauf an wie motiviert die Lehrer sind und was im Lehrplan steht.
 
 
+--
+
+Zum Thema Server, VirtualHost, Web Application:
+Es kann durch aus sein, dass du irgendwann mal in deinem Programmiererleben darauf stoßen wirst.
+
+Eines der wichtigsten Dinge die du wissen solltest ist, dass du selbst einen Server von zuhause aus hosten kannst.
+Ganz legal, ohne etwas dafür bezahlen zu müssen und mit funktionierendem Zertifikat, Emails rausschicken usw.
+
+Das wird dann interessant, wenn du mal eine eigene Website machen willst oder generell irgendwelche Server Sachen.
+Aber du willst dann zum Beispiel kein Geld für das Hosten ausgeben oder irgendwelche Domains und Zertifikate.
+
+Mein Chef früher war auch immer ziemlich negativ gestimmt bei dem Thema, weil es Firmen gibt, die damit sehr viel Geld verdienen.
+Er hat dann Mittel und Wege gefunden, mit denen man das alles umgehen kann und es kostenlos bekommt.
+
+Wenn man es professionell haben will, kann man es natürlich immer noch kaufen,
+doch alles was man da kaufen kann ist prinzipiell auch zuhause möglich.
+(Das einzige Problem könnte der Internetanbieter sein, da diese manchmal das Hosten standardmäßig unterbinden und ein paar Euro verlangen.
+Was dann ja das ganze fast schon wieder unnötig macht, aber trotzdem noch billiger in den meisten Fällen.)
+
 
