@@ -23,4 +23,308 @@ Natürlich gibt es Tricks und Wege, wie man diese ähnlich wie in Python verwend
 jedoch muss man das dann meist selbst verwirklichen oder der Aufwand lohnt sich nicht.
 Möglich ist natürlich (fast) alles, doch nicht alles davon ist sinnvoll.
 
+--
+
+Hoffentlich hat dich das jetzt nicht überfordert. :)
+
+Ich fand es nur wichtig, dass du eben Vergleiche mit anderen Programmiersprachen ziehen kannst.
+Nicht alle haben die in diesem Video gezeigten Regeln für int, float etc., aber es ist gut wenn man es versteht.
+
+Zum Beispiel ist in C++ ein Standard Text (ohne Hilfsbibliothek, die es natürlich gibt - siehe std::string)
+eigentlich nur ein Array aus Zahlen, die dann als Text interpretiert werden und entsprechend angezeigt werden können.
+
+char gibt es beispielsweise in C# und steht für ein Zeichen.
+in C ist das manchmal aber auch gleichgestellt mit byte (int der nur 0-255 bzw. -127 - 128 speichern kann).
+In C++ besteht ein low-level Text aus einem char Array, was wie folgt aussehen würde.
+
+char* myText = "Hello World";
+
+Man kann es auch anders schreiben, aber das ist die einfachste schreibweise.
+Wenn du dich jetzt fragst, warum da ein "*" hinter dem char steht, erkläre ich es ganz kurz.
+In C++ wird viel mit sogenannten Pointern gearbeitet.
+Das sind an sich Variablen die, die Adresse von bestimmten Daten speichern,
+damit man nachher auf diese zugreifen kann. Man spricht auch von "Reference"/"Referenz".
+
+Wenn man diese Variablen verwendet, hat man also eigentlich nur eine Art Int Variable,
+die aber eine Adresse im Code bzw. Programm (während der Laufzeit) enthält.
+
+Das ist aber eher typisch für C++ und muss dich nicht weiter interessieren oder verwirren.
+Nur damit du es mal gesehen hast.
+
+Aber natürlich gibt es da dann auch eine string Klasse (die man aber erst importieren muss), 
+die alles viel einfacher macht und ähnlich funktioniert wie in Python oder den meisten anderen Programmiersprachen.
+
+string myText = "Hello World";
+
+So würde es danach aussehen und während char* keine wirklichen Methoden/Funktionen hat, 
+die man benutzen kann, weil es eigentlich nur ein Zahlenarray ist, hat string dann was man braucht.
+
+--
+
+Was auch noch sehr wichtig ist, wenn man von Python auf andere Programmiersprachen wechselt:
+
+- Komplexe Datentypen können teils nicht oder nur mit ungewolltem Verhalten direkt verglichen werden.
+  Ein Beispiel:
+  
+  Während ich in Python folgendes machen kann:
+  text1 = "Hi"
+  text2 = "Hello"
+  if text1 == text2:
+    print("Equal!")
+  else:
+    print("Not equal!")
+
+  Geht das in anderen Sprachen meist nicht direkt.
+  Leider ist es aus technischen Gründen manchmal trotzdem möglich es so zu verwenden,
+  jedoch kann das dann darin enden, dass es immer True ist, egal welche Werte die Variablen wirklich haben.
+  Das liegt daran, dass beispielsweise in C++ dann nur geprüft wird ob ein Wert enthalten ist und
+  da beide Variablen einen Wert haben, sind quasi beide True (es ist noch etwas komplexer, aber soweit reicht es).
+
+  In C++ müsste man das dann wie folgt schreiben:
+  string text1("Hi");
+  string text2("Hello");
+  if (text1.compare(text2) == 0) {
+    cout << "Equal!" << endl;
+  } else {
+    cout << "Not equal!" << endl;
+  }
+
+  Nur zum Verständnis des C++ Codes:
+  "cout" ist die Standard Ausgabe im Terminal, vergleichbar mit print() in Python.
+  Die "<<" geben an, dass ein Wert oder eine Variable übergeben werden sollen und trennen diese.
+  Ähnlich wie das print(var1, var2, "Hello World", 2) Verhalten, nur das "<<" nicht automatisch ein Leerzeichen anfügt.
+  "endl" ist einfach eine built-in Variable mit dem "Neue Zeile" Wert für das entsprechende System.
+  (In der Regel ist das "\n" oder bei Windows "\n\r")
+  Code Blöcke müssen immer mit "{" geöffnet und mit "}" geschlossen werden.
+  Ausnahmen bilden Einzelbefehle, jedoch ist es keine gute Programmierung und davon ist abzuraten.
+  Befehle werden immer mit einem Semikolon beendet.
+  Die Methode "compare" der "string" Klasse gibt entweder eine negative oder positive Zahl zurück,
+  wenn die Werte ungleich sind oder genau 0, wenn sie übereinstimmen.
+
+  In C++ werden Objekte von Klassen normalerweise immer wie folgt initialisiert:
+  Klasse variablenName();
+  In die Klammern kommen dann ggf. noch Parameter.
+
+  In Python sieht das so aus:
+  variablenName = Klasse()
+
+  Built-in Klassen wie string, int etc. verhalten sich teilweise speziell, je nach Programmiersprache.
+
+  Javascript ist in manchem Python ähnlicher.
+  Hier werden Variablen meist wie folgt initialisiert:
+  var variablenName = "Hello";
+  var variable2 = 123;
+
+  In C# würde das obige Beispiel wie folgt aussehen:
+  string text1 = "Hi";
+  string text2 = "Hello";
+  if (text1.Equals(text2)) {
+    Console.WriteLine("Equal!");
+  } else {
+    Console.WriteLine("Not Equal!");
+  }
+  
+  In diesem Fall hat string die Funktion "Equals" und gibt lediglich die Werte True oder False zurück.
+  (In C# werden Methoden und Funktionen standardmäßig mit einem Großbuchstaben begonnen.)
+
+  In Java würde das Beispiel wie folgt aussehen:
+  String text1 = "Hi";
+  String text2 = "Hello";
+  if (text1.equals(text2)) {
+    System.out.println("Equals!");
+  } else {
+    System.out.println("Not equal!");
+  }
+
+  Du siehst also, dass die gewählen Programmiersprachen alle relativ ähnlich mit Strings umgehen,
+  wenn um Vergleiche, aber manchmal auch andere Dinge geht.
+
+  In Javascript ist es ein bisschen anders:
+  var text1 = "Hi";
+  var text2 = "Hello";
+  if (text1 === text2) {
+    console.log("Equal!");
+  } else {
+    console.log("Not equal!");
+  }
+
+  Wenn du dich jetzt fragst, warum da auf einmal drei "=" nebeneinander sind,
+  dann bist du damit nicht alleine und ich kläre dich ein bisschen auf.
+
+  Bei Javascript kann man natürlich auch mit lediglich zwei "=" arbeiten,
+  jedoch wird man hier teils gewarnt, dass es zu Fehlern kommen kann.
+  Das dritte "=" stellt sicher, dass die beiden Variablen wirklich vom gleichen Typ sind und
+  wenn alles klappt auch den gleichen Wert haben.
+
+  Bei PHP gibt es das auch.
+  Da würde das Beispiel so aussehen:
+  $text1 = "Hi";
+  $text2 = "Hello";
+  if (strcmp($text1, $text2) == 0) {
+    echo "Equal!" . PHP_EOL;
+  } else {
+    echo "Not equal" . PHP_EOL;
+  }
+
+  In PHP ist echo als Standard für Ausgaben (es gibt aber auch andere Wege, wie in C++ usw. auch).
+  Der "." verbindet zwei Werte bzw. Variablen zu einem. Vergleichbar mit dem "+" in anderen Sprachen.
+  "PHP_EOL" ist vergleichbar mir C++ "endl".
+  Die "strcmp" Funktion verhält sich gleich wie "compare" für C++ strings.
+  Der Name bedeutet einfach "string compare" in Kurzform.
+  In PHP gibt man Variablennamen mit einem "$"-Zeichen am Anfang an und schreibt in der Regel mit Kleinbuchstaben.
+  Einen Datentyp musste man hier früher nicht angeben, ähnlich wie in Javascript oder Python,
+  das hat sich aber glaube ich neuerdings geändert oder ist zumindest in manchen Fällen notwendig.
+
+- Der Grundaufbau um ein Programm ausführen zu können:
+
+  In Python kannst du bisher einfach eine Zeile Code schreiben und schon funktioniert es.
+  Bei den meisten Programmiersprachen ist das aber nicht so einfach.
+  Auch wenn es in der Praxis in der Regel ähnlich ablaufen wird.
+  Der Grund hierfür ist, dass die meisten IDEs den Codeteil der dringend notwendig ist,
+  bereits vorgenerieren und man somit am Ende auch nur eine neue Zeile schreibt und alles geht.
+  Doch falls du von Null anfängst, fehlt das natürlich.
+
+  Wie gesagt, in der Regel machen die IDEs das, aber grundsätzlich wissen sollte man es schon.
+  Ich hatte zum Beispiel das vergnügen, dass ich mehrere Jahre lang diese Grundstrukturen
+  von Hand auf einen Zettel schreiben durfte und das wurde am Ende benotet.
+  Wirklich praktisch hilft es einem nicht weiter, aber die Schule verlangt es. :P
+  Deshalb hier einmal das wichtigste.
+
+  PHP:
+  Alles beginnt und endet wie folgt:
+  <?php
+     // your code
+  ?>
+
+  C/C++:
+  Diese Methode muss es immer geben:
+  int main(int argc, char *argv[]) {
+    // your code
+    return 0;
+  }
+  
+  Das erste int steht für den Datentyp des Rückgabewerts.
+  "main", so heißt die Funktion die vom Programm ausgeführt wird.
+  Alles spielt sich hier drinnen ab bzw. startet von hier aus.
+  Die zwei Parameter in den Klammer stehen für folgendes:
+    - argc --> Argument Count (Eine Ganzzahl)
+    - argv --> Konsolen Argumente (Ein Array mit low-level String Variablen)
+  Diese Parameter sind notwendig über später mögliche Konsolen Argumente verarbeiten zu können.
+  Es gibt auch vereinfachte Schreibweisen in denen es lediglich so aussieht:
+  void main() {
+    // your code
+  }
+  Jedoch ist der Standard wie oben.
+  Das "return 0" gibt, wer hätte es gedacht, den Wert 0 zurück.
+  Das ist der Standardwert und besagt, dass es keine Fehler im Programm gab.
+  (Natürlich kann es trotzdem welche geben, aber dafür muss dann der Programmierer sorgen.)
+
+  Wenn du in Python Konsolenargumente verwenden willst, geht das wie folgt:
+  import sys
+  argc = len(sys.argv)
+  argv = sys.argv
+
+  Das verhält sich dann gleich wie in C++
+
+  C#:
+  namespace My_Program_Name
+  {
+     class Program
+     {
+        static void Main(string[] args)
+        {
+           // your code
+        }
+     }
+  }
+
+  Hier wird es schon ein bisschen schwieriger, da es so viele "komische" Dinge zu beachten gibt.
+  Am Anfang kommt der Namespace Block wobei "namespace" die Art des Blocks beschreibt und 
+  "My_Program_Name" ist lediglich dessen Name.
+  In der Regel wird hier eine leicht abgewandelte Version des eigentlichen Programmnamen verwendet, deshalb dieser Name.
+  
+  In C# wird alles innerhalb von diesen namespace Blöcken verwaltet und es später mit "using" importieren zu können.
+  Das muss auch im Standard sein, auch wenn man diesen Teil normalerweise nirgendwo importiert.
+  Darin werden dann in der Regel Klassen und weitere Abstrakte Datentypen abgelegt.
+  Wie du dir vielleicht denken kannst, wird hier die Klasse "Program" erstellt.
+  Das ist einfach die Standardklasse für das Hauptprogramm.
+  Darin muss immer die Methode "Main" enthalten sein.
+  Hier gibt es noch den Wert "static" vorne an, den du vielleicht schon vom Python Object Orientation Video kennst.
+  Verhält sich hier und auch in anderen Programmiersprachen gleich und ist in diesem Fall zwingend notwendig.
+
+  Danach kommt der Rückgabetyp, der in diesem Fall "void" ist, was bedeutet, dass es keinen Rückgabewert gibt.
+  Bei C#, C/C++, Java usw. muss immer ein Rückgabetyp angegeben werden, deshalb gibt es diesen Sonderwert.
+  "Main" ist groß, weil wegen C# und so.
+  In den Klammern wie bekannt die Konsolenargumente in Form eines string Arrays.
+  string ist der Datentyp und "[]" Kennzeichnet einen Array Datentyp.
+
+  Java:
+  package com.programmername.myprogramname;
+  
+  class MyProgramName
+  {
+    public static void main(String args[])
+    {
+       // your code
+    }
+  }
+
+  In Java verhält es sich ähnlich wie in C#, jedoch gibt es hier kein namespace.
+  Dafür ein "package", welches sich aber ähnlich verhält wie ein namespace in C# oder eben Module in Python usw.
+  Da könnte beispielsweise auch "package de.test.test123;" stehen, nur in der Regel ist es wie oben aufgebaut.
+
+  Dann wieder die Standardprogramm Klasse, hier wieder typischer Weise mit einer Variante des Programmnamen.
+  Darin auch wie in C# die statische main Methode (in Java sind Methoden wieder klein geschrieben).
+  Hier gibt es noch ein public, welches in C# auch stehen könnte, aber auch weggelassen werden kann.
+  In Java werden Arrays mit "[]" am Variablen Namen gekennzeichnet.
+  Die Klasse String wird hier ausnahmsweise groß geschrieben.
+  In C# schreibt man sie in der Regel klein, es ist aber auch möglich sie groß zu schreiben.
+  
+  Bei C# und Java ist die Länge eines Arrays oder einer Liste immer schon in der Klasse als Funktion enthalten,
+  deshalb wird in diesen Sprachen der Wert nicht separat übergeben.
+  Er kann in der Regel mit array.Length oder array.size() o.ä abgerufen werden.
+  
+- Standard Datentypen Limits:
+  Von Python kennt man quasi keine Grenzen. Die einzige Grenze ist hier das Limit des Arbeitsspeichers.
+  Zumindest wenn es um das Speichern von Daten im RAM geht.
+
+  Wie in dem Video gesehen, gibt es aber in den meisten "richtigen" Programmiersprachen Begrenzungen.
+  Das ist eigentlich auch sinnvoll, da man so genau bestimmen kann was wo, wieviel Speicher belegt.
+  Außerdem werden hier Standard Datentypen (teilweise String ausgenommen) nicht oder 
+  mit nur wenigen Funktionen ausgestatten, da es sich hier imm Speicher nicht wirklich um Klassen handelt.
+  Speichert man also in C# eine Variable als int, werden im Arbeitsspeicher nur 32Bit belegt.
+  Bei C/C++ ist das auch so, jedoch muss man hier aufpassen, ob "int" wirklich für "Integer 32Bit" steht.
+  Je nach Hardware kann sich das ändern, es gibt aber Hilfsbibliotheken, die das in der Regel sicherstellen.
+
+  In Python, wenn ich es richtig verstanden habe, werden alle Variablen als Klassenobjekte gespeichert.
+  Das heißt, dass sie viel mehr Speicher belegen (wegen allen Funktionen etc.), als die eigentlichen Daten.
+
+  Hier einmal die üblichen Werte:
+  byte    : 8 Bit  : 0 - 255    : 0x00 - 0xFF
+  sbyte   : 8 Bit  : -128 - 127 : 0x00 - 0xFF
+  short   : 16 Bit : 0 - 65335  : 0x0000 - 0xFFFF
+  ushort  : 16 Bit : -32
+  int     : 32 Bit : -2147483648 - 2147483647 : 0x00000000 - 0xFFFFFFFF
+  uint    : 32 Bit : 0 - 
+  long    : 64 Bit :                          : 0x0000000000000000 - 0xFFFFFFFFFFFFFFFF
+  ulong   : 64 Bit : 0 - 
+
+  Hierbei ist zu beachten, dass der Standardtyp immer "signed" ist und der andere Type "unsigned".
+  Deshalb das "u" vor dem eigentlichen Datentyp in manchen Fällen.
+  Lediglich beim "Byte" ist es andersherum, deshalb das "s" für signed.
+
+  "signed": Ist das erste Bit gesetzt (1), bedeutet es "-" und dann kommt die Zahl, ansonsten (0) ist es eine positive Zahl
+  "unsigned": Alle Bits werden für die Zahl verwendet, jedoch gibt es nur positive Zahlen oder 0.
+
+  String / Text wird in jeder Programmiersprache ein bisschen anders behandelt.
+  Jedoch ist es - wie bereits erwähnt - in C/C++ auf low-level ebene ein Array aus Bytes bzw. Ints im Speicher.
+
+--
+
+Ich könnte natürlich noch viele andere Sprachen verwenden und auch mehr Beispiele machen.
+Das werde ich in manchen Fällen zum gegebenen Zeitpunkt auch machen, aber fürs erste sollte das genügen.
+
+Natürlich musst du jetzt nicht alles verstehen, es geht nur darum es mal gesehen zu haben.
+Und vielleicht geht dir dann bei dem einen oder anderen ein Licht auf oder dir kommen Ideen.
+
 
