@@ -1,0 +1,26 @@
+
+https://youtu.be/ItB_cuNDzxs
+
+Das solltest du am besten nach dem "Python Object Oriented Programming" Video anschauen.
+
+--
+
+Dieses Video habe ich hinzugefügt um die wichtigsten Dinge in einer anderen Programmiersprache zu zeigen.
+Hierfür habe ich mal C# genommen, weil ich damit auch am meisten gearbeitet haben bis jetzt.
+Für dich wäre es aber vermutlich besser in C/C++ zu arbeiten, weil das unabhängiger ist und mehr kann.
+Die gezeigten Grundkonzepte sind aber relativ ähnlich.
+Jedoch sind Befehle wie Console.WriteLine() in C++ normal natürlich nicht vorhanden.
+Dafür gibt es dann andere Befehle. Das ist aber mit jeder Sprache so.
+In Java heißt es beispielsweise System.out.println() usw.
+
+Worum es mir hiermit eigentlich geht, ist dir den Unterschied zwischen typischen Programmiersprachen und Python zu zeigen.
+Denn in Java, C/C++, C#, VB und vielen vergleichbaren Sprachen gelten die gleichen oder ähnliche Prinzipien.
+
+Also die Datentypen verhalten sich ähnlich (haben vergleichbare Limits und Funktionen) und 
+auch die Listen/Arrays verhalten sich ähnlich.
+
+Natürlich gibt es Tricks und Wege, wie man diese ähnlich wie in Python verwenden kann,
+jedoch muss man das dann meist selbst verwirklichen oder der Aufwand lohnt sich nicht.
+Möglich ist natürlich (fast) alles, doch nicht alles davon ist sinnvoll.
+
+
