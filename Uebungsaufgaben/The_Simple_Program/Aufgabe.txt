@@ -1,0 +1,98 @@
+
+Nun geht es aber richtig los!
+
+Hier musst du alles wichtige mal gesehen haben.
+
+1. Erstelle folgende Funktionen:
+ - multiply
+   --> Diese soll zwei Werte multiplizieren und zurückgeben
+
+ - add
+   --> Diese soll zwei Werte addieren und zurückgeben
+
+ - sub
+   --> Soll zwei Werte subtrahieren ...
+
+ - div
+   --> you know the deal
+   --> Berücksichtige den DIVIDED BY ZERO Fall (z.B. gebe 0 zurück)
+
+2. Nun erstelle noch eine Funktion, die zwei Texte miteinander verbindet und zurückgibt.
+   --> Nenne sie z.B. "str_merge"
+   --> Es soll ein Leerzeichen dazwischen eingesetzt werden (ähnlich wie bei print())
+
+3. Erstelle eine Funktion "info"
+  - Es soll ein Parameter übergeben werden
+  - Es soll immer der Text: "New Info:" ausgegeben werden und dann der Parameter
+
+4. Übergebe deinem Python Programm ein Konsolenargument / Befehlzeilenargument
+  - Prüfe ob es ein Argument gibt
+  - Prüfe auf den Wert "--no-info-msg"
+  - Wenn dieser Parameter übergeben wurde, soll in der Funktion "info" der Text "New Info:"
+    nicht mehr angezeigt werden, lediglich der Parameter der Funktion "info"
+  - (Du darfst das "global" keyword verwenden, wenn es nicht anders geht.)
+
+5. Verwende jede Funktion mindestens einmal mit irgendwelchen Werten aus.
+  - die "div" Funktion mindestens einmal mit einer 0 als Teiler aus
+  - gebe die Ergebnisse der Funktionen aus, wenn es nicht schon teil der Funktion ist.
+
+6. Führe das Program auf verschiedene Weise aus
+  - einmal ohne Argumente aus
+  - einmal mit dem "--no-info-msg" Argument aus
+  - schließlich noch mit einem oder mehreren falschen Werten
+  - mit mehreren falschen Werten und dem "--no-info-msg" Parameter aus
+  - wenn falsche Argumente übergeben werden, sollen sie ignoriert werden
+  Das sieht in der Konsole dann beispielsweise so aus:
+  python simple_program.py
+  python simple_program.py --no-info-msg
+  python simple_program.py -test -p2 234 2 32 2 aa 2 ggg
+  python simple_program.py haha 000 --no-info-msg bogdan woooo 123
+
+
+Bonus:
+
+1. Immer wenn du Code ausführst, Zeige in der Konsole den entsprechenden Code an.
+  - Die Ausgabe für den Code ausgenommen (ansonsten würde es zu kompliziert)
+  - Beispiel1:
+    y = 2
+    print("y = 2") # Ausgabe des ausgeführten Codes
+  - Beispiel2:
+    func(x)
+    print("func({x})")
+  - Codeblöcke können zusammen ausgegeben werden
+  - Beispiel3:
+    for i in range(10):
+      print(i)
+    print("""
+    for i in range(10):
+      print(i)
+    """)
+  - Stelle sicher, dass alles funktioniert! (Auch die Konsolenargumente, ggf. mit "global" arbeiten)
+
+
+2. Finde einen Weg, wie du obiges Beispiel optimieren kannst,
+  sodass der ausgeführte Code und die Ausgabe mit einer Code Zeile auskommen
+  - die Ausgabe der Deklaration von Globalen Variablen kann vernachlässigt werden,
+    wenn es hierbei zu Fehlern kommen sollte (global keyword könnte helfen)
+
+3. Verknüpfe das ganze mit einem Konsolenargument
+  - Zum Beispiel: --debug
+  - Wenn dieses Argument gesetzt ist, soll der ausgeführte Code ausgegeben werden,
+    ansonsten soll er lediglich ausgeführt werden
+
+
+Extra Bonus:
+
+Mache das folgende nur, wenn du dich schon mit dem Thema Objektorientierung auseinandergesetzt hast.
+Ansonsten wäre die Übung sinnlos und würde vermutlich nur überfordern.
+
+1. Erstelle eine Klasse CodeExecutor
+  - sie soll eine Funktion "exec_code" enthalten
+    --> diese soll den Code ausführen und ggf. (bei --debug) ausgeben
+  - außerdem soll es eine Funktion "show_code" geben
+    --> diese soll übergebenen Text ausgeben
+  - kombiniere die beiden Funktionen sinnvoll
+
+2. Erstelle eine Klasse ConsoleArgumentor
+  - diese soll alle Konsolenargumente verwalten bzw. prüfen und ggf. Einstellung etc. vornehmen
+
