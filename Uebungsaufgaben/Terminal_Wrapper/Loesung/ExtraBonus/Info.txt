@@ -1,0 +1,10 @@
+
+Hier habe ich noch eine C++ Version des Programms erstellt.
+Sie funktioniert (noch) nicht 100% wie das Python Programm,
+da Befehle wie:
+ls -l
+Probleme machen.
+
+Irgendwie funktioniert es nicht wenn es Argumente für die Befehle gibt.
+Vielleicht ist das bei dir anders, aber nur das du es weißt.
+
