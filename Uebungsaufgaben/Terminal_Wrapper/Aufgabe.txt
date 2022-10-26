@@ -1,0 +1,33 @@
+
+Das hier ist einer ziemlich einfach Aufgabe denke ich.
+
+Falls du bereits die "CMD Clone" Aufgabe gelöst hast, sollte das hier nicht schwer sein.
+
+Aufgabe:
+- Das Program soll Standard Terminalbefehle entgegennehmen können und
+  deren Ergebnis wieder ausgeben.
+
+- Mit "exit" soll das Programm beendet werden, bis dahin immer wieder neue Befehle entgegennehmen.
+
+Mehr ist da nicht dazu. :D
+
+
+Bonus:
+
+- Immer wenn folgende Befehle ausgeführt werden, sollen diese ignoriert werden:
+  - shutdown
+  - reboot
+  - logout (Lasse das Programm auch mit diesem Befehl beenden)
+  - exit (Programm soll weiterhin beendet werden)
+
+- Erweitere ggf. die Liste der Befehle, wenn du möchtest
+
+
+Extra Bonus:
+
+- Ermögliche es andere Python Programme innerhalb der Terminalaufrufe zu ermöglichen.
+  --> Sie sollen sich verhalten, als würdest du sie direkt aufrufen und ausführen
+- Falls das bereits der Fall sein sollte, test mal wie sich der Terminal Wrapper verhält,
+  wenn du ihn in sich selbst startst. :D
+- Gib eine Fehlermeldung aus, wenn ignorierte Befehle eingegeben werden
+
