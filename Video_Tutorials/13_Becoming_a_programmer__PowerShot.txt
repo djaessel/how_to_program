@@ -300,14 +300,16 @@ Was auch noch sehr wichtig ist, wenn man von Python auf andere Programmiersprach
   Das heißt, dass sie viel mehr Speicher belegen (wegen allen Funktionen etc.), als die eigentlichen Daten.
 
   Hier einmal die üblichen Werte:
-  byte    : 8 Bit  : 0 - 255    : 0x00 - 0xFF
-  sbyte   : 8 Bit  : -128 - 127 : 0x00 - 0xFF
-  short   : 16 Bit : 0 - 65335  : 0x0000 - 0xFFFF
-  ushort  : 16 Bit : -32
-  int     : 32 Bit : -2147483648 - 2147483647 : 0x00000000 - 0xFFFFFFFF
-  uint    : 32 Bit : 0 - 
-  long    : 64 Bit :                          : 0x0000000000000000 - 0xFFFFFFFFFFFFFFFF
-  ulong   : 64 Bit : 0 - 
+  Datatype : Size   : Range                                      : Hex-Range
+  --------------------------------------------------------------------------------------------------------
+  byte     : 8 Bit  : 0 - 255                                    : 0x00 - 0xFF
+  sbyte    : 8 Bit  : -128 - 127                                 : 0x00 - 0xFF
+  short    : 16 Bit : -32768 - 32767                             : 0x0000 - 0xFFFF
+  ushort   : 16 Bit : 0 - 65535                                  : 0x0000 - 0xFFFF
+  int      : 32 Bit : -2147483648 - 2147483647                   : 0x00000000 - 0xFFFFFFFF
+  uint     : 32 Bit : 0 - 4294967295                             : 0x00000000 - 0xFFFFFFFF
+  long     : 64 Bit : -9223372036854775808 - 9223372036854775807 : 0x0000000000000000 - 0xFFFFFFFFFFFFFFFF
+  ulong    : 64 Bit : 0 - 18446744073709551615                   : 0x0000000000000000 - 0xFFFFFFFFFFFFFFFF 
 
   Hierbei ist zu beachten, dass der Standardtyp immer "signed" ist und der andere Type "unsigned".
   Deshalb das "u" vor dem eigentlichen Datentyp in manchen Fällen.
