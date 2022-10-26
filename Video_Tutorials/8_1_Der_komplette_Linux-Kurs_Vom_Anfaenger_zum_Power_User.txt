@@ -11,6 +11,17 @@ ich versuch nur was rauszusuchen, was vielleicht von meiner Seite empfehlenswert
 
 --
 
+Comment from Korky Kathman:
+"Just a quick note to save newer viewers of this video a lot of heartache. The instructor is using an older version of Ubuntu (15) which, by default comes with the Unity desktop.  Newer installs of Ubuntu (I'm using 19 but 18 is the same) do NOT come with the Unity Desktop, but instead comes with Gnome only.  So your dock won't look the same and while you'll be able to install the Unity Tweak Tool, it will not work.  Once they get into the meat of the Linux system (i.e. the CLI),  you'll be OK. Just all these configs and things up front might leave you a little bit frustrated."
+
+
+Du kannst also den Teil mit den Themes überspringen, wirst du wahrscheinlich eh nicht brauchen.
+Außerdem kann es eben sein, dass dein Ubuntu ganz anders aussieht.
+Das Terminal ist aber gleich und wie es grundsätzlich funktioniert auch,
+nur der GUI Kram ist eben teils (ganz) anders jetzt.
+
+--
+
 Wegen VirtualBox und dem Linux Komplett-Kurs:
 Was vielleicht jetzt noch nicht unbedingt wichtig ist, aber eigentlich immer dabei sein sollte 
  -> VirtualBox Extension Pack
