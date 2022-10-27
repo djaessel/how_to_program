@@ -24,8 +24,8 @@ To access them properly run the following command inside this folder in terminal
 * You will be prompted for a level.  
 * Select "Beginner" and then "Standard".
 
-> If you want to start directly as beginner, execute the following
-`python programming_course.py --mode=beginner -s`
+> If you want to start directly as beginner, execute the following  
+> `python programming_course.py --mode=beginner -s`
 
 This ensures that you only get the beginner tasks with standard info  
 Later on you can also access more advanced tasks or advanced info for beginner tasks  
