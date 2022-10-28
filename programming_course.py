@@ -26,6 +26,7 @@ def main_program(argc, argv):
     print_welcome_message()
 
     # TODO: add code
+    print("THIS IS WORK IN PROGRESS!")
 
 # Programstart
 argc = len(sys.argv)
