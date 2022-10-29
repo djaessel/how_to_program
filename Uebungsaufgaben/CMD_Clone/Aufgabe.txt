@@ -47,6 +47,7 @@ Extra Bonus:
 - Gib die Möglichkeit ein Skript auszuführen, dass die Befehle deines CMDs
   so verarbeitet, als würdest du sie von Hand eingeben (vgl. call und Batch).
 
+
 Nice to have:
 - Modifiziere das Programm so, dass es bei einem Skriptaufruf leere Zeilen ignoriert
   und keine Leerzeile nach jedem Command ausgibt, nur einmal am Ende vielleicht.

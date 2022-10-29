@@ -14,10 +14,12 @@ Erstelle eine Liste von Schülern, die in einer Klasse sind.
 - Nach der Eingabe sollen alle Schüler nach Klasse sortiert ausgegeben werden.
   --> Ausgegeben werden sollen: Nachname, Firma, Klasse
 
+
 BONUS:
 - Speichere die Informationen ab, wobei jede Klasse einer eigene Datei entspricht
 - Lese beim erneuten Starten des Programms die vorherigen Daten wieder ein, sodass diese ergänzt werden können
 - Verwende sinnvolle Namen für die Klassendateien
+
 
 EXTRA BONUS:
 - Füge jeder Klasse einen Lehrer hinzu

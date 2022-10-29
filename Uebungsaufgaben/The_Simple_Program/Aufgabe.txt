@@ -6,13 +6,10 @@ Hier musst du alles wichtige mal gesehen haben.
 1. Erstelle folgende Funktionen:
  - multiply
    --> Diese soll zwei Werte multiplizieren und zurückgeben
-
  - add
    --> Diese soll zwei Werte addieren und zurückgeben
-
  - sub
    --> Soll zwei Werte subtrahieren ...
-
  - div
    --> you know the deal
    --> Berücksichtige den DIVIDED BY ZERO Fall (z.B. gebe 0 zurück)
