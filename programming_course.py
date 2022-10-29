@@ -4,6 +4,12 @@ import os
 import sys
 
 
+task_file = "task.txt"
+solution_dir = "solution"
+task_files_dir = "task_files"
+working_dir = "./working_area"
+
+
 class ConsoleArgs:
     save_file = ".settings"
 
@@ -137,7 +143,7 @@ class ConsoleArgs:
 
 
 class TaskManager:
-    base_dir = "./Uebungsaufgaben"
+    base_dir = "./practice_tasks"
     tasks = []
     current_task_index = -1
 
@@ -210,13 +216,39 @@ class TaskManager:
     @staticmethod
     def show_task_info():
         cur_task = TaskManager.get_cur_task()
-        info_path = TaskManager.get_task_path(cur_task) + "/Aufgabe.txt"
+        info_path = TaskManager.get_task_path(cur_task) + "/" + task_file
         if os.path.exists(info_path):
             task_info = TaskManager.read_task_info(info_path)
             print("Task description:")
             for ti in task_info:
                 print(ti)
             print()
+
+    @staticmethod
+    def prepare_working_dir():
+        allowed = False
+
+        cur_task = TaskManager.get_cur_task()
+        tf_dir = TaskManager.get_task_path(cur_task) + "/" + task_files
+        task_files = os.listdir(tf_dir)
+
+        if not os.path.exists(working_dir):
+            os.mkdir(working_dir)
+
+        task_working_dir = working_dir + "/" + cur_task
+        if not os.path.exists(task_working_dir):
+            os.mkdir(task_working_dir)
+        else:
+            print("Warning: Task already started!")
+            overwrite = input("Do you want to overwrite? [y/N]: ")
+            if overwrite.lower() in ["y", "j"]:
+                allowed = True
+
+        if allowed:
+            print("Copying task files...", end='')
+            for task_file in task_files:
+                shutil.copy(task_file, task_working_dir)
+            print("Done")
 
 
 def print_welcome_message():
@@ -247,6 +279,7 @@ def main_program(argc, argv):
 
     TaskManager.select_task()
     TaskManager.show_task_info()
+    TaskManager.prepare_working_dir()
 
 
 
