@@ -5,19 +5,24 @@ import sys
 
 
 class ConsoleArgs:
-    current_run_mode = 0x10
     save_file = ".settings"
+
+    current_run_mode = 0x10
+    mode_argument = False
+    info_argument = False
 
     modes = {
         "beginner":     0x10,
         "advanced":     0x20,
         "hooked":       0x30,
         }
+    
     info_level = {
         "standard":     0x00,
         "bonus":        0x01,
         "extra_bonus":  0x02,
         }
+
 
     @staticmethod
     def read_saved_data():
@@ -41,47 +46,49 @@ class ConsoleArgs:
         default_mode = (run_mode & 0xF0) >> 4
         default_info = (run_mode & 0x0F)
 
-        max_mode = 123456789
-        mode_int = 0
-        while max_mode < mode_int or mode_int < 1:
+        if not ConsoleArgs.mode_argument:
+            max_mode = 123456789
             mode_int = 0
-
-            print()
-            print("Select a mode:")
-            for key in ConsoleArgs.modes:
-                print("-", key, "=", ConsoleArgs.modes[key] >> 4)
-                max_mode = ConsoleArgs.modes[key] >> 4
-
-            mode_s = input(f"Mode [{default_mode}]: ")
-            if len(mode_s) == 0:
-                mode_int = default_mode
-            elif mode_s.isdigit():
-                mode_int = int(mode_s)
-            else:
-                print("Invalid input! Try again.")
-
-        max_info_level = 123456789
-        info_level_int = -1
-        while max_info_level < info_level_int or info_level_int < 0:
+            while max_mode < mode_int or mode_int < 1:
+                mode_int = 0
+                
+                print()
+                print("Select a mode:")
+                for key in ConsoleArgs.modes:
+                    print("-", key, "=", ConsoleArgs.modes[key] >> 4)
+                    max_mode = ConsoleArgs.modes[key] >> 4
+                
+                mode_s = input(f"Mode [{default_mode}]: ")
+                if len(mode_s) == 0:
+                    mode_int = default_mode
+                elif mode_s.isdigit():
+                    mode_int = int(mode_s)
+                else:
+                    print("Invalid input! Try again.")
+        
+        if not ConsoleArgs.info_argument:
+            max_info_level = 123456789
             info_level_int = -1
-
-            print()
-            print("Select info level:")
-            for key in ConsoleArgs.info_level:
-                print("-", key, "=", ConsoleArgs.info_level[key])
-                max_info_level = ConsoleArgs.info_level[key]
+            while max_info_level < info_level_int or info_level_int < 0:
+                info_level_int = -1
             
-            info_level_s = input(f"Info Level [{default_info}]: ")
-            if len(info_level_s) == 0:
-                info_level_int = default_info
-            elif info_level_s.isdigit():
-                info_level_int = int(info_level_s)
-            else:
-                print("Invalid input! Try again.")
-
-        run_mode = (mode_int << 4) | info_level_int
-        ConsoleArgs.set_run_mode_val(run_mode)
-        ConsoleArgs.save_data()
+                print()
+                print("Select info level:")
+                for key in ConsoleArgs.info_level:
+                    print("-", key, "=", ConsoleArgs.info_level[key])
+                    max_info_level = ConsoleArgs.info_level[key]
+            
+                info_level_s = input(f"Info Level [{default_info}]: ")
+                if len(info_level_s) == 0:
+                    info_level_int = default_info
+                elif info_level_s.isdigit():
+                    info_level_int = int(info_level_s)
+                else:
+                    print("Invalid input! Try again.")
+            
+            run_mode = (mode_int << 4) | info_level_int
+            ConsoleArgs.set_run_mode_val(run_mode)
+            ConsoleArgs.save_data()
 
 
     @staticmethod
@@ -91,9 +98,11 @@ class ConsoleArgs:
                 if arg.startswith("--mode=") or arg.startswith("-m="):
                     mode = arg.split("=")[1]
                     ConsoleArgs.set_run_mode(mode)
+                    ConsoleArgs.mode_argument = True
                 elif arg.startswith("--info-level=") or arg.startswith("-i="):
                     info_l = arg.split("=")[1]
                     ConsoleArgs.set_run_mode(info_level=info_l)
+                    ConsoleArgs.info_argument = True
 
     @staticmethod
     def set_run_mode_val(val):
