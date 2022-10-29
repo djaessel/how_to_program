@@ -296,18 +296,21 @@ class TaskManager:
         ready = False
         while not ready:
             ready = input("Ready for solutions? [Y/n]: ")
-            if ready.lower() in ["y", "j"]:
+            if ready.lower() in ["y", "j"] or len(ready) == 0:
                 info_level = ConsoleArgs.get_info_level()
                 for key in ConsoleArgs.info_level:
                     if info_level >= ConsoleArgs.info_level[key]:
                         cur_task = TaskManager.get_cur_task()
                         sol_dir = TaskManager.get_task_path(cur_task) + "/" + solution_dir + "/"
-                        sol_dir += ley.capitalize()
+                        sol_dir += key.capitalize()
                         if os.path.exists(sol_dir):
-                            print("Opening terminal for solution...", end='')
+                            print(f"Opening terminal for {key} solution...", end='')
                             open_coding_terminal(f'cd "{sol_dir}" && {dir_list_command()}')
                             print("Done")
                 ready = True
+            else:
+                ready = False
+            print()
 
 
 def print_welcome_message():
