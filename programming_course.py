@@ -16,7 +16,7 @@ def dir_list_command():
         # Linux and OS X
         return "ls -l"
     elif sys.platform == "win32":
-        # Windows...
+        # Windows
         return "dir"
     else:
         return ""
@@ -24,12 +24,12 @@ def dir_list_command():
 
 def open_coding_terminal(command):
     command = command.replace('\"', '\\\"')
-    if sys.platform.startswith("linux") or sys.platform == "darwin":
-        # Linux and OS X
+    if sys.platform.startswith("linux"):
+        # Linux
         shell_command = f'gnome-terminal -- bash -c "{command}; exec bash -i"'
         os.system(shell_command)
     elif sys.platform == "win32":
-        # Windows...
+        # Windows
         shell_command = f"start cmd /k \"{command}\""
         os.system(shell_command)
     else:
@@ -291,6 +291,24 @@ class TaskManager:
             print("Now you can start coding! :)")
             print()
 
+    @staticmethod
+    def show_solutions():
+        ready = False
+        while not ready:
+            ready = input("Ready for solutions? [Y/n]: ")
+            if ready.lower() in ["y", "j"]:
+                info_level = ConsoleArgs.get_info_level()
+                for key in ConsoleArgs.info_level:
+                    if info_level >= ConsoleArgs.info_level[key]:
+                        cur_task = TaskManager.get_cur_task()
+                        sol_dir = TaskManager.get_task_path(cur_task) + "/" + solution_dir + "/"
+                        sol_dir += ley.capitalize()
+                        if os.path.exists(sol_dir):
+                            print("Opening terminal for solution...", end='')
+                            open_coding_terminal(f'cd "{sol_dir}" && {dir_list_command()}')
+                            print("Done")
+                ready = True
+
 
 def print_welcome_message():
     welcome_file = ".welcome_message"
@@ -321,7 +339,7 @@ def main_program(argc, argv):
     TaskManager.select_task()
     TaskManager.show_task_info()
     TaskManager.prepare_working_dir()
-
+    TaskManager.show_solutions()
 
 
 # Programstart
