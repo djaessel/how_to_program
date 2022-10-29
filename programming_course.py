@@ -123,6 +123,7 @@ class TaskManager:
     def print_available_tasks():
         print("Available tasks:")
         
+        TaskManager.tasks = []
         task_dir = os.listdir(TaskManager.base_dir)
         for i in range(len(task_dir)):
             if os.path.isdir(TaskManager.base_dir + "/" + task_dir[i]):
@@ -132,6 +133,7 @@ class TaskManager:
 
     @staticmethod
     def select_task():
+        default_index = 0
         cur_index = TaskManager.current_task_index
         while cur_index < 0 or cur_index >= len(TaskManager.tasks):
             TaskManager.print_available_tasks()
@@ -140,18 +142,23 @@ class TaskManager:
             current_task = input("Select task [0]: ")
             if current_task.isdigit():
                 cur_index = int(current_task)
+            elif len(current_task) == 0:
+                cur_index = default_index
             else:
                 print("Invalid input! Try again.")
 
         TaskManager.current_task_index = cur_index
-        print(f'"{TaskManager.tasks[cur_index].replace("_", " ")}"', "selected!")
+        print(f'"{TaskManager.get_cur_task(True)}"', "selected!")
         print()
 
     @staticmethod
-    def get_cur_task():
+    def get_cur_task(fixed=False):
         cur_index = TaskManager.current_task_index
         if cur_index >= 0 and cur_index < len(TaskManager.tasks):
-            return TaskManager.tasks[cur_index]
+            cur_task = TaskManager.tasks[cur_index]
+            if fixed:
+                cur_task = cur_task.replace("_", " ")
+            return cur_task
 
     @staticmethod
     def get_task_path(task_name):
@@ -183,16 +190,17 @@ class TaskManager:
 
 
 def print_welcome_message():
-    print()
-    print("############################################################")
-    print("# || || ||   ||||   ||     ||||   ||||||   ||||||||   |||| #")
-    print("# || || ||   ||     ||     ||     ||  ||   || || ||   ||   #")
-    print("# || || ||   ||||   ||     ||     ||  ||   || || ||   |||| #")
-    print("# || || ||   ||     ||     ||     ||  ||   || || ||   ||   #")
-    print("# ||||||||   ||||   ||||   ||||   ||||||   || || ||   |||| #")
-    print("############################################################")
-    print()
-    print("Hello programmer and welcome to the course!")
+    welcome_file = ".welcome_message"
+    if os.path.exists(welcome_file):
+        with open(welcome_file, "r") as f:
+            data_len = 1
+            while data_len > 0:
+                line = f.readline()
+                data_len = len(line)
+                if data_len > 0:
+                    print(line.rstrip('\n'))
+    else:
+        print("Hello!\n")
 
 
 def main_program(argc, argv):
