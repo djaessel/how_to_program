@@ -2,12 +2,40 @@
 
 import os
 import sys
+import shutil
 
 
 task_file = "task.txt"
 solution_dir = "solution"
 task_files_dir = "task_files"
 working_dir = "./working_area"
+
+
+def dir_list_command():
+    if sys.platform.startswith("linux") or sys.platform == "darwin":
+        # Linux and OS X
+        return "ls -l"
+    elif sys.platform == "win32":
+        # Windows...
+        return "dir"
+    else:
+        return ""
+
+
+def open_coding_terminal(command):
+    command = command.replace('\"', '\\\"')
+    if sys.platform.startswith("linux") or sys.platform == "darwin":
+        # Linux and OS X
+        shell_command = f'gnome-terminal -- bash -c "{command}; exec bash -i"'
+        os.system(shell_command)
+    elif sys.platform == "win32":
+        # Windows...
+        shell_command = "start cmd /k \"{command}\""
+        os.system(shell_command)
+    else:
+        print("ERROR: Unknown operating system!")
+        print("Please open the terminal manually")
+        print(f"Example command: {command}")
 
 
 class ConsoleArgs:
@@ -203,10 +231,8 @@ class TaskManager:
                 data_len = len(line)
                 if data_len > 0:
                     info_level_check = line.strip().rstrip(":").replace(" ", "_").lower()
-                    print(info_level_check)
                     if info_level_check in ConsoleArgs.info_level.keys():
                         info_level = ConsoleArgs.get_info_level()
-                        print(info_level, ConsoleArgs.info_level[info_level_check])
                         if info_level < ConsoleArgs.info_level[info_level_check]:
                             access_granted = False
                     if access_granted:
@@ -226,10 +252,10 @@ class TaskManager:
 
     @staticmethod
     def prepare_working_dir():
-        allowed = False
+        allowed = True
 
         cur_task = TaskManager.get_cur_task()
-        tf_dir = TaskManager.get_task_path(cur_task) + "/" + task_files
+        tf_dir = TaskManager.get_task_path(cur_task) + "/" + task_files_dir
         task_files = os.listdir(tf_dir)
 
         if not os.path.exists(working_dir):
@@ -239,6 +265,7 @@ class TaskManager:
         if not os.path.exists(task_working_dir):
             os.mkdir(task_working_dir)
         else:
+            allowed = False
             print("Warning: Task already started!")
             overwrite = input("Do you want to overwrite? [y/N]: ")
             if overwrite.lower() in ["y", "j"]:
@@ -247,8 +274,22 @@ class TaskManager:
         if allowed:
             print("Copying task files...", end='')
             for task_file in task_files:
-                shutil.copy(task_file, task_working_dir)
+                shutil.copy(tf_dir + "/" + task_file, task_working_dir)
             print("Done")
+            print()
+            
+            # print("Execute the following command to start the task:")
+            # print(f'cd "{task_working_dir}" && {dir_list_command()}')
+            # print()
+            # print("Now open the py file and start coding! :)")
+            # print()
+
+            print("Opening terminal for coding...", end='')
+            open_coding_terminal(f'cd "{task_working_dir}" && {dir_list_command()}')
+            print("Done")
+            print()
+            print("Now you can start coding! :)")
+            print()
 
 
 def print_welcome_message():
