@@ -315,7 +315,7 @@ class TaskManager:
     def show_solutions():
         ready = False
         while not ready:
-            ready = input("Ready for solutions? [Y/n]: ")
+            ready = input("Ready for solutions? [Y/n/q]: ")
             if ready.lower() in ["y", "j"] or len(ready) == 0:
                 info_level = ConsoleArgs.get_info_level()
                 for key in ConsoleArgs.info_level:
@@ -327,6 +327,9 @@ class TaskManager:
                             print(f"Opening terminal for {key} solution...", end='')
                             open_coding_terminal(f'cd "{sol_dir}" && {dir_list_command()}')
                             print("Done")
+                ready = True
+            elif ready.lower() == "q":
+                # quit here
                 ready = True
             else:
                 ready = False
@@ -370,7 +373,7 @@ def main_program(argc, argv):
 
     ConsoleArgs.init_data()
 
-    while task_wheel()
+    while task_wheel():
         pass
 
 
