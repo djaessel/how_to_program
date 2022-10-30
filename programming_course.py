@@ -166,9 +166,26 @@ class ConsoleArgs:
         return ConsoleArgs.current_run_mode & 0x0F
 
     @staticmethod
+    def get_info_level_name():
+        name = "NOT_FOUND"
+        user_mode = ConsoleArgs.get_info_level()
+        for key, val in ConsoleArgs.info_level.items():
+            if val == user_mode:
+                name = key
+        return name
+
+    @staticmethod
     def get_user_mode():
         return (ConsoleArgs.current_run_mode & 0xF0) >> 4
 
+    @staticmethod
+    def get_user_mode_name():
+        name = "NOT_FOUND"
+        user_mode = ConsoleArgs.get_user_mode() << 4
+        for key, val in ConsoleArgs.modes.items():
+            if val == user_mode:
+                name = key
+        return name
 
 class TaskManager:
     base_dir = "./practice_tasks"
@@ -177,12 +194,14 @@ class TaskManager:
 
     @staticmethod
     def print_available_tasks():
-        print("Available tasks:")
+        user_mode_name = ConsoleArgs.get_user_mode_name()
+        print(f"Available tasks for {user_mode_name}:")
         
         TaskManager.tasks = []
-        task_dir = os.listdir(TaskManager.base_dir)
+        mode_base_dir = TaskManager.base_dir + "/" + ConsoleArgs.get_user_mode_name()
+        task_dir = os.listdir(mode_base_dir)
         for i in range(len(task_dir)):
-            if os.path.isdir(TaskManager.base_dir + "/" + task_dir[i]):
+            if os.path.isdir(mode_base_dir + "/" + task_dir[i]):
                 print("", len(TaskManager.tasks), ":", task_dir[i].replace("_", " "))
                 TaskManager.tasks.append(task_dir[i])
         print()
@@ -218,7 +237,8 @@ class TaskManager:
 
     @staticmethod
     def get_task_path(task_name):
-        return TaskManager.base_dir + "/" + task_name
+        user_mode_name = ConsoleArgs.get_user_mode_name()
+        return TaskManager.base_dir + "/" + user_mode_name + "/" + task_name
 
     @staticmethod
     def read_task_info(path):

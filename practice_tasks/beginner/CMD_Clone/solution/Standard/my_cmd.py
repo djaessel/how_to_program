@@ -77,6 +77,7 @@ def command_dir():
             file_size = os.path.getsize(whole_path)
             file_size_out = file_size_output(file_size)
             print(time_string, "   ", "\t", file_size_out, entry)
+    # TODO: add files and directories count
 
 
 def command_echo(command_data):
