@@ -347,16 +347,11 @@ def print_welcome_message():
         print("Hello!\n")
 
 
-def main_program(argc, argv):
-    ConsoleArgs.handle_arguments(argc, argv)
-
-    print_welcome_message()
-
-    ConsoleArgs.init_data()
-
+def task_wheel():
     # TODO: add code
     print()
     print("THIS IS WORK IN PROGRESS!")
+    print("Plese report bugs and errors! Thanks! :)")
     print()
 
     TaskManager.select_task()
@@ -364,11 +359,25 @@ def main_program(argc, argv):
     TaskManager.prepare_working_dir()
     TaskManager.show_solutions()
 
+    another = input("Run another task? [y/N] ")
+    return another.lower() in ["y", "j"]
+
+
+def main_program(argc, argv):
+    ConsoleArgs.handle_arguments(argc, argv)
+
+    print_welcome_message()
+
+    ConsoleArgs.init_data()
+
+    while task_wheel()
+        pass
+
 
 # Programstart
-argc = len(sys.argv)
+argc = len(sys.argv) - 1
 argv = []
-if argc > 1:
+if argc > 0:
     argv = sys.argv[1:]
 
 main_program(argc, argv)
