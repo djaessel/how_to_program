@@ -76,7 +76,11 @@ class ConsoleArgs:
             f.write(run_mode_bdata)
 
     @staticmethod
-    def init_data():
+    def init_data(reset=False):
+        if reset:
+            ConsoleArgs.mode_argument = False
+            ConsoleArgs.info_argument = False
+
         if ConsoleArgs.current_run_mode == ConsoleArgs.default_run_mode:
             ConsoleArgs.read_saved_data()
             run_mode = ConsoleArgs.get_run_mode()
@@ -209,7 +213,7 @@ class TaskManager:
     @staticmethod
     def select_task():
         default_index = 0
-        cur_index = TaskManager.current_task_index
+        cur_index = -1
         while cur_index < 0 or cur_index >= len(TaskManager.tasks):
             TaskManager.print_available_tasks()
 
@@ -367,6 +371,7 @@ def task_wheel():
 
 
 def main_program(argc, argv):
+    # TODO: make object and give object to other classes and functions
     ConsoleArgs.handle_arguments(argc, argv)
 
     print_welcome_message()
@@ -374,7 +379,9 @@ def main_program(argc, argv):
     ConsoleArgs.init_data()
 
     while task_wheel():
-        pass
+        change_mode_or_info = input("Do you want to change the mode or info level? [y/N] ").lower()
+        if change_mode_or_info in ["y", "j"]:
+            ConsoleArgs.init_data(True)
 
 
 # Programstart
