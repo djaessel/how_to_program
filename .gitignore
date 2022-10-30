@@ -2,3 +2,5 @@
 .conf
 working_area/
 working_area/*
+__pycache__/*
+__pycache__/
