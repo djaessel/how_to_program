@@ -1,5 +1,5 @@
 
-https://youtu.be/ItB_cuNDzxs
+Video: https://youtu.be/ItB_cuNDzxs
 
 Das solltest du am besten nach dem "Python Object Oriented Programming" Video anschauen.
 

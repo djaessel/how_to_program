@@ -1,6 +1,6 @@
 Hier ist ein Video warum du Linux verwenden solltest 
 (zumindest wenn du programmierst und die Wahl hast):
-https://youtu.be/otDOHt_Jges
+Video: https://youtu.be/otDOHt_Jges
 
 Dieses Video erklärt die Vorteile ziemlich gut und du kannst ja wie gesagt Windows parallel behalten, 
 entweder in einer virtuellen Maschine (wie ich, dann kannst du Windows innerhalb Linux starten) oder 

@@ -1,4 +1,4 @@
-https://youtu.be/th4OBktqK1I
+Video: https://youtu.be/th4OBktqK1I
 
 Just an example program on how to make a slot machine. :)
 

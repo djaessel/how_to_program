@@ -1,4 +1,4 @@
-https://youtu.be/DczDS4hN0Zc
+Video: https://youtu.be/DczDS4hN0Zc
 
 Falls du lieber das Tutorial von VIM selbst auspobieren willst.
 Dann einfach nachdem du vim installiert hast "vimtutor" ausführen.

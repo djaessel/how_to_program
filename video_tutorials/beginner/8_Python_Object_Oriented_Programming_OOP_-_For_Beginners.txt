@@ -1,5 +1,5 @@
 
-https://youtu.be/JeznW_7DlB0
+Video: https://youtu.be/JeznW_7DlB0
 
 Falls du für später üben willst oder vielleicht mit dieser Art der Programmierung
 besser zurecht kommen solltest, hier die objektorientierte Programmierung in Python.

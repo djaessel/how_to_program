@@ -1,0 +1,5 @@
+Video: https://youtu.be/tEFkHEKypLI
+
+This can come in handy once you created some useful project that you want to share with the world
+At least when it comes to Python and creating a module to be installed with "pip install <package-name>"
+

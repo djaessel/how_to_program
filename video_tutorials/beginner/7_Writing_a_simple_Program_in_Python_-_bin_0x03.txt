@@ -1,4 +1,4 @@
-https://youtu.be/ajy1PHWYeyQ
+Video: https://youtu.be/ajy1PHWYeyQ
 
 Hier hab ich noch ein Video das einen kleinen Vergleich aufzeigt zwischen C und Python und 
 auch ein paar nützliche Tipps falls du mal mit Linux arbeiten wirst.
