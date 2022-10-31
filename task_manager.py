@@ -30,13 +30,18 @@ class TaskManager:
                 print("", len(TaskManager.tasks), ":", task_dir[i].replace("_", " "))
                 TaskManager.tasks.append(task_dir[i])
         print()
+        return len(TaskManager.tasks)
 
     @staticmethod
     def select_task():
         default_index = 0
         cur_index = -1
+        count = 0
         while cur_index < 0 or cur_index >= len(TaskManager.tasks):
-            TaskManager.print_available_tasks()
+            count = TaskManager.print_available_tasks()
+
+            if count <= 0:
+                break
 
             cur_index = -1
             current_task = input("Select task [0]: ")
@@ -47,9 +52,12 @@ class TaskManager:
             else:
                 print("Invalid input! Try again.")
 
-        TaskManager.current_task_index = cur_index
-        print(f'"{TaskManager.get_cur_task(True)}"', "selected!")
-        print()
+        if count > 0:
+            TaskManager.current_task_index = cur_index
+            print(f'"{TaskManager.get_cur_task(True)}"', "selected!")
+            print()
+            return True
+        return False
 
     @staticmethod
     def get_cur_task(fixed=False):
@@ -167,10 +175,12 @@ class TaskManager:
         print("Plese report bugs and errors! Thanks! :)")
         print()
         
-        TaskManager.select_task()
-        TaskManager.show_task_info()
-        TaskManager.prepare_working_dir()
-        TaskManager.show_solutions()
+        if TaskManager.select_task():
+            TaskManager.show_task_info()
+            TaskManager.prepare_working_dir()
+            TaskManager.show_solutions()
+        else:
+            print("No tasks available in this mode")
         
         another = input("Run another task? [y/N] ")
         return another.lower() in ["y", "j"]

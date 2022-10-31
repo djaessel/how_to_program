@@ -45,6 +45,7 @@ class ConsoleArgs:
         if reset:
             ConsoleArgs.mode_argument = False
             ConsoleArgs.info_argument = False
+            ConsoleArgs.reset_run_mode()
 
         if ConsoleArgs.current_run_mode == ConsoleArgs.default_run_mode:
             ConsoleArgs.read_saved_data()
@@ -114,10 +115,14 @@ class ConsoleArgs:
 
     @staticmethod
     def set_run_mode_val(val):
-        if type(val) == type(0):
+        if type(val) == type(0): # checks for type int - better ways possible
             ConsoleArgs.current_run_mode = val
             return True
         return False
+
+    @staticmethod
+    def reset_run_mode():
+        ConsoleArgs.set_run_mode_val(0x00)
 
     @staticmethod
     def set_run_mode(mode="", info_level="standard"):

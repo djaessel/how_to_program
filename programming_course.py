@@ -33,7 +33,7 @@ def main_program(argc, argv):
     while t_man.task_wheel():
         change_mode_or_info = input("Do you want to change the mode or info level? [y/N] ").lower()
         if change_mode_or_info in ["y", "j"]:
-            c_args.init_data(True)
+            c_args.init_data(reset=True)
 
 
 # Programstart
