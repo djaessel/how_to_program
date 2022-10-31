@@ -32,5 +32,6 @@ To access them properly run the following command inside this folder in terminal
 This ensures that you only get the beginner tasks with standard info  
 Later on you can also access more advanced tasks or advanced info for beginner tasks  
 
+> You can access all tutorials as well as practicing tasks through this program!  
 
 
