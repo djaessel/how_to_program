@@ -29,4 +29,20 @@ def open_coding_terminal(command):
         print(f"Example command: {command}")
 
 
+def open_file_browser(path):
+    path = path.replace('\\', '\\\\').replace('"', '\\"')
+    if sys.platform.startswith("linux"):
+        # this only works on Ubuntu or other linux with nautilus installed!!!
+        # shell_command = "gnome-open {path}"
+        shell_command = "nautilus {path}"
+        print(shell_command)
+        os.system(shell_command)
+    elif sys.platform == "win32":
+        shell_command = "start {path}"
+        # shell_command = "explorer {path}"
+        os.system(shell_command)
+    else:
+        print("ERROR: Unknown operating system!")
+        print("Please open the file explorer manually")
+
 

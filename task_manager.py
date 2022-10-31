@@ -131,16 +131,16 @@ class TaskManager:
             print("Done")
             print()
             
-            # print("Execute the following command to start the task:")
-            # print(f'cd "{task_working_dir}" && {dir_list_command()}')
-            # print()
-            # print("Now open the py file and start coding! :)")
-            # print()
-
             print("Opening terminal for coding...", end='')
             os_spec.open_coding_terminal(f'cd "{task_working_dir}" && {os_spec.dir_list_command()}')
             print("Done")
             print()
+
+            # print("Opening file explorer for coding...", end='')
+            # os_spec.open_file_browser(task_working_dir)
+            # print("Done")
+            # print()
+
             print("Now you can start coding! :)")
             print()
 
@@ -160,6 +160,12 @@ class TaskManager:
                             print(f"Opening terminal for {key} solution...", end='')
                             os_spec.open_coding_terminal(f'cd "{sol_dir}" && {os_spec.dir_list_command()}')
                             print("Done")
+                            # 
+                            # print(f"Opening file explorer for {key} solution...", end='')
+                            # os_spec.open_file_browser(sol_dir)
+                            # print("Done")
+                            # print()
+
                 ready = True
             elif ready.lower() == "q":
                 # quit here
