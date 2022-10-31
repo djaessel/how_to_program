@@ -46,3 +46,14 @@ def open_file_browser(path):
         print("Please open the file explorer manually")
 
 
+def open_url(url):
+    success = False
+    if url.startswith("http://") or url.startswith("https://"):
+        os.system(f"firefox {url}")
+        success = True
+    else:
+        print("Can't open url:", url)
+        print("Only http or https urls allowed!")
+    return success
+
+
