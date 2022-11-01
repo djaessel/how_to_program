@@ -6,11 +6,15 @@ import shutil
 class ConsoleArgs:
     save_file = ".settings"
 
+    default_action_code = 0
+    action_code = default_action_code
+
     default_run_mode = 0x00
     current_run_mode = default_run_mode
 
     mode_argument = False
     info_argument = False
+    action_argument = False
 
     modes = {
         "beginner":     0x10,
@@ -45,6 +49,7 @@ class ConsoleArgs:
         if reset:
             ConsoleArgs.mode_argument = False
             ConsoleArgs.info_argument = False
+            ConsoleArgs.action_argument = False
             ConsoleArgs.reset_run_mode()
 
         if ConsoleArgs.current_run_mode == ConsoleArgs.default_run_mode:
@@ -112,6 +117,15 @@ class ConsoleArgs:
                     info_l = arg.split("=")[1]
                     ConsoleArgs.set_run_mode(info_level=info_l)
                     ConsoleArgs.info_argument = True
+                elif arg.startswith("--action=") or arg.startswith("-a="):
+                    action_code = arg.split("=")[0]
+                    ConsoleArgs.set_action(action_code)
+                    ConsoleArgs.action_argument = True
+
+    @staticmethod
+    def set_action(action):
+        # TODO: add code if necessary
+        ConsoleArgs.action_code = action
 
     @staticmethod
     def set_run_mode_val(val):
