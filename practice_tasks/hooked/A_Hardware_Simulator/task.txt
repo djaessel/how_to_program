@@ -1,0 +1,60 @@
+
+You are working for a hardware engineering company.
+Recently some new hardware was developed.
+
+The new and shiny Ceplox-ICA-224 processing unit.
+
+Your task is to write a program that can simulate the assembly code written for this new hardware.
+
+For more information about the hardware, take a look at the "manual.pdf" or "manual.txt" files.
+
+The related hardware engineer gave you an example:
+
+Example:
+  Assembly Instruction:
+   ("MOV", "AX", 0x1234)
+  Pseudo code for simulation:
+   # Registers
+   variable AX = 0 
+   ...
+   variable current_asm_instruction = ("MOV", "AX", 0x1234)
+   simulate_asm_code(current_asm_instruction)
+   ...
+   show_all_registers()
+  Output:
+   Register | HEX-Value | Int-Value
+   AX       | 0x1234    | 4660
+   ...
+
+
+Add all registers.
+Make your code handle all assembly instructions properly.
+
+The engineer added, that she needs to see whether a text character is equal to a registers value.
+Valid characters:
+  ","
+  "."
+  " "
+  "0" - "9"
+  "a" - "z"
+  "A" - "Z"
+
+In case the value of the register is not one of these characters show "???" instead.
+
+Example output:
+   Register | HEX-Value | Int-Value | Char-Value
+   AX       | 0x0041    | 65        | 'A'
+   BX       | 0x1234    | 4660      | ???
+   ...
+
+
+Bonus:
+
+# TODO: add more tasks
+
+
+Extra Bonus:
+
+# TODO: add more tasks
+
+
