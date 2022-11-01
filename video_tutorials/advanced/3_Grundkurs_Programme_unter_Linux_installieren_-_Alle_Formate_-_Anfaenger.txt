@@ -1,0 +1,7 @@
+Video: https://youtu.be/cxG8l_aKNkk
+
+Since there are many formats and Linux distos, you might want to know how to handle different installer formats.
+Or in other words, there are plenty packages and variations in which you can install new software.
+
+And in case you might have no or not much experience with this, it might be helpful to you. :)
+

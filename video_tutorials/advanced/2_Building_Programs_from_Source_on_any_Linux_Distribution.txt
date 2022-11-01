@@ -1,0 +1,9 @@
+Video: https://youtu.be/atSZAbyrjxU
+
+Sometimes you need to install extra software and then it is only available from source.
+Or maybe it isn't available for your architecture (e.g. amd64 or i386) yet, but from source.
+
+Then you might want to know how to handle this.
+
+But be aware, this is only an easy and basic example.
+
