@@ -1,0 +1,157 @@
+
+Processing Unit: Ceplox-ICA-224
+
+Description:
+
+This processing unit is related to Ceplox-UA-144 and Ceplox-UA-148.
+Its task is it to produce specific values for these two units.
+All values inside the stack will be processed directly after they got added.
+The error handling is mostly done on the resulting units and not this one.
+
+The floating point registers are not used yet, but might be later on.
+
+When the executed program restarts all registers stay as they were.
+The stack gets reset after the program restarts.
+Only at the first start the registers have their initial values.
+
+
+Warning: This processing unit is currently in the testing phase!
+
+
+Currently Available Registers:
+ Register | Description
+ AX       | Basic Int 16 Bit Register
+ BX       | Basic Int 16 Bit Register
+ CX       | Basic Int 16 Bit Register
+ DX       | Basic Int 16 Bit Register
+ TEST     | Testing Int 16 value
+ F1       | Basic Floating point register (16 Bit)
+ F2       | Basic Floating point regsiter (16 Bit)
+ SP       | Stack pointer Int 16 Bit
+
+Special Register information:
+ - AX - DX:
+  -> inital value is always 0x0000
+ - TEST:
+  -> This is only for testing purposes
+  -> maintained by the hardware
+  -> can only be used to store values
+  -> ask engineer for more information
+ - F1 - F2:
+  -> initial value is always 0xFFFF
+  -> can later be used for floating point operations
+  -> currently not used
+  -> can interact with Basic Int 16 Bit registers
+ - SP:
+  -> always has the address of the latest stack value
+  -> initial value is always 0x0000
+
+
+Currently Available Assembly Instructions:
+
+ # Stores the value into the register
+ MOV <register> <int-value>  
+ # Stores the value of the right register into the left register
+ MOV <register> <register2> 
+
+ # Adds the right value to the given register and stores the result in the register
+ ADD <register> <int-value>
+ # Adds the value of the right register to the left register and stores the result in the left register
+ ADD <register> <register2>
+ 
+ # Multiplies the register with the value and stores the result in the register
+ MUL <register> <int-value>
+ # Multiplies the register with the value of the second register and stores the result in the first register
+ MUL <register> <register2>
+
+ # Subtracts the value from the register and stores the result in the register
+ SUB <register> <int-value>
+ # Subtracts the value of the second register from the first register and stores the result in the first register
+ SUB <register> <register2>
+
+ # Pushes the given register into the stack
+ PUSH <register>
+ # Pushes all registers, except "TEST" into the stack - the order as shown in the manual
+ PUSHA
+
+ # Pops the latest value from the stack and stores it into the given register
+ POP <register>
+ # Pops all registers, except "TEST" starting from the latest value in stack.
+ # Should there be less values than registers the remaining registers will
+ # have the value 0x000 or simply 0.
+ POPA
+
+ # This instruction does nothing.
+ # When a TEST instruction was not equal the program will continue after
+ # this instruction.
+ # Without this instruction any failed TEST instruction will lead to a 
+ # program restart, while the stack stays intact.
+ RES
+
+ # Special operation - if the value on the right and register's value are equal
+ # the following assembly code will be executed.
+ # Otherwise if they aren't equal, the program jumps to next "RES" instruction and
+ # starts executing the instruction after that.
+ # In case there is no "RES" instruction in the file, the program restarts
+ TEST <register> <int-value>
+
+ # This instruction jumps to a given label
+ # Labels act as addresses
+ # Example of an endless loop:
+ # RUNNER: JMP RUNNER
+ JMP <label-name>
+
+
+Assembly Instruction values:
+ MOV	--> [0x01]
+ ADD	--> [0x02]
+ MUL	--> [0x03]
+ SUB	--> [0x04]
+ PUSH	--> [0x05]
+ PUSHA	--> [0xFA]
+ POP	--> [0x06]
+ POPA	--> [0xFB]
+ RES	--> [0xFF]
+ TEST	--> [0xFC]
+ JMP	--> [0xFD]
+
+Actual Assembly machine code:
+ - MOV:
+   MOV AX, 0x00
+   --> [0x01, 0x00, 0x00]
+   ...
+   MOV DX, 0x00
+   --> [0x31, 0x00, 0x00]
+   MOV F1, 0x12
+   --> [0x81, 0x00, 0x12]
+   MOV F2, 0x12
+   --> [0x91, 0x00, 0x12]
+   MOV TEST, 0x1234
+   --> [0xF1, 0x00, 0x12, 0x34]
+   MOV AX, AX
+   --> [0x01, 0x01]
+   MOV AX, DX
+   --> [0x01, 0x04]
+ - ADD:
+ - MUL:
+ - SUB:
+   SUB AX, 0x01
+   --> [0x02, 0x00, 0x01]
+ - PUSH:
+   PUSH AX
+   --> [0x05]
+   PUSH F1
+   --> [0x85]
+ - PUSHA:
+ - POP:
+ - POPA:
+ - RES
+ - TEST:
+   TEST AX 0x00
+   --> [0xFC, 0x01, 0x00]
+ - JMP
+   MAIN: JMP MAIN
+   # The index of the operation after the label name gets stored
+   # In this example it is the first operation so the index equals to 0x0000
+   --> [0xFD, 0x00, 0x00]
+
