@@ -10,3 +10,30 @@ Git brauchst du ja langfristig so oder so, auch eines der Dinge, die ich gerne f
 Als ich damals angefangen habe, gab es dann immer verschiedene Ordner mit Versionsnummer o.ä., 
 das war vielleicht ein Salat am Ende.
 
+--
+
+Eine kleine Info nebenbei:
+Es gibt auch folgende schreibeweise für "if"s.
+
+(text1 == "Hello") ? "Found" : "Not found"
+
+Erklärung:
+condition ? <data-if-true> : <data-if-false>
+
+Angewandt wird das z.B. für eine Zuweisung, wenn nur zwei oder drei verschiedene Werte gesetzt werden sollen.
+Natürlich abhängig von einer bestimmten Bedingung.
+
+Beispiel:
+user_mode = 0
+user_mode_name = (user_mode == 1) ? "ADMIN" : "USER"
+
+Das führt in diesem Fall dazu, dass "USER" in user_mode_name gespeichert wird.
+
+Leider funktioniert das in Python so nicht, es gibt aber etwas vergleichbares:
+
+user_mode_name = "ADMIN" if (user_mode == 1) else "USER"
+
+--> Es wird aber allgemein eher davon abgeraten.
+--> Also nicht unbedingt angewöhnen, es ist eher fürs testen oder Notfälle.
+--> Das war auch eher zum Verständnis, falls du sowas mal sehen solltest.
+
