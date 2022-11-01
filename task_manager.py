@@ -43,12 +43,16 @@ class TaskManager:
             if count <= 0:
                 break
 
+            print("(Select 'q' to exit)")
+
             cur_index = -1
             current_task = input("Select task [0]: ")
             if current_task.isdigit():
                 cur_index = int(current_task)
             elif len(current_task) == 0:
                 cur_index = default_index
+            elif current_task.lower() == "q":
+                sys.exit()
             else:
                 print("Invalid input! Try again.")
 
@@ -131,18 +135,18 @@ class TaskManager:
             print("Done")
             print()
             
-            print("Opening terminal for coding...", end='')
-            os_spec.open_coding_terminal(f'cd "{task_working_dir}" && {os_spec.dir_list_command()}')
-            print("Done")
-            print()
+        print("Opening terminal for coding...", end='')
+        os_spec.open_coding_terminal(f'cd "{task_working_dir}" && {os_spec.dir_list_command()}')
+        print("Done")
+        print()
 
-            # print("Opening file explorer for coding...", end='')
-            # os_spec.open_file_browser(task_working_dir)
-            # print("Done")
-            # print()
+        # print("Opening file explorer for coding...", end='')
+        # os_spec.open_file_browser(task_working_dir)
+        # print("Done")
+        # print()
 
-            print("Now you can start coding! :)")
-            print()
+        print("Now you can start coding! :)")
+        print()
 
     @staticmethod
     def show_solutions():
