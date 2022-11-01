@@ -13,7 +13,13 @@ class VideoTutorials:
 
     @staticmethod
     def get_video_count(video_name):
-        return int(video_name.split("_")[0])
+        splitter = video_name.split("_")
+        first_num = int(splitter[0])
+        second_num = 0
+        if splitter[1].isdigit():
+            second_num = int(splitter[1])
+        return float(f"{first_num}.{second_num}")
+
 
     @staticmethod
     def print_available_videos():
@@ -83,7 +89,10 @@ class VideoTutorials:
                 if not empty_start_line:
                     print(line)
             
-            os_spec.open_url(video_url)
+            if video_url != "URL_NOT_FOUND":
+                print()
+                os_spec.open_url(video_url)
+
             print()
         else:
             print("Invalid input! Please try again.")

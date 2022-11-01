@@ -41,10 +41,12 @@ def handle_options():
         option = input(f"What do you want to do? [{default_option}]: ")
         
         if len(option) == 0:
-            option_int = 0
+            option = "0"
         
         if option.isdigit():
             option_int = int(option)
+        else:
+            option_int = -1
         
         if option_int == 0:
             while vid_tuts.video_wheel():
