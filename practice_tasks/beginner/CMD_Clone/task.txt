@@ -28,6 +28,9 @@ Was dabei passiert, ist lediglich eine leere Zeile auszugeben.
 
 (Tipp: Das kann später hilfreich sein, wenn man in einem Skript leere Zeile ausgeben möchte.)
 
+> Die "/?" help pages oder Hilfeseiten generell können vernachlässigt werden.
+
+
 
 Bonus:
 
