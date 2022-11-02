@@ -13,7 +13,7 @@ from programming_videos import VideoTutorials as vid_tuts
 
 
 def print_welcome_message():
-    welcome_file = ".welcome_message"
+    welcome_file = "./course_program/.welcome_message"
     if os.path.exists(welcome_file):
         with open(welcome_file, "r") as f:
             data_len = 1
