@@ -4,6 +4,9 @@ import os
 import sys
 import shutil
 
+# adding course_program to the system path
+sys.path.insert(0, './course_program')
+
 from console_args import ConsoleArgs as c_args
 from task_manager import TaskManager as t_man
 from programming_videos import VideoTutorials as vid_tuts
