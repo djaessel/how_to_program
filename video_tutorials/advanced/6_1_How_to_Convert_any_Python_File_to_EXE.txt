@@ -1,0 +1,16 @@
+
+Video: https://youtu.be/UZX5kH72Yx4
+
+At some point in time you might want to create an actual executable instead of the plain old python files.
+Python has of course its own compiled files .pyc, but they are not what most people want.
+
+Typically you want an .exe file under Windows and then simply run it.
+
+This video shows you how to accomplish this.
+Although it could be tricky.
+
+Hint: Don't forget to watch the video that shows how to make this in linux.
+
+Also it might be good to see different ways on how to do it.
+
+

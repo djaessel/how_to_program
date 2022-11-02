@@ -1,0 +1,21 @@
+
+Video: https://youtu.be/a5kUr-u2UNo
+
+Here you can see how C++ handles external code, that someone else has written.
+Or maybe code that you have written some time ago and just want to reuse in other projects.
+
+--
+
+Either way it is useful to understand how this works, since a lot of code is based around this.
+Even Python at its core and you can also use .DLL or .SO (shared libraries) in Python.
+
+This is not always possible, but can come in handy when it is possible.
+Since the code in the shared library should run much faster.
+
+In Python the modules you can import act similar to the C++ include imports,
+but there are some differences.
+Normally in the header files of C/C++ you only find declarations and abstract code,
+which only tells the using code what it can use and how it looks.
+
+It is possible to write actual code in there as well, but it is not recommended.
+

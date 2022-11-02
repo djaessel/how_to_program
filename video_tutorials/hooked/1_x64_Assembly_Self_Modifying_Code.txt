@@ -1,0 +1,16 @@
+
+Video: https://youtu.be/8-9ImxdpaK0
+
+This is simply so you have seen it.
+And maybe you got a few things sorted or cleared out through this.
+
+You probably never going to use this, especially with Python.
+But should you maybe want to investigate this further, it might be interesting.
+
+The Creel channel is more about hardware related functions and code.
+For example he compared execution time of CPUs with specific instructions and his own program.
+
+Such things...
+
+But if this was too much for you, simply forget about it (for now). :D
+

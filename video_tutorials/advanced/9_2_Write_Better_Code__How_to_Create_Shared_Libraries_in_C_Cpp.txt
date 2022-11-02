@@ -1,0 +1,9 @@
+
+Video: https://youtu.be/Slfwk28vhws
+
+This looks pretty easy and seems to work.
+But be aware that this could not work under Windows or other operating systems.
+
+Usually in Windows you need to add some special keywords to make this work.
+Could be that this is true for some linux distros as well or dependend on the compiler.
+

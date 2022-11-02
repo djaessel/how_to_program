@@ -1,0 +1,6 @@
+
+Video: https://youtu.be/Rw1N03Mp8xg
+
+There also is a way to make an executable with Cython.
+Which basically gets a relation to C code and compiles the code.
+

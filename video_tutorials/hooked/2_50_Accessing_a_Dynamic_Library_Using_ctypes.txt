@@ -1,0 +1,13 @@
+
+Video: https://youtu.be/SnEtWSZyBkY
+
+At some point you might need this.
+For sure you will need this in one of my practicing tasks. >:D
+
+But it seems harder than it is.
+Only when there would be a problem with the shared library code,
+making it not or not fully available for Python it could become a headache.
+
+Loading shared libraries is pretty great for a lot of use cases.
+So make sure to check it out some time.
+

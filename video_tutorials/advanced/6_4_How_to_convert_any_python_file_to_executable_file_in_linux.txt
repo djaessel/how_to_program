@@ -1,0 +1,9 @@
+
+Video: https://youtu.be/wJ8g8Gke0i4
+
+Here you get the Linux version of the basically same process on creating an executable.
+In this case they use pyinstaller.
+
+Since in another video they used Nuitka, you could also try this on linux.
+From my experience it should work, but not with all Python versions.
+

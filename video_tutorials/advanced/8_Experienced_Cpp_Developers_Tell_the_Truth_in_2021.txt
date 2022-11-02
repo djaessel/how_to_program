@@ -1,0 +1,15 @@
+
+Video: https://youtu.be/hF0l2M-oD04
+
+
+This is more of an informative video about the C++ programming language and
+where was and might still gets used.
+
+Also it might give you an idea about the job market.
+
+But while it is a fairly old language and its parent language C even around 50 years,
+there is still a lot of room for C++ to be used.
+
+So it might be worth looking into it, even if you later might not use it that much,
+or maybe not at all.
+

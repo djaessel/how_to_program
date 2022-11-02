@@ -1,0 +1,18 @@
+
+Video: https://youtu.be/x2IQP8iug3c
+
+In this video you will get to know why Python is slower than other programming languages.
+Not always, but in general it is the case.
+
+There is also some information about why it is difficult to make out what Python does,
+when it comes to foreseeing the runtime behavior.
+
+And other languages often know exactly what happens when and with what.
+But there will happen errors as well, of course. :)
+
+Since you have watched the videos about Cython and compiling Python code,
+the speed part might change a bit or a lot.
+
+But still there is the part about the variable types and checking,
+which is not so much the case in other languages like C/C++, C#, Java or the like.
+
