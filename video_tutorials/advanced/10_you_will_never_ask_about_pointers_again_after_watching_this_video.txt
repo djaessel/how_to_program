@@ -1,0 +1,20 @@
+
+Video: https://youtu.be/2ybLD6_2gKM
+
+Since you might want to program some things in C++ later on,
+it is good to know what pointers are and how they work.
+
+This basic example is not that useful, but makes it clear on how it works.
+
+In actual programs pointers are usually used for objects of classes or arrays.
+Because the class object might be stored at some point in the memory and then it will start from the pointers address.
+So all values are related to this pointer address and can actually be added, when you wrote typical code.
+
+int *pStudent = &student;
+pStudent->getName();
+
+Usually you would write
+student.getName();
+
+It is a little weird in the beginning, but some IDEs do a great job on helping out with these as well.
+
