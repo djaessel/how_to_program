@@ -81,10 +81,13 @@ def main_program(argc, argv):
 
 
 # Programstart
-argc = len(sys.argv) - 1
-argv = []
-if argc > 0:
-    argv = sys.argv[1:]
+def main():
+    argc = len(sys.argv) - 1
+    argv = []
+    if argc > 0:
+        argv = sys.argv[1:]
+    main_program(argc, argv)
 
-main_program(argc, argv)
+
+main()
 

@@ -11,6 +11,12 @@ Und schließlich auch noch ein paar Videos über Linux und warum man es benutzen
 
 # How to handle the practicing tasks
 
+Simply start the `start.bat` or `start.sh` file in terminal.  
+
+This should start the main program and otherwise give you some information about how to make it run.
+
+# Advanced way to start the program  
+
 > Before you start, make sure python3 is the default
 
 `python --version`
