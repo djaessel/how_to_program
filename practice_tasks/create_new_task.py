@@ -89,7 +89,10 @@ def create_folders_and_files(name, program_name, mode):
         with open(base_folder + "/task.txt", "w") as f:
             f.write("Empty Note\n")
 
-        program_file_path = base_folder + "/" + program_name + ".py"
+        task_files_folder = base_folder + "/task_files"
+        os.mkdir(task_files_folder)
+
+        program_file_path = task_files_folder + "/" + program_name + ".py"
         with open(program_file_path, "w") as f:
             f.write("#!/usr/bin/python3\n")
             f.write("\n")
