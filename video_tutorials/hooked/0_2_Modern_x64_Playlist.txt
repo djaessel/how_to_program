@@ -1,0 +1,22 @@
+
+Video: https://www.youtube.com/watch?v=rxsBghsrvpI&list=PLKK11Ligqitg9MOX3-0tFT1Rmh3uJp7kA
+
+This might be helpful for Assembly Code Tasks or in general.
+So basically to getting to know your computer better.
+
+Sometimes there are references to x86 Assembly,
+but x64 is basically the some, just with more instructions and registers.
+
+It is important to notice, that x86 can run on 32 Bit and 64 Bit machines,
+while x64 can only run on 64 Bit machines, as far as I know.
+(At least natively.)
+
+This is mainly for computer programming and specificly for the CPU.
+For boards there are sometimes other instructions, registers, etc.
+So be aware of that some things can change depending on the architecture.
+Or sometimes the compiler (and or operating system) can also make a difference.
+
+But the "plain" Assembly stays mostly the same.
+Things like MOV, PUSH, and such.
+Just special instructions might change and registers and such.
+
