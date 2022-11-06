@@ -42,7 +42,7 @@ class VideoTutorials:
     @staticmethod
     def read_video_info(video_file_name):
         lines = []
-        video_url = "URL_NOT_FOUND"
+        url = "URL_NOT_FOUND"
 
         vid_folder_path = VideoTutorials.get_videos_folder_path()
         vid_file_path = vid_folder_path + "/" + video_file_name
@@ -53,12 +53,13 @@ class VideoTutorials:
                     line = f.readline()
                     data_len = len(line)
                     if data_len > 0:
-                        if line.lower().startswith("video"):
-                            video_url = ":".join(line.split(":")[1:]).rstrip('\n').strip()
+                        line_l = line.lower()
+                        if line_l.startswith("video:") or line_l.startswith("link:"):
+                            url = ":".join(line.split(":")[1:]).rstrip('\n').strip()
                         else:
                             lines.append(line.rstrip('\n'))
 
-        return lines, video_url
+        return lines, url
                         
 
     @staticmethod
@@ -76,10 +77,10 @@ class VideoTutorials:
             video_index = int(video_num)
 
         if 0 <= video_index < len(vids):
-            info_lines, video_url = VideoTutorials.read_video_info(vids[video_index])
+            info_lines, url = VideoTutorials.read_video_info(vids[video_index])
             print()
-            print("Video URL:", video_url)
-            print("Video Info:")
+            print("[Video] URL:", url)
+            print("[Video] Info:")
             print()
 
             empty_start_line = True
@@ -89,9 +90,9 @@ class VideoTutorials:
                 if not empty_start_line:
                     print(line)
             
-            if video_url != "URL_NOT_FOUND":
+            if url != "URL_NOT_FOUND":
                 print()
-                os_spec.open_url(video_url)
+                os_spec.open_url(url)
 
             print()
         else:
