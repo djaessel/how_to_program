@@ -1,0 +1,15 @@
+
+Video: https://www.youtube.com/playlist?list=PL0C5825724605DB2A
+
+Here you will get a similar Tutorial Playlist like the beginner Video(s) for Python, just in C++.
+
+It is always good to learn more than one language and I think, learning Python and C++ aside,
+will give you enourmous insight into programming and what the CPU does and such things.
+
+Later on you can still decide to use another language or whatsoever, but these seem to be the very best to begin with.
+
+Best practice would probably be to first try to write a program in Python to (just) solve the problem.
+Then try to solve the same problem in C++, to understand how it is done in a more "proper" way.
+In the end you will understand both languages better and better and also be able to solve things in mutliple ways.
+Awesome, isn't it. :)
+

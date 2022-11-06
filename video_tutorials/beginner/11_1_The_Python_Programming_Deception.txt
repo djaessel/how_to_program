@@ -1,0 +1,21 @@
+
+Video: https://youtu.be/FeYljNZHjZQ
+
+Here just an explanation about what Python is common for and why it is better
+to also learn other languages instead or later on.
+
+Since the actual market for Python is mostly small or very specific.
+Other languages like C/C++, Java, C#, PHP and such are more common and more widely used.
+
+So consider to learn one of these, depending on what your goals might be.
+
+I would consider C++ which is the "better" version of C and capable of a lot of things.
+But when it comes to Websites PHP might be better.
+And when it comes to Windows Forms Programs (the typical program with graphical user interface) - C# (mostly Windows) or Java.
+
+But there are also a lot of libraries for C++ nowadays, so you could also use Qt for example.
+I might use that in some of the tutorials and tasks for you later on.
+
+It really depends on the goal at times, since you can do many things with a lot of languages,
+but some are just a bit better in some topic or where actually designed and created for a certain problem and topic.
+
