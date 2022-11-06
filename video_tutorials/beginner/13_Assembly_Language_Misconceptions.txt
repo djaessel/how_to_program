@@ -1,0 +1,38 @@
+
+Video: https://youtu.be/8_0tbkbSGRE
+
+You probably haven't heard of these, but it might be good to know about it nonetheless.
+
+Since one of these is about speed, it is good to know, that it is not fully false, but depends on the use case.
+Because Assembly code surely is the nearest to the hardware's actual codes, but sometimes compilers
+of high-level languages have tricks to improve your code, which you won't have if you write it yourself based on
+what you would do in higher level languages.
+
+For example setting a variable to 0 is usually something like:
+(datatype) variablename = 0
+which means: Set variablename to 0.
+
+So in assembly you would search for something similar and therefor use MOV.
+MOV EAX, 0
+for example.
+
+And it surely works and does the job, but it isn't the fastest way to do so.
+The faster and commonly used instruction would be:
+XOR EAX, EAX
+since it would result in EAX being 0 as well, but (much) faster than with the MOV instruction.
+Why that is the case? I don't know, ask the hardware manufactures, but it is how it is.
+So it might be good to know such things.
+
+--
+
+When we had Assembly coding in TG school, at some point our teacher gave us a sheet.
+On it there were instructions together with their actual hardware speed 
+(I think in μs (micro seconds) or even ns (nano seconds)).
+
+Then he connected some device to a microcontroller we were about to program.
+And was showing with waves how long the instructions actually take and how it looks like.
+Pretty cool stuff, though your school probably won't do that.
+But it was interesting to see and understand how it looks for hardware,
+like the actual electricity going on inside and such stuff.
+
+
