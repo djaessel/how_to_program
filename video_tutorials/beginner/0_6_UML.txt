@@ -1,0 +1,49 @@
+
+This is about UML or "Unified Modelling Language".
+
+It is a similar approach like the previously mentioned PAPs, only that it is not so much german and
+is used for Classes and their relations and not so much about coding itself.
+
+Examples:
+Link: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+
+
+Once you are getting into object oriented programming, you want to use this or at least should have seen it.
+
+I had to do these at school a lot, probably more than actual programming. :P
+At least in the "TG" school, not so much in the profession school.
+Which was weird, but yeah. I learned a lot more in the "TG" than in the actual profession school.
+
+Aaaany ways...
+
+Before you define some classes and code them, you want to create an UML.
+Once again, you might never use these in an actual job, but maybe at school and
+it is good to understand what you will do with the classes before you implement them.
+
+Another point is again the universal standard, which makes it possible for other programmers,
+to understand what you are trying to do, without actually needing to understand or know your programming language.
+And well, also makes it possible for others to implement it in their preferred or needed language.
+
+
+If you want you can send some of these in as well.
+I actually would prefer these over the PAPs, since it is more realistically that you would use these than a PAP.
+Because usually you don't talk about the actual coding with pseudo code, but that's another topic maybe.
+
+
+With UML it is different, since it could be that you might get a customer who has no idea about programming,
+but still wants to understand what you will do and give you information about what you should make possible.
+
+Example:
+Someone wants a managing system for their company.
+They have Tasks, Employees, Projects.
+And then they want that each employee gets a certain number of tasks per project.
+But there is a maximum limit, as well as for the running projects.
+So you gotta make sure that limit is handled and represented.
+
+Therefor you can use these UMLs and mark all important info you will later need as well.
+For example attributes, methods and well the relations (N number of relation or specifc, like 1 to 4 etc.).
+
+
+Again, this is not necessary, but might be used in some cases and could help sometimes.
+
+
