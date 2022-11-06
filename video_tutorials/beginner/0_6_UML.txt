@@ -47,3 +47,7 @@ For example attributes, methods and well the relations (N number of relation or 
 Again, this is not necessary, but might be used in some cases and could help sometimes.
 
 
+And you can use another program if you want, just give me a hint, so I can use the UML files,
+in case they have a special format etc. :)
+
+
