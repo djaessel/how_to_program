@@ -1,0 +1,53 @@
+
+Hi there!
+
+Since you might need this at school at some point and because it can help understanding problem solving in the beginning,
+here a nice tool with which you can create a so called "PAP or "Programmablaufplan".
+
+It is called PapDesigner and should be totally free and (more or less) easy to use.
+
+Link: friedrich-folkmann.de/
+
+Just download the export ZIP Version.
+The Setup Version just gives you the option to choose a destination and click yourself through, 
+but includes the same exe at the end.
+
+After that simply start that exe file called "PapDesinger.exe" with administrator rights.
+(You don't need administrator rights to run it, but at start it tries to add the .pap file extension to be 
+opened through this program and that should only work with admin rights.)
+
+Linux INFO:
+ It is built for Windows only, but you can run it under Linux as well, if you want.
+ For that you would need something like "wine" (Windows Emulator), which can execute a lot of Windows Programs,
+ as if they were running on Windows.
+ 
+ If you don't want to get a headache, in case it has a lot of dependencies or other problems,
+ simply use it on some Windows machine.
+
+
+Once the program is started, you should get a popup message telling you about "Lernhilfen".
+If you want to know how things are represented an built in PapDesigner you really should check that one out.
+It is at the top right and gives you an overview about all things you can (and should) do with this program.
+
+
+It is good to first create a program in here, in a basic form (with pseudo code you could say) and then
+actually write the program based on what you did in here.
+
+You don't have to and probably won't do this in an actual job, but it could happen and might be useful and
+helpful in the beginning. It also could help if you have people with all sorts of programming languages in one group.
+Since these "PAP"s should be universal, everyone should be able to understand what you are trying to say.
+But once it comes to programming, everyone would/could write their actual solution in their own language.
+
+Another of these things are UMLs, usually used for classes, but that is another topic. :)
+
+
+Just check this out and maybe do some of these for the tasks you might encounter in here.
+Would be cool, if you could send me some of these as well, but you don't have to. :D
+
+And well, the program is german, so yeah... ^^
+
+
+Why am I writing in english, I don't know. Pizza. Yep.
+
+Bye. °l°
+
