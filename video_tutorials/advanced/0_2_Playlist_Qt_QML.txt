@@ -1,0 +1,10 @@
+
+Video: https://www.youtube.com/playlist?list=PLgffZ1Nsdt5pQmj06zF-CKRRP3ge8V9Vm
+
+Here is a video how Qt and the related QML basically work.
+This comes in handy with the Python and Pyside/PyQt way as well, since QML stays the same for that.
+And you surely will use QML for the GUI either way.
+
+Maybe you should watch this series before you watch the Python version,
+but it is not that important. In the end you should have seen both anyway.
+

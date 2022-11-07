@@ -1,0 +1,7 @@
+
+Video: https://www.youtube.com/playlist?list=PLuvCsqbtUSFAEmez6Tuyi2KitVcS4fLWX
+
+Here you are going to see how you can create a GUI (graphical user interface) with Qt and Python.
+Depending on the version of each of these frameworks and programming languages,
+the way things work might differ. Be aware of that. :)
+
