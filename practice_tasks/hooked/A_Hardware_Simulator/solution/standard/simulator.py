@@ -28,6 +28,7 @@ class Simulator:
         self.labels = {
             "__START__": 0x0000
         }
+        self.label_search = True
 
     def reset_all_registers(self):
         for key in self.registers:
@@ -62,10 +63,17 @@ class Simulator:
 
     def print_all_registers(self):
         print()
-        print("REGISTER", "|", "HEX-VAL", "|", "INT-VAL")
+        print("REGISTER", "|", "HEX-VAL", "|", "INT-VAL", "|", "CHAR-VAL")
         for reg_name in self.registers:
             val1 = self.get_reg_val(reg_name)
-            print(reg_name, "\t", "|", "0x" + hex(val1).lstrip("0x").zfill(4).upper(),  " |", val1)
+            if ord('a') <= val1 <= ord('z') or ord('A') <= val1 <= ord('Z') or ord('0') <= val1 <= ord('9'):
+                val1char = chr(val1)
+            else:
+                val1char = "???"
+            print(reg_name, "\t", "|", "", end='')
+            print("0x" + hex(val1).lstrip("0x").zfill(4).upper(),  " |", "", end='')
+            print('{val: <7} |'.format(val=val1), "", end='')
+            print(val1char)
         print()
 
     def memory_push(self, val):
@@ -152,7 +160,11 @@ class Simulator:
         if codes[0].endswith(":"):
             self.add_label(codes[0].rstrip(":"))
             # address -= 1 # since labels are not counted as code
-        elif codes[0] == "MOV":
+
+        if self.label_search:
+            return address + 1
+
+        if codes[0] == "MOV":
             self.simulate_mov(codes[1:])
         elif codes[0] == "ADD":
             self.simulate_add(codes[1:])
@@ -185,6 +197,14 @@ class Simulator:
             if asm_codes[i].startswith("#"):
                 del asm_codes[i]
 
+        # First run is for label search
+        address = 0
+        while address < len(asm_codes):
+            code = asm_codes[address]
+            address = self.simulate_asm_code(code, address)
+
+        # Second run is actual simulation
+        self.label_search = False
         address = 0
         while address < len(asm_codes):
             code = asm_codes[address]
