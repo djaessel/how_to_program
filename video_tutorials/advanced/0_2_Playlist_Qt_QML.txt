@@ -6,5 +6,21 @@ This comes in handy with the Python and Pyside/PyQt way as well, since QML stays
 And you surely will use QML for the GUI either way.
 
 Maybe you should watch this series before you watch the Python version,
-but it is not that important. In the end you should have seen both anyway.
+but the order is not that important. In the end you should have seen both anyway.
+
+What is important thou, that in the tutorial of PySide they use an .ui file.
+This is the usual way of doing things with Qt and widgets.
+
+But there also is something like Qt Quick Applications.
+These might look a little different by default and are more cross-platform than the ui thing.
+So you will probably use QML for python as well, when creating a gui app.
+But it is good to see both things and maybe what their advantages and disadvantages are.
+
+I usually go for QML files since they are easier to understand and edit,
+at least from my perspective.
+
+An example:
+Then Warband openBrf tool is written in Qt and C++.
+That thing uses ui files, which is totally fine since it is usually used on Windows.
+(Linux would probably work as well and other operating systems, but when it comes to Android and alike it might not work.)
 
