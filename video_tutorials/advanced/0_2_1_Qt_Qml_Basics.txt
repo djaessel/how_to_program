@@ -1,0 +1,53 @@
+
+Video: https://www.youtube.com/playlist?list=PL0_oym1I-EuWXfe-1uR0GxXzBjVLmpPok
+
+In this tutorial series you are going to take a look at QML.
+It is the Language and Collection for Qt Quick Applications.
+
+With this you can easily create cross-platform applications.
+Be it for a pc, android device or whatever you want (it might not include everything, but a lot).
+
+There also is another tutorial series for this, but it is a lot older and some things could have changed in the meantime.
+So maybe check it out if you can't find something in this tutorial or want to see how it developed over time.
+
+QML files are just for the so called "Forms" or the GUI (graphical user interface) parts.
+These files later can be loaded from either C++ or Python inside a specific engine.
+
+Actually, with QML you probably will have most of the functional code inside of these QML files,
+instead of regual programming with the calling language.
+
+Usually you would have C++ classes or Python classes and such and then call these etc.
+With QML you basically start QML from the calling language and then do everything in there.
+There surely are cases in which you want to also code something in C++ or Python and 
+later on interact with the QML or modify something etc.
+
+These things will happen and are meant to happen.
+Just wanted to say, that you basically can write a whole application in QML.
+
+QML is a mixture of some kind of Javascript for the code (functions, etc.) and
+a special syntax for the graphical items, for example buttons.
+
+You could define a Button like this:
+Button {
+  id: button1
+  onClicked: {
+    console.log("Hello World!")
+  }
+}
+
+All the above does is adding a new button to the QML file (usually the MainWindow/Form) and
+gives it the id button1, so it can be accessed by that.
+Once you click on it, the text "Hello World!" will print out in the console.
+
+That's all.
+
+But there are a lot of other attributes, like the position, size, text etc.
+Check out the documentation on the website or even cooler inside QtCreator press F1.
+In case you documentation was installed by default you should see all you need and want to know.
+(For Linux it could be that this is not working by default, since the documentation can be large, 
+ so you would need to install some additional packages for that.)
+
+Usually it gets installed by default.
+
+
+

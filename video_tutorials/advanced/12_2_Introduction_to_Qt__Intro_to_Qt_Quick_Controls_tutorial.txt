@@ -1,0 +1,12 @@
+
+Video: https://youtu.be/uuhmSZxK1mk
+
+This is the second video about QML files.
+Don't get confused, but there is a difference in usage here.
+In the previous one it was mainly used for GUI style and definition,
+but in this one they will actually be used as full applications (code + GUI).
+
+This is referred to as Qt Quick or Qt Quick Controls.
+
+A more flexible and maybe easier way of making things in the long run.
+

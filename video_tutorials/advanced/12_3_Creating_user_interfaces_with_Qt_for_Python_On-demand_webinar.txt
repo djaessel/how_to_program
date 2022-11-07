@@ -1,0 +1,21 @@
+
+Video: https://youtu.be/wKqLaNqxgas
+
+And finally the official video about how Qt and Python (can) work together.
+
+(Again from the official Qt channel.)
+
+Since you will probably first want to check things out through Python instead of C++.
+But later on I would recommend to use poth, just to get familiar with both of them.
+
+In the end it could be that you mainly write your logic inside QML files anyway,
+but the more you know the better, I would say.
+
+At least then you can be more flexible and don't have to worry about things like:
+ - How am I going to make sure the Client has Python and the correct version?
+ - The needed packages are not included by default, how do I do this?
+ - How can I port this to C++ to make it just run?
+ - Where is my Pony?
+
+Just basic questions you have in life, I guess. :D
+

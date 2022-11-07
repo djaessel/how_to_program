@@ -1,0 +1,28 @@
+
+Video: https://youtu.be/GkzncJ71mm0
+
+In case you already watched some of the QML tutorial playlists, this will probably not be that interesting anymore.
+You should watch this probably before you watch these to get a quick insight on the topic.
+Like an overview in a fast way.
+
+Later you could watch these playlists to get more details and insight etc.
+
+By the way, this tutorial seems to come from the official "Qt" channel, so they should know what they are doing. :D
+They should know...
+
+--
+
+Random Comment:
+I liked how he added a rectangle, named it button and then made a circle out of it.
+Just magic. :P
+
+--
+
+Well, the names and possibilities with QML Elements can be a little confusing.
+Especially when you can mix them all together and so on.
+
+For example the MouseArea,
+you can add it to any Element and then make it behave like a button.
+But then there are several types of Button Elements as well. :D
+Just confusing at times, but it will get more useful later on, I promise.
+

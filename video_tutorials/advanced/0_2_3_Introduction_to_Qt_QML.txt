@@ -1,0 +1,24 @@
+
+Video: https://www.youtube.com/playlist?list=PL6CJYn40gN6hdNC1IGQZfVI707dh9DPRc
+
+And another one...
+
+Well, you can't have enough tutorials, am I b...right?
+
+Jokes aside, this is just an additional tutorial series for Qt and QML.
+
+Once you finished at least one of the previous tutorial series about this,
+you might want to skip some of the videos with similar topics.
+
+But it could be that here and there are videos with new information or different examples.
+
+I think this one is more advanced than the others, but I haven't watched it.
+Just from the topics and the looks of it I thought this way.
+
+So I would say this one has probably more details on some topics,
+but it is not necessary to start working with Qt and QML files.
+
+Maybe later on you can revisit once you got some experience and see what else you might want to do or could do.
+ 
+ : )
+
