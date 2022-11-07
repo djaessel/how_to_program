@@ -25,9 +25,7 @@ class Simulator:
             "OP":   0x0000,
         }
         self.memory = []
-        self.labels = {
-            "__START__": 0x0000
-        }
+        self.labels = dict()
         self.label_search = True
 
     def reset_all_registers(self):
@@ -47,7 +45,11 @@ class Simulator:
 
     def extract_val(self, arg):
         # print("extract_val", arg)
+        old_len = len(arg)
         valx = arg.lstrip("0x")
+        new_len = len(valx)
+        if new_len == 0 and old_len > 0:
+            valx = "0"
         try:
             valx = int(valx, 16)
         except:
@@ -155,14 +157,14 @@ class Simulator:
         # self.simulate_mov(["OP", hex(address)])
         self.set_reg_val("OP", address)
 
-        print("Executing:", codes)
-
         if codes[0].endswith(":"):
             self.add_label(codes[0].rstrip(":"))
             # address -= 1 # since labels are not counted as code
 
         if self.label_search:
             return address + 1
+
+        print("Executing:", codes)
 
         if codes[0] == "MOV":
             self.simulate_mov(codes[1:])
