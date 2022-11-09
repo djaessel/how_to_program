@@ -1,5 +1,5 @@
 
-Video: https://youtu.be/wKqLaNqxgas
+Video: https://youtu.be/wKqLaNqxgas?t=118
 
 And finally the official video about how Qt and Python (can) work together.
 
