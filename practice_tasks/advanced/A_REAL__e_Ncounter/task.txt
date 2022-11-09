@@ -1,0 +1,61 @@
+
+Standard:
+
+You just woke up and decided: "Today I want to create my first python GUI!"
+Yay!
+
+And so you ask some friends what you could program.
+
+The best what they came up with was a clicker program.
+
+You basically click on a button and then a points value gets increased by 1.
+
+Then someone thought, well maybe add a few more buttons.
+You can't have enough of those, right?
+
+The second button should be available after you reached 50 points.
+
+50 clicks bro...
+
+And then you would loose 50 points.
+
+The second button would add 10 points per click.
+
+The thirds activates after 250 points.
+And it can add 50 points per click.
+
+I think you see where this is going.
+
+At first these three buttons are enough.
+But if you want you can add more of course.
+
+(Hints: Qt GUI, Pyside2 or Pyside6, PyQt5 / PyQt6, Qt QML, ...)
+
+
+Bonus:
+
+Now that you have at least three buttons,
+we can add a new feature!
+
+Awesome! (Okay, why am I writing like this? Anyway...)
+
+After you enabled all buttons (so at least the three or all you added after that),
+there should be the option to buy an autoclicker for each of the buttons.
+The price would be: initial_point_price_to_enable * 5
+The first button has 1 for this value, so it would be 5 points for the autoclicker.
+The second button would be 50 * 5 = 250
+Third button would be 250 * 5 = 1250
+and so on...
+
+Maybe make a different window and or menu for that.
+
+The autoclicker should add the value of the buttons click every 5 seconds.
+Make sure to set that up correct.
+You can update all buttons in one go if you want.
+
+
+Extra Bonus:
+
+# TODO: Add extra bonus task! :)
+
+
