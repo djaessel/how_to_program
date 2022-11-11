@@ -31,6 +31,9 @@ But if you want you can add more of course.
 
 (Hints: Qt GUI, Pyside2 or Pyside6, PyQt5 / PyQt6, Qt QML, ...)
 (Hint: QmlDesigner - https://doc.qt.io/qtcreator/creator-qtquickdesigner-plugin.html)
+(Hint: It is possible that you can't use the Designer properly with Qt for Python, 
+ simply create an empty Qt C++ project and try to use the QML Designer there. 
+ It should work. Later simply move the QML to the Python project and all should run properly.)
 
 
 Bonus:
