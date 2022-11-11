@@ -30,6 +30,7 @@ At first these three buttons are enough.
 But if you want you can add more of course.
 
 (Hints: Qt GUI, Pyside2 or Pyside6, PyQt5 / PyQt6, Qt QML, ...)
+(Hint: QmlDesigner - https://doc.qt.io/qtcreator/creator-qtquickdesigner-plugin.html)
 
 
 Bonus:
