@@ -15,8 +15,9 @@ class SystemCaller(QObject):
     @Slot(str)
     def openUrl(self, url):
         QDesktopServices.openUrl(QUrl(url))
-#        self.urlOpened(url);
+        self.urlOpened(url);
 
-#    @Slot(str)
-#    def urlOpened(self, url):
-#        pass
+    @Slot(str)
+    def urlOpened(self, url):
+        print("Opened Url:", url)
+        pass

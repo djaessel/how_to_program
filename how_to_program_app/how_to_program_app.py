@@ -8,12 +8,21 @@ from PySide6.QtGui import QGuiApplication
 from PySide6.QtQml import QQmlApplicationEngine
 
 # from PySide6 import QtQml
+from PySide6 import QtCore
 from SystemCaller import SystemCaller
+
+# Default message handler to be called to bypass all other warnings.
+QT_DEFAULT_MESSAGE_HANDLER = QtCore.qInstallMessageHandler(None)
+# a custom message handler to intercept warnings
+def customMessageHandler(type, context, msg):
+    pass
 
 
 if __name__ == "__main__":
     # Auto-generated code by QtCreator
     app = QGuiApplication(sys.argv)
+
+    QtCore.qInstallMessageHandler(customMessageHandler)
 
     # The following should make SystemCaller available as QmlElement
     # But when instanciated the program crashes for some reason :/
