@@ -61,10 +61,10 @@ This should start the main terminal program and otherwise give you some informat
 
 There are serveral tasks you can practice with.  
 To access them properly run the following command inside this folder in terminal:  
-  
-.................
-python how_to_program_app/startGUI.py
-.................  
+
+```bash  
+python how_to_program_app/startGUI.py`
+```
 
 > In case python3 is not the default the program will inform you  
 > More info will be added in the future  
