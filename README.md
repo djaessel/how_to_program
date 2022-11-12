@@ -1,15 +1,63 @@
 # Programming: (Hopefully) All you need to know
 
-Here are some videos to enter programming.  
-Hier gibt es Videos zum Einstieg fürs Programmieren.  
+Here you will learn how to program.  
+Besides that you will get information about how computers work in general.  
+And there are also some strong hints towards Linux operating systems.  
 
-As well as some videos about basic functionality of computers.  
-Außerdem noch Videos über die Grundfunktionsweise von Computern.  
+Be sure to use the related program down below.  
+There are two versions available, take the one that suits you best.  
 
-And at last there are also some videos about Linux and why you should use it. :)
-Und schließlich auch noch ein paar Videos über Linux und warum man es benutzen sollte. :)  
+> It might be best to use the GUI version  
+> But this version is currently still in the development progress  
 
-# How to handle the practicing tasks
+## Topics you might get in touch with
+
+> Of course depending on your interest, time and understanding of all this
+
+### Programming and Script Languages
+
+- Python 3.6+
+- C/C++
+- QML (& JavaScript)
+- HTML & CSS
+- Assembly (x86/x64 and basic understanding)
+- (...)
+
+### Things you will learn and practice
+
+- Mainly learning to program with Python
+- Commandline programs
+- GUI applications
+- Code Simulators
+> Using and handling custom programming languages
+- Problems solving 
+> (not only programs - e.g. fix an existing program, find a virus. ...)
+- Linux OS:
+  - `Mainly Debian/Ubuntu`
+  - Basic commands
+  - Filesystem
+  - package management and creation
+- VirtualBox `Basic Example`
+- Databases:
+  - MySQL/MariaDB
+  - ODBC `generalized connection method`
+  - (SQLServer)
+- Hardware near programming:
+  - You will read and use some Assembly code
+  - understand how a CPU actually operates
+  - DataTypes at low-level compared with high-level languages
+  - Little Hacks and Mind puzzles
+- Connecting different programming languages
+  - using Dynamic libraries (for example in Python)
+  - writing optimized code in different languages
+  - comapring speed and pros/cons
+- Differences Scripting/Interpreter and "actual" programming languages
+  - pros/cons
+  - possibilites to convert between of them
+- ... [and much more :)]
+
+
+# Programming learning program
 
 <details><summary><h2>Terminal Version [CLICK]</h2></summary>
 <p>
