@@ -43,12 +43,13 @@ There are two versions available, take the one that suits you best.
   - Basic commands
   - File System
   - Package management and creation
+  - ...
 - VirtualBox `Basic Example`
 - Databases:
   - MySQL/MariaDB
   - ODBC
     > A generalized connection method
-  - (SQLServer)
+  - (SQLServer) `maybe?`
 - Hardware near programming:
   - You will read and use some Assembly code
   - Understand how a CPU actually operates
@@ -61,7 +62,7 @@ There are two versions available, take the one that suits you best.
 - Differences Scripting/Interpreter and "actual" programming languages
   - Pros/Cons
   - Possibilites to convert between of them
-- ... [and much much more :)]
+- ... and much much more :)
 
 
 # Programming learning program
