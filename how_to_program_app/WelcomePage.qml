@@ -1,10 +1,8 @@
 import QtQuick
 import QtQuick.Controls
 
-Page {
+BasePage {
     id: _welcomePage
-
-    anchors.fill: parent
 
     Label {
         id: welcomeMessage
@@ -37,7 +35,7 @@ Page {
         verticalAlignment: Text.AlignVCenter
         padding: 16
         leftPadding: 32
-        topPadding: 16
+        topPadding: -16
         font.family: "Tahoma"
         font.pointSize: 24
     }

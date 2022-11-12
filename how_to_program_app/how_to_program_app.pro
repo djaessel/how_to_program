@@ -1,12 +1,17 @@
 QT += quick
 
 SOURCES += \
-        main.cpp
+        main.cpp \
+        systemcaller.cpp
 
 resources.files = main.qml \
-WelcomePage.qml \
 MenuButton.qml \
-VideoTutorials.qml
+BasePage.qml \
+WelcomePage.qml \
+VideoTutorials.qml \
+PracticeTasks.qml \
+SettingsPage.qml \
+UserSettingsPage.qml
 
 resources.prefix = /$${TARGET}
 RESOURCES += resources
@@ -23,6 +28,13 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 DISTFILES += \
+    BasePage.qml \
     MenuButton.qml \
+    PracticeTasks.qml \
+    SettingsPage.qml \
+    UserSettingsPage.qml \
     VideoTutorials.qml \
     WelcomePage.qml
+
+HEADERS += \
+    systemcaller.h

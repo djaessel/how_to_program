@@ -1,10 +1,14 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
 
+#include "systemcaller.h"
+
 
 int main(int argc, char *argv[])
 {
   QGuiApplication app(argc, argv);
+
+  qmlRegisterType<SystemCaller>("SystemCaller", 1, 0, "SystemCaller");
 
   // This is auto-generated code by QtCreator
   QQmlApplicationEngine engine;

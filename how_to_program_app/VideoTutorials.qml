@@ -1,26 +1,30 @@
 import QtQuick
 import QtQuick.Controls
+import SystemCaller
 
-Page {
+BasePage {
     id: _videoTutorials
 
-    anchors.fill: parent
-
     property string curYoutubeVideoId: "wKqLaNqxgas"
-    property string defaultVideoUrl: "https://www.youtube.com/watch?v=vidID"
+    property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId
 
-    Image {
-        id: videoThumbnail
+//    SystemCaller {
+//        id: systemCaller
+//    }
 
-        anchors.fill: parent
+//    Image {
+//        id: videoThumbnail
 
-        source: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
+//        anchors.fill: parent
+//        anchors.margins: 32
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                console.log("Open browser with: " + defaultVideoUrl.replace("vidID", curYoutubeVideoId))
-            }
-        }
-    }
+//        source: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
+
+//        MouseArea {
+//            anchors.fill: parent
+//            onClicked: {
+//                systemCaller.openUrl(defaultVideoUrl)
+//            }
+//        }
+//    }
 }

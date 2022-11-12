@@ -83,7 +83,7 @@ Window {
             width: titleBar.height
 
             mouseItem.onClicked: {
-                //stackView.push(settings)
+                stackView.push(settingsPage)
             }
         }
     }
@@ -119,18 +119,31 @@ Window {
                 textItem.font.pointSize: (appWindow.menuSmall) ? 32 : 24
                 text: '<b>' + ((appWindow.menuSmall) ? icon : textx) + "</b>"
 
+                function setNewPage(pageId) {
+                    if (stackView.currentItem !== pageId) {
+                        stackView.pop()
+                        stackView.push(pageId)
+                    } // else change to warning modal?
+                }
+
                 mouseItem.onClicked: {
                     // TODO: check this until it works properly!!!
-                    stackView.pop()
+                    // TODO: optimize code logic
                     switch (index) {
-                    case 1:
-                        if (stackView.currentItem != videoTutorials)
-                            stackView.push(videoTutorials)
-                        break
                     case 0:
+                        setNewPage(welcomePage)
+                        break
+                    case 1:
+                        setNewPage(videoTutorials)
+                        break
+                    case 2:
+                        setNewPage(practiceTasks)
+                        break
+                    case 3:
+                        setNewPage(userSettingsPage)
+                        break
                     default:
-                        if (stackView.currentItem != welcomePage)
-                            stackView.push(welcomePage) // change to warning modal?
+                        console.log("Unknown case in menu: " + index)
                     }
                 }
             }
@@ -159,9 +172,18 @@ Window {
 
         VideoTutorials {
             id: videoTutorials
-            visible: false
         }
 
-        // TODO: add more pages
+        PracticeTasks {
+            id: practiceTasks
+        }
+
+        UserSettingsPage {
+            id: userSettingsPage
+        }
+
+        SettingsPage {
+            id: settingsPage
+        }
     }
 }
