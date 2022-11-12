@@ -11,6 +11,9 @@ Und schließlich auch noch ein paar Videos über Linux und warum man es benutzen
 
 # How to handle the practicing tasks
 
+<details><summary>Terminal Version [Click to open]</summary>
+<p>
+
 ## Terminal Version
 
 Simply start the `start.bat` or `start.sh` file.  
@@ -39,6 +42,12 @@ Later on you can also access more advanced tasks or advanced info for beginner t
 
 > You can access all tutorials as well as practicing tasks through this program!  
 
+</p>
+</details>
+
+<details><summary>GUI Version [Click to open]</summary>
+<p>
+
 ## GUI Version
 
 Simply start the `startGUI.bat` or `startGUI.sh` file.
@@ -46,7 +55,7 @@ Simply start the `startGUI.bat` or `startGUI.sh` file.
 This should start the main terminal program and otherwise give you some information about how to make it run.
 
 > The GUI version is still work in progress and does nothing at the moment.  
-> Which does not mean that it isn't work a quick look ;)  
+> Which does not mean that it isn't worth a quick look :)  
 
 ### Advanced way to start the program  
 
@@ -57,5 +66,9 @@ To access them properly run the following command inside this folder in terminal
   
 > In case python3 is not the default the program will inform you  
 > More info will be added in the future  
+
+
+</p>
+</details>
 
 
