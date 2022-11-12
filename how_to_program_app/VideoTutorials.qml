@@ -8,23 +8,23 @@ BasePage {
     property string curYoutubeVideoId: "wKqLaNqxgas"
     property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId
 
-//    SystemCaller {
-//        id: systemCaller
-//    }
+    SystemCaller {
+        id: systemCaller
+    }
 
-//    Image {
-//        id: videoThumbnail
+    Image {
+        id: videoThumbnail
 
-//        anchors.fill: parent
-//        anchors.margins: 32
+        anchors.fill: parent
+        anchors.margins: 32
 
-//        source: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
+        source: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
 
-//        MouseArea {
-//            anchors.fill: parent
-//            onClicked: {
-//                systemCaller.openUrl(defaultVideoUrl)
-//            }
-//        }
-//    }
+        MouseArea {
+            anchors.fill: parent
+            onClicked: {
+                systemCaller.openUrl(defaultVideoUrl)
+            }
+        }
+    }
 }

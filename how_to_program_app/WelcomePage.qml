@@ -16,7 +16,7 @@ BasePage {
         font.family: "Tahoma"
         anchors.right: parent.right
 
-        text: "Welcome Programmer!"
+        text: "<u><b>Welcome Programmer!</b></u>"
         font.pointSize: 32
     }
 
@@ -29,7 +29,27 @@ BasePage {
             right: parent.right
         }
 
-        text: "You are currently " + userModeTexts[userMode]
+        text: "<i>You are currently <b>" + userModeTexts[userMode] + "</b></i>"
+        font.letterSpacing: 4
+        horizontalAlignment: Text.AlignLeft
+        verticalAlignment: Text.AlignVCenter
+        padding: 16
+        leftPadding: 32
+        topPadding: -16
+        font.family: "Tahoma"
+        font.pointSize: 24
+    }
+
+    Label {
+        id: infoLevelInfo
+
+        anchors {
+            top: userModeInfo.bottom
+            left: parent.left
+            right: parent.right
+        }
+
+        text: "<i>Your current information level is <b>" + infoLevelNames[infoLevel] + "</b></i>"
         font.letterSpacing: 4
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter

@@ -8,8 +8,10 @@ Rectangle {
     property string hoverColor: "#aba"
     property string rightBorderColor: "#aba"
 
-    property alias mouseItem: _menuItemMouseArea
+    property alias textColor: _menuItemText.color
     property alias text: _menuItemText.text
+
+    property alias mouseItem: _menuItemMouseArea
     property alias textItem: _menuItemText
 
     property int borderWidthRight: 1
@@ -31,6 +33,8 @@ Rectangle {
         id: _menuItemText
 
         anchors.fill: parent
+
+        color: "#343"
 
         font.pointSize: 24
         horizontalAlignment: Text.AlignHCenter
