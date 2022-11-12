@@ -11,7 +11,7 @@ Und schließlich auch noch ein paar Videos über Linux und warum man es benutzen
 
 # How to handle the practicing tasks
 
-<details><summary>Terminal Version [Click to open]</summary>
+<details><summary><h2>Terminal Version [CLICK]</h2></summary>
 <p>
 
 ## Terminal Version
@@ -51,7 +51,7 @@ Later on you can also access more advanced tasks or advanced info for beginner t
 </p>
 </details>
 
-<details><summary><h3>GUI Version [Click to open]</h3></summary>
+<details><summary><h2>GUI Version [CLICK]</h2></summary>
 <p>
 
 ## GUI Version
