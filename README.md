@@ -74,12 +74,11 @@ There are two versions available, take the one that suits you best.
 
 Simply start the `start.bat` or `start.sh` file.  
 
-This should start the main terminal program and otherwise give you some information about how to make it run.
+This should start the main terminal program and otherwise will give you some information about how to make it run.
 
 ### Advanced way to start the program  
   
-There are serveral tasks you can practice with.  
-To access them properly run the following command inside this folder in terminal:
+Run the following command inside this folder in a terminal:  
 
 ```bash
 python course_program/start.py
@@ -114,15 +113,14 @@ Later on you can also access more advanced tasks or advanced info for beginner t
 
 Simply start the `startGUI.bat` or `startGUI.sh` file.
 
-This should start the main terminal program and otherwise give you some information about how to make it run.
+This should start the main GUI program and otherwise will give you some information about how to make it run.
 
-> The GUI version is still work in progress and does nothing at the moment.  
-> Which does not mean that it isn't worth a quick look :)  
+> The GUI version is still work in progress and does not much at the moment.  
+> Which does not mean that it isn't worth a quick look. :)  
 
 ### Advanced way to start the program  
 
-There are serveral tasks you can practice with.  
-To access them properly run the following command inside this folder in terminal:  
+Run the following command inside this folder in a terminal:  
 
 ```bash  
 python how_to_program_app/startGUI.py`
