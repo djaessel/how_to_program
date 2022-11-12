@@ -25,7 +25,9 @@ This should start the main terminal program and otherwise give you some informat
 There are serveral tasks you can practice with.  
 To access them properly run the following command inside this folder in terminal:
 
-`python course_program/start.py`  
+```bash
+python course_program/start.py
+```
 
 > In case python3 is not the default the program will inform you
 
@@ -33,9 +35,13 @@ To access them properly run the following command inside this folder in terminal
 * Select "Beginner" and then "Standard".
 
 > If you want to start directly as beginner, execute the following  
-> `python course_program/start.py --mode=beginner --info-level=standard`  
+```bash
+python course_program/start.py --mode=beginner --info-level=standard
+```  
 > or like this:  
-> `python course_program/start.py -m=beginner -i=standard`  
+```bash
+python course_program/start.py -m=beginner -i=standard`
+```  
 
 This ensures that you only get the beginner tasks with standard info  
 Later on you can also access more advanced tasks or advanced info for beginner tasks  
