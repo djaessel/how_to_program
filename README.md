@@ -31,30 +31,37 @@ There are two versions available, take the one that suits you best.
 - Code Simulators
   > Using and handling custom programming languages
 - Problems solving 
-  > (not only programs - e.g. fix an existing program, find a virus. ...)
+  > Not only writing new programs  
+  - Examples:
+    - Fix an existing program
+    - Find a virus
+    - Develop datastructure
+    - Debug code
+    - ...
 - Linux OS:
-  - `Mainly Debian/Ubuntu`
+  - Mainly Debian/Ubuntu based
   - Basic commands
-  - Filesystem
-  - package management and creation
+  - File System
+  - Package management and creation
 - VirtualBox `Basic Example`
 - Databases:
   - MySQL/MariaDB
-  - ODBC `generalized connection method`
+  - ODBC
+    > A generalized connection method
   - (SQLServer)
 - Hardware near programming:
   - You will read and use some Assembly code
-  - understand how a CPU actually operates
+  - Understand how a CPU actually operates
   - DataTypes at low-level compared with high-level languages
   - Little Hacks and Mind puzzles
 - Connecting different programming languages
-  - using Dynamic libraries (for example in Python)
-  - writing optimized code in different languages
-  - comapring speed and pros/cons
+  - Using Dynamic libraries (for example in Python)
+  - Writing optimized code in different languages
+  - Comapring speed and pros/cons
 - Differences Scripting/Interpreter and "actual" programming languages
-  - pros/cons
-  - possibilites to convert between of them
-- ... [and much more :)]
+  - Pros/Cons
+  - Possibilites to convert between of them
+- ... [and much much more :)]
 
 
 # Programming learning program
