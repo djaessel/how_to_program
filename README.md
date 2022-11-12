@@ -51,7 +51,7 @@ Later on you can also access more advanced tasks or advanced info for beginner t
 </p>
 </details>
 
-<details><summary>GUI Version [Click to open]</summary>
+<details><h1><summary>GUI Version [Click to open]</summary></h1>
 <p>
 
 ## GUI Version
