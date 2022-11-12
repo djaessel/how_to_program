@@ -8,6 +8,8 @@ Page {
 
     visible: false
 
+    property bool forceDefaultData: false
+
     Component.onCompleted: {
         checkAndSetDefaultData()
     }
@@ -16,6 +18,8 @@ Page {
         id: defaultTextMessage
         anchors.fill: parent
         anchors.margins: 64
+
+	z: 100
 
         property bool isDefaultMessage: true
 
@@ -28,7 +32,7 @@ Page {
     function checkAndSetDefaultData()
     {
         if (_basePage.children.length > 0) {
-            if (_basePage.children[0].children.length > 1) {
+            if (_basePage.children[0].children.length > 1 && !forceDefaultData) {
                 defaultTextMessage.visible = false
             } else {
                 var isDefaultPage = _basePage.children[0].children[0].isDefaultMessage

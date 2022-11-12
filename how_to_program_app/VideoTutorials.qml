@@ -8,13 +8,16 @@ BasePage {
     property string curYoutubeVideoId: "wKqLaNqxgas"
     property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId
 
+    forceDefaultData: true
+
     //SystemCaller {
     //    id: systemCaller
     //}
 
-
     Image {
         id: videoThumbnail
+
+	visible: false
 
         anchors.fill: parent
         anchors.margins: 32

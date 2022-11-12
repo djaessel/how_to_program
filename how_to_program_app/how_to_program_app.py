@@ -18,7 +18,7 @@ def customMessageHandler(type, context, msg):
     pass
 
 
-if __name__ == "__main__":
+def main():
     # Auto-generated code by QtCreator
     app = QGuiApplication(sys.argv)
 
@@ -44,4 +44,9 @@ if __name__ == "__main__":
     if not engine.rootObjects():
         sys.exit(-1)
     sys.exit(app.exec())
+
+
+if __name__ == "__main__":
+    main()
+
 
