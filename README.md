@@ -9,7 +9,7 @@ Außerdem noch Videos über die Grundfunktionsweise von Computern.
 And at last there are also some videos about Linux and why you should use it. :)
 Und schließlich auch noch ein paar Videos über Linux und warum man es benutzen sollte. :)  
 
-### How to handle the practicing tasks
+# How to handle the practicing tasks
 
 ## Terminal Version
 
@@ -17,7 +17,7 @@ Simply start the `start.bat` or `start.sh` file in terminal.
 
 This should start the main terminal program and otherwise give you some information about how to make it run.
 
-# Advanced way to start the program  
+### Advanced way to start the program  
 
 > Before you start, make sure python3 is the default
 
@@ -51,7 +51,7 @@ This should start the main terminal program and otherwise give you some informat
 > The GUI version is still work in progress and does nothing at the moment.  
 > Which does not mean that it isn't work a quick look ;)  
 
-# Advanced way to start the program  
+### Advanced way to start the program  
 
 > Before you start, make sure python3 is the default
 
