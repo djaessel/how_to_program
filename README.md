@@ -13,7 +13,7 @@ Und schließlich auch noch ein paar Videos über Linux und warum man es benutzen
 
 ## Terminal Version
 
-Simply start the `start.bat` or `start.sh` file in terminal.  
+Simply start the `start.bat` or `start.sh` file.  
 
 This should start the main terminal program and otherwise give you some information about how to make it run.
 
@@ -44,7 +44,7 @@ Later on you can also access more advanced tasks or advanced info for beginner t
 
 ## GUI Version
 
-Simply start the `startGUI.bat` or `startGUI.sh` file in terminal.
+Simply start the `startGUI.bat` or `startGUI.sh` file.
 
 This should start the main terminal program and otherwise give you some information about how to make it run.
 
