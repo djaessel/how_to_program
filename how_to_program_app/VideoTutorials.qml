@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import SystemCaller
+//import SystemCaller
 
 BasePage {
     id: _videoTutorials
@@ -8,9 +8,10 @@ BasePage {
     property string curYoutubeVideoId: "wKqLaNqxgas"
     property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId
 
-    SystemCaller {
-        id: systemCaller
-    }
+    //SystemCaller {
+    //    id: systemCaller
+    //}
+
 
     Image {
         id: videoThumbnail
