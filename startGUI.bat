@@ -1,4 +1,4 @@
 @echo off
 
-start python startGUI.py
+start python "./how_to_program_app/startGUI.py"
 

@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-./start.py
+./course_program/start.py
 
