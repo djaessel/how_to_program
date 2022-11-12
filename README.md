@@ -29,9 +29,9 @@ There are two versions available, take the one that suits you best.
 - Commandline programs
 - GUI applications
 - Code Simulators
-> Using and handling custom programming languages
+  > Using and handling custom programming languages
 - Problems solving 
-> (not only programs - e.g. fix an existing program, find a virus. ...)
+  > (not only programs - e.g. fix an existing program, find a virus. ...)
 - Linux OS:
   - `Mainly Debian/Ubuntu`
   - Basic commands
