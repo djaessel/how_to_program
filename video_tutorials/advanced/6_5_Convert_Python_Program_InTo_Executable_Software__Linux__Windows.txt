@@ -1,0 +1,6 @@
+
+Video: https://www.youtube.com/watch?v=npqsIbhn2Yg
+
+Here just another tutorial on how to easily create a packed python program executable.
+Both for Linux and Windows, although it is mostly the same when using the explained method.
+

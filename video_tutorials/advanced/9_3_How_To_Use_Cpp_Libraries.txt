@@ -1,0 +1,8 @@
+
+Video: https://youtu.be/xBfwQv8mxCI
+
+Here is a probably a more detailed video about the different library types,
+as well as how C++ connects to libraries (in a more complex way).
+
+# TODO: add more information if necessary
+
