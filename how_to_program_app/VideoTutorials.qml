@@ -7,6 +7,7 @@ BasePage {
 
     property string curYoutubeVideoId: "wKqLaNqxgas"
     property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId
+    property string thumbnailUrl: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
 
     forceDefaultData: true
 
@@ -17,12 +18,10 @@ BasePage {
     Image {
         id: videoThumbnail
 
-	visible: false
-
         anchors.fill: parent
         anchors.margins: 32
 
-        source: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
+        source: thumbnailUrl
 
         MouseArea {
             anchors.fill: parent

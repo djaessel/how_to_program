@@ -19,7 +19,7 @@ Page {
         anchors.fill: parent
         anchors.margins: 64
 
-	z: 100
+        z: 100
 
         property bool isDefaultMessage: true
 
@@ -35,9 +35,13 @@ Page {
             if (_basePage.children[0].children.length > 1 && !forceDefaultData) {
                 defaultTextMessage.visible = false
             } else {
-                var isDefaultPage = _basePage.children[0].children[0].isDefaultMessage
-                if (isDefaultPage) {
-                    defaultTextMessage.visible = true
+                for (var i = 0; i < _basePage.children[0].children.length; i++) {
+                    var isDefaultPage = _basePage.children[0].children[i].isDefaultMessage
+                    if (isDefaultPage) {
+                        _basePage.children[0].children[i].visible = true
+                    } else {
+                        _basePage.children[0].children[i].visible = false
+                    }
                 }
             }
         }
