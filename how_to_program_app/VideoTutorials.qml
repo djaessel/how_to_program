@@ -5,11 +5,20 @@ import QtQuick.Controls
 BasePage {
     id: _videoTutorials
 
-    forceDefaultData: true
+    //forceDefaultData: true
 
     //SystemCaller {
     //    id: systemCaller
     //}
+
+    MouseArea {
+        anchors.fill: parent
+        onWheel: {
+            for (var i = 0; i < videosContainer.children.length; i++) {
+                videosContainer.children[i].y += (wheel.angleDelta.y > 0) ? 32 : -32
+            }
+        }
+    }
 
     function createVideoElements(videoData) {
         for (var i = 0; i < videoData.length; i++) {

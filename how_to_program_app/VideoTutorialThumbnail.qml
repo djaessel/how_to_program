@@ -160,6 +160,9 @@ Rectangle {
 
         source: thumbnailUrl
 
+        cache: true
+        asynchronous: true
+
         onStatusChanged: {
            if (status == Image.Error) {
               source = alternativeThumbnailUrl
