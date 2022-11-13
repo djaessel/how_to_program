@@ -29,7 +29,7 @@ BasePage {
             right: parent.right
         }
 
-        text: "<i>You are currently <b>" + userModeTexts[userMode] + "</b></i>"
+        text: "<i>You are currently <b>" + userModeName + "</b></i>"
         font.letterSpacing: 4
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter
@@ -49,7 +49,7 @@ BasePage {
             right: parent.right
         }
 
-        text: "<i>Your current information level is <b>" + infoLevelNames[infoLevel] + "</b></i>"
+        text: "<i>Your current information level is <b>" + infoLevelName + "</b></i>"
         font.letterSpacing: 4
         horizontalAlignment: Text.AlignLeft
         verticalAlignment: Text.AlignVCenter

@@ -10,6 +10,8 @@ from PySide6.QtQml import QQmlApplicationEngine
 # from PySide6 import QtQml
 from PySide6 import QtCore
 from SystemCaller import SystemCaller
+from VideoLoader import VideoLoader
+
 
 # Default message handler to be called to bypass all other warnings.
 QT_DEFAULT_MESSAGE_HANDLER = QtCore.qInstallMessageHandler(None)
@@ -22,7 +24,7 @@ def main():
     # Auto-generated code by QtCreator
     app = QGuiApplication(sys.argv)
 
-    QtCore.qInstallMessageHandler(customMessageHandler)
+    #QtCore.qInstallMessageHandler(customMessageHandler)
 
     # The following should make SystemCaller available as QmlElement
     # But when instanciated the program crashes for some reason :/
@@ -38,6 +40,9 @@ def main():
     # So we have to make sure that it will work by then!
     systemCaller = SystemCaller()
     context.setContextProperty("systemCaller", systemCaller)
+
+    videoLoader = VideoLoader()
+    context.setContextProperty("videoLoader", videoLoader)
 
     # Auto-generated code by QtCreator
     engine.load(qml_file)

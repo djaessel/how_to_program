@@ -26,6 +26,7 @@ Window {
         "Insane",   // 0 tasks
         "Hacker",   // 0 tasks
     ]
+    property string userModeName: userModeTexts[userMode]
 
     property int infoLevel: 0
     property var infoLevelNames: [
@@ -33,6 +34,7 @@ Window {
         "Bonus",        // for interested ones
         "Extra Bonus",  // if you really mean it
     ]
+    property string infoLevelName: infoLevelNames[infoLevel]
 
     ListModel {
         id: listModel
@@ -151,10 +153,16 @@ Window {
         }
     }
 
+    LineSplitter {
+        id: titleBottomLine
+
+        anchors.top: titleBar.bottom
+    }
+
     Rectangle {
         id: sideMenu
 
-        anchors.top: titleBar.bottom
+        anchors.top: titleBottomLine.bottom
         anchors.bottom: parent.bottom
         anchors.left: parent.left
 
@@ -235,7 +243,7 @@ Window {
         id: stackView
 
         anchors.right: parent.right
-        anchors.top: titleBar.bottom
+        anchors.top: titleBottomLine.bottom
         anchors.bottom: parent.bottom
         anchors.left: sideMenu.right
 

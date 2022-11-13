@@ -6,7 +6,7 @@ Rectangle {
     property string defaultColor: "white"
     property string downColor: "#898"
     property string hoverColor: "#aba"
-    property string rightBorderColor: "#aba"
+    property string extraborderColor: "#aba"
 
     property alias textColor: _menuItemText.color
     property alias text: _menuItemText.text
@@ -26,7 +26,7 @@ Rectangle {
 
         z: -1
 
-        color: rightBorderColor
+        color: extraborderColor
     }
 
     Text {

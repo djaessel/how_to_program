@@ -11,31 +11,90 @@ BasePage {
     //    id: systemCaller
     //}
 
-    VideoTutorialThumbnail {
-        id: vidTut1
+    function createVideoElements(videoData) {
+        for (var i = 0; i < videoData.length; i++) {
+            var component = Qt.createComponent("VideoTutorialThumbnail.qml");
+            var sprite = component.createObject(videosContainer, {});
 
-        anchors.left: parent.left
-        anchors.top: parent.top
-
-        //anchors.margins: 32
-
-        resizer: 0.75
-
-        width: parent.width * 0.5
-        height: parent.height * 0.5
+            if (sprite == null) {
+                // Error Handling
+                console.log("Error creating object");
+            } else {
+                sprite.init(videoData[i], i, videosContainer)
+            }
+        }
     }
 
-    VideoTutorialThumbnail {
-        id: vidTut2
+    Component.onCompleted: {
+        var videoData = videoLoader.loadAllBaseOnUserMode(userModeName.toLowerCase())
+        createVideoElements(videoData)
+    }
 
-        anchors.left: vidTut1.right
+    Rectangle {
+        id: progressContainer
+
         anchors.top: parent.top
+        anchors.left: parent.left
+        anchors.right: parent.right
 
-        //anchors.margins: 32
+        height: 128
 
-        resizer: 0.75
+        property int watchedVideos: 2
+        property int allVideoCount: 10
 
-        width: parent.width * 0.5
-        height: parent.height * 0.5
+        Text {
+            id: progressInfoLabel
+
+            anchors.left: parent.left
+            anchors.top: parent.top
+
+            anchors.margins: 32
+
+            height: 32
+
+            font.pointSize: 24
+
+            text: "<i><b>" + qsTr("Current Progress") +
+                  " ( " + progressContainer.watchedVideos + " / " + progressContainer.allVideoCount + " )</b></i>" +
+                  " <i>" + parseInt(progressBar.value * 100) + " %</i>"
+        }
+
+        ProgressBar {
+            id: progressBar
+
+            anchors.left: parent.left
+            anchors.right: parent.right
+            anchors.bottom: parent.bottom
+
+            anchors.margins: 32
+
+            height: 24
+
+            value: (progressContainer.watchedVideos / progressContainer.allVideoCount)
+        }
+    }
+
+    LineSplitter {
+        id: splitLine1
+
+        anchors.top: progressContainer.bottom
+    }
+
+    Rectangle {
+        id: videosContainer
+
+        anchors.top: splitLine1.bottom
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+
+//        VideoTutorialThumbnail {
+//            id: vidTut1
+//        }
+
+//        VideoTutorialThumbnail {
+//            id: vidTut2
+//        }
+
     }
 }
