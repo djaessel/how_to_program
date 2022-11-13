@@ -5,29 +5,37 @@ import QtQuick.Controls
 BasePage {
     id: _videoTutorials
 
-    property string curYoutubeVideoId: "wKqLaNqxgas"
-    property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId
-    property string thumbnailUrl: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
-
     forceDefaultData: true
 
     //SystemCaller {
     //    id: systemCaller
     //}
 
-    Image {
-        id: videoThumbnail
+    VideoTutorialThumbnail {
+        id: vidTut1
 
-        anchors.fill: parent
-        anchors.margins: 32
+        anchors.left: parent.left
+        anchors.top: parent.top
 
-        source: thumbnailUrl
+        //anchors.margins: 32
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                systemCaller.openUrl(defaultVideoUrl)
-            }
-        }
+        resizer: 0.75
+
+        width: parent.width * 0.5
+        height: parent.height * 0.5
+    }
+
+    VideoTutorialThumbnail {
+        id: vidTut2
+
+        anchors.left: vidTut1.right
+        anchors.top: parent.top
+
+        //anchors.margins: 32
+
+        resizer: 0.75
+
+        width: parent.width * 0.5
+        height: parent.height * 0.5
     }
 }

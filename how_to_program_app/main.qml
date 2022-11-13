@@ -6,6 +6,8 @@ Window {
 
     flags: Qt.Window | Qt.FramelessWindowHint
 
+    // TODO: make all heights etc. static values dynmic based on actual screen values
+
     width: Screen.width
     height: Screen.height
     visible: true
@@ -18,6 +20,7 @@ Window {
     property int userMode: 0
     property var userModeTexts: [
         "Beginner", // 4 tasks
+        "Comfortable", // 0 tasks
         "Advanced", // 4 tasks
         "Hooked",   // 1 tasks
         "Insane",   // 0 tasks
@@ -127,8 +130,7 @@ Window {
             width: titleBar.height
 
             mouseItem.onClicked: {
-                stackView.push(settingsPage)
-                curPageTitle.text = "Settings".toUpperCase()
+                sideMenu.setNewPage(settingsPage, -1, "Settings")
             }
         }
 
@@ -161,12 +163,20 @@ Window {
         // optimize later maybe
         width: (appWindow.menuSmall) ? 64 : Screen.width * 0.2
 
-        function setNewPage(pageId, index) {
+        function setNewPage(pageId, index, customTitle) {
             if (stackView.currentItem !== pageId) {
                 if (stackView.currentItem !== welcomePage.id) {
                     stackView.pop()
                 }
                 stackView.push(pageId)
+
+                if (index >= 0 && index < listModel.count) {
+                    curPageTitle.text = listModel.get(index).textx.toUpperCase()
+                } else if (typeof(customTitle) != typeof(undefined)) {
+                    curPageTitle.text = customTitle.toUpperCase()
+                } else {
+                    curPageTitle.text = "..." // undefined!
+                }
             } // else change to warning modal?
         }
 
@@ -189,8 +199,6 @@ Window {
             default:
                 console.log("Unknown case in menu: " + index)
             }
-
-            curPageTitle.text = listModel.get(index).textx.toUpperCase()
         }
 
         ListView {
