@@ -11,26 +11,6 @@ Window {
     x: Screen.width / 2 - width / 2
     y: Screen.height / 2 - height / 2
 
-    ListModel {
-        id: myModel
-
-        ListElement {
-            myText: "Click me Real!"
-            pointsToEnable: 0
-            pointsPerClick: 1
-        }
-        ListElement {
-            myText: "Click me not?"
-            pointsToEnable: 50
-            pointsPerClick: 10
-        }
-        ListElement {
-            myText: "Click me again!"
-            pointsToEnable: 250
-            pointsPerClick: 50
-        }
-    }
-
     Rectangle {
         id: clickerBox
         color: "#234"
@@ -80,7 +60,7 @@ Window {
             anchors.rightMargin: spacingAndMargin
             anchors.bottomMargin: spacingAndMargin
 
-            model: myModel
+            model: button_data_py
             spacing: spacingAndMargin
 
             delegate: Button {
@@ -88,7 +68,7 @@ Window {
 
                 property bool activated: false
 
-                enabled: (pointsToEnable <= clickerBox.curPoints || curButton.activated)
+                enabled: (button_data_py[index]["pointsToEnable"] <= clickerBox.curPoints || curButton.activated)
 
                 onEnabledChanged: {
                     if (enabled) {
@@ -104,11 +84,11 @@ Window {
                 height: 128
 
                 onClicked: {
-                    clickerBox.curPoints += pointsPerClick
+                    clickerBox.curPoints += button_data_py[index]["pointsPerClick"]
                 }
 
                 contentItem: Text {
-                    text: myText
+                    text: button_data_py[index]["myText"]
                     font.pointSize: 28
                     color: curButton.enabled ? (curButton.down ? "#aabbaa" : "white") : "#gray"
                     horizontalAlignment: Text.AlignHCenter
