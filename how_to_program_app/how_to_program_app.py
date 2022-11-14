@@ -33,11 +33,12 @@ def main():
     # Auto-generated code by QtCreator
     engine = QQmlApplicationEngine()
     qml_file = Path(__file__).resolve().parent / "main.qml"
-    context = engine.rootContext()
 
     # This is the alternative, which works for now
     # But later we might want to add Custom Python QmlElements
     # So we have to make sure that it will work by then!
+    context = engine.rootContext()
+
     systemCaller = SystemCaller()
     context.setContextProperty("systemCaller", systemCaller)
 
