@@ -1,0 +1,95 @@
+{
+    "button_data": [
+        {
+            "myText": "Click me Real!",
+            "pointsToEnable": 0,
+            "pointsPerClick": 1
+        },
+        {
+            "myText": "Click me not?",
+            "pointsToEnable": 50,
+            "pointsPerClick": 10
+        },
+        {
+            "myText": "Click me again!",
+            "pointsToEnable": 250,
+            "pointsPerClick": 50
+        }
+    ],
+
+    "button_auto_clicker_data": [
+        {
+            "myText": "Autoclicker 1",
+            "pointsToEnableFactor": 5,
+            "duration": 100
+        },
+        {
+            "myText": "Autoclicker 2",
+            "pointsToEnableFactor": 5,
+            "duration": 1000
+        },
+        {
+            "myText": "Autoclicker 3",
+            "pointsToEnableFactor": 5,
+            "duration": 2000
+        }
+    ],
+
+    "achievements": [
+        {
+            "message": "One Liter of wine.exe",
+            "value": 1337
+        },
+        {
+            "message": "A well planned investment",
+            "value": 2500
+        },
+        {
+            "message": "5 bucks, please, kay?",
+            "value": 5000
+        },
+        {
+            "message": "You got a road!",
+            "value": 6789
+        },
+        {
+            "message": "Millionare in cents",
+            "value": 10000
+        },
+        {
+            "message": "Nice!",
+            "value": 28689
+        },
+        {
+            "message": "MAGIC NUMBER",
+            "value": 43605
+        },
+        {
+            "message": "Want some coke?",
+            "value": 49178
+        },
+        {
+            "message": "You are DEAD",
+            "value": 57005
+        },
+        {
+            "message": "Are you alright?",
+            "value": 100000
+        },
+        {
+            "message": "Millionare for real!",
+            "value": 1000000
+        },
+        {
+            "message": "Joking around",
+            "value": 1234567
+        },
+        {
+            "message": "OVER 9 9 9 9 9 9 9 THOUSAND!",
+            "value": 9999999
+        }
+    ]
+
+
+
+}
