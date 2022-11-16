@@ -157,7 +157,12 @@ Rectangle {
 
         verticalAlignment: Text.AlignVCenter
 
-        text: "Duration: " + ((videoDurationHours > 0) ? videoDurationHours + ":" : "") + videoDurationMinutes + ":" + videoDurationSeconds
+        text: "Duration: " + (
+                  ((videoDurationHours > 0) ?
+                      ((JSON.stringify(videoDurationHours).length == 1) ? "0" : "") + videoDurationHours + ":" : "") +
+                  ((JSON.stringify(videoDurationMinutes).length == 1) ? "0" : "") + videoDurationMinutes + ":" +
+                  ((JSON.stringify(videoDurationSeconds).length == 1) ? "0" : "") + videoDurationSeconds
+        )
     }
 
     Image {
