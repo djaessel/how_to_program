@@ -61,7 +61,7 @@ Rectangle {
 
         //var dependencies = videoData.dependencies
 
-        videoInfoText.text = videoData.infoText.join("\n").replace(",\n", ", ")
+        videoInfo = videoData.infoText.join("\n").replace(",\n", ", ")
     }
 
     property string curYoutubeVideoId: "wKqLaNqxgas" // test video id
@@ -70,6 +70,7 @@ Rectangle {
     property string alternativeThumbnailUrl: "https://i1.ytimg.com/vi/" + curYoutubeVideoId + "/hqdefault.jpg"
 
     property string videoTitle: "Test Video Title"
+    property string videoInfo: "Video Info"
 
     property int videoStartTime: 0 // maybe get this from the link
     // TODO: get time from actual video
@@ -89,12 +90,19 @@ Rectangle {
     width: parent.width * 0.5
     height: parent.height * 0.3
 
+    VideoTutorial {
+        id: vidTut
+        anchors.fill: parent
+        visible: false
+    }
+
     MouseArea {
         anchors.fill: parent
         hoverEnabled: true
 
         onClicked: {
-            systemCaller.openUrl(defaultVideoUrl)
+            stackView.push(vidTut)
+            //systemCaller.openUrl(defaultVideoUrl)
         }
 
         onEntered: {
@@ -188,6 +196,6 @@ Rectangle {
 
         font.pointSize: 16
 
-        text: "Video Info"
+        text: videoInfo
     }
 }
