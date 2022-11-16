@@ -55,7 +55,16 @@ Rectangle {
             }
 
             var allVideoTimeSeconds = 0
-            // TODO: get this from actual video!
+            var times = videoData.duration.split(':')
+            allVideoTimeSeconds += parseInt(times[times.length - 1])
+            if (times.length > 1) {
+                allVideoTimeSeconds += (parseInt(times[times.length - 2]) * 60)
+                if (times.length > 2) {
+                    allVideoTimeSeconds += (parseInt(times[times.length - 3]) * 3600)
+                }
+            }
+
+            // TODO: optimize duration loading time with playlist (maybe?)
             videoDurationAllSeconds = allVideoTimeSeconds
         }
 
@@ -77,8 +86,8 @@ Rectangle {
     property int videoDurationAllSeconds: 3460 // test duration
     property int videoDurationAllActualSeconds: videoDurationAllSeconds - videoStartTime
     property int videoDurationSeconds: videoDurationAllActualSeconds % 60
-    property int videoDurationMinutes: parseInt(videoDurationAllActualSeconds / 60)
-    property int videoDurationHours: parseInt(videoDurationMinutes / 60)
+    property int videoDurationMinutes: parseInt(videoDurationAllActualSeconds % 3600 / 60)
+    property int videoDurationHours: parseInt(videoDurationAllActualSeconds / 3600)
 
     property bool mouseInside: false
     //property bool mouseDown: false
