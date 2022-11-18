@@ -24,7 +24,7 @@ def main():
     # Auto-generated code by QtCreator
     app = QGuiApplication(sys.argv)
 
-    QtCore.qInstallMessageHandler(customMessageHandler)
+    #QtCore.qInstallMessageHandler(customMessageHandler)
 
     # The following should make SystemCaller available as QmlElement
     # But when instanciated the program crashes for some reason :/

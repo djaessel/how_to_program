@@ -1,3 +1,3 @@
 {
-    "files": ["BasePage.qml","TODO","MenuButton.qml","WelcomePage.qml","main.qml","SystemCaller.py","SettingsPage.qml","LineSplitter.qml","PracticeTasks.qml","VideoTutorials.qml","VideoLoader.py","UserSettingsPage.qml","how_to_program_app.py","VideoTutorialThumbnail.qml","VideoTutorial.qml"]
+    "files": ["SystemCaller.py","PracticeTasks.qml","VideoTutorials.qml","VideoLoader.py","VideoTutorialThumbnail.qml","MenuButton.qml","UserSettingsPage.qml","BasePage.qml","LineSplitter.qml","TODO","how_to_program_app.py","WelcomePage.qml","main.qml","VideoTutorial.qml","SettingsPage.qml","ProgressPage.qml"]
 }

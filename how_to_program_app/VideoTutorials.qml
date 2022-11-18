@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 //import SystemCaller
 
-BasePage {
+ProgressPage {
     id: _videoTutorials
 
     //forceDefaultData: true
@@ -10,6 +10,9 @@ BasePage {
     //SystemCaller {
     //    id: systemCaller
     //}
+
+    doneCount: 0
+    allCount: 0
 
     MouseArea {
         anchors.fill: parent
@@ -32,6 +35,8 @@ BasePage {
                 sprite.init(videoData[i], i, videosContainer)
             }
         }
+
+        _videoTutorials.allCount = videoData.length
     }
 
     Component.onCompleted: {
@@ -40,59 +45,9 @@ BasePage {
     }
 
     Rectangle {
-        id: progressContainer
-
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-
-        height: 128
-
-        property int watchedVideos: 2
-        property int allVideoCount: 10
-
-        Text {
-            id: progressInfoLabel
-
-            anchors.left: parent.left
-            anchors.top: parent.top
-
-            anchors.margins: 32
-
-            height: 32
-
-            font.pointSize: 24
-
-            text: "<i><b>" + qsTr("Current Progress") +
-                  " ( " + progressContainer.watchedVideos + " / " + progressContainer.allVideoCount + " )</b></i>" +
-                  " <i>" + parseInt(progressBar.value * 100) + " %</i>"
-        }
-
-        ProgressBar {
-            id: progressBar
-
-            anchors.left: parent.left
-            anchors.right: parent.right
-            anchors.bottom: parent.bottom
-
-            anchors.margins: 32
-
-            height: 24
-
-            value: (progressContainer.watchedVideos / progressContainer.allVideoCount)
-        }
-    }
-
-    LineSplitter {
-        id: splitLine1
-
-        anchors.top: progressContainer.bottom
-    }
-
-    Rectangle {
         id: videosContainer
 
-        anchors.top: splitLine1.bottom
+        anchors.top: progressTopSplit.bottom
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
