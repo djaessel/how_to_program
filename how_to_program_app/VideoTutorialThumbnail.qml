@@ -6,27 +6,8 @@ Rectangle {
 
     property double resizer: 0.75
 
-    function init(videoData, listIndex, container, contHeight) {
-        if (listIndex < 2) {
-            anchors.top = container.top
-        } else if (container) {
-            // TODO: get children and then add anchors based on current bottom
-            var prevIndex = listIndex - 1
-            if ((listIndex % 2) != 0) {
-                prevIndex = prevIndex - 1
-            }
-
-            var hackHeight = Screen.height * 0.25 // this is not good!!! later use actual height of container
-            var newY = container.children[prevIndex].y + hackHeight
-            _videoTutorialThumbnailItem.y = newY
-        }
-
-        if ((listIndex % 2) == 0) {
-            _videoTutorialThumbnailItem.anchors.right = container.right
-        } else {
-            _videoTutorialThumbnailItem.anchors.left = container.left
-        }
-
+    function init(videoData)
+    {
         var orderCode = videoData.orderCode
 
         videoTitle = videoData.title
@@ -44,7 +25,7 @@ Rectangle {
                 videoUrlData = [url]
             }
 
-            var videoId = videoUrlData[0]
+            var videoId = videoData.videoId
             if (videoUrlData.length > 1){
                 var time = videoUrlData[1].split("&")[0].split("=")[1]
                 videoStartTime = time
@@ -96,8 +77,8 @@ Rectangle {
     border.color: (mouseInside) ? "#aba" : "gray"
     border.width: 1
 
-    width: parent.width * 0.5
-    height: parent.height * 0.3
+    //width: parent.width * 0.5
+    //height: parent.height * 0.3
 
     VideoTutorial {
         id: vidTut

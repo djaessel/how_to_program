@@ -19,7 +19,7 @@ class VideoLoader(QObject):
         self.checkInstallYoutubeDL()
 
     @Slot(str, result=list)
-    def loadAllBaseOnUserMode(self, dir):
+    def loadAllBasedOnUserMode(self, dir):
         videoData = []
         path = "../video_tutorials/" + dir + "/"
         videoFiles = []
@@ -34,6 +34,38 @@ class VideoLoader(QObject):
             if data != -1:
                 videoData.append(data)
         videoData.sort(key=self.orderVideo)
+        return videoData
+
+
+    @Slot(str, result=list)
+    def loadPlaylistBasedOnUserMode(self, dir):
+        path = "../video_tutorials/" + dir + "/0_1_Playlist.txt"
+        return self.loadPlaylist(path)
+
+
+    def loadPlaylist(self, file_path):
+        playlistUrl = ""
+        with open(file_path) as vf:
+            dataLen = 1
+            foundVideoLink = False
+            while dataLen > 0 and not foundVideoLink:
+                line = vf.readline()
+                dataLen = len(line)
+                if dataLen > 0:
+                    line_l = line.lower()
+                    if line_l.startswith("video:") or line_l.startswith("link:"):
+                        if line_l.startswith("video:"):
+                            foundVideoLink = True
+                            playlistUrl = ":".join(line.split(":")[1:]).rstrip('\n').strip()
+
+        playlist_data = self.extractDurationPlaylist(playlistUrl).split("\n")
+
+        videoData = []
+        for i in range(0, len(playlist_data), 3):
+            data = self.loadVideoDataById(i, playlist_data[i], playlist_data[i+1], playlist_data[i+2].rstrip("\r"))
+            if data != -1:
+                videoData.append(data)
+
         return videoData
 
 
@@ -53,12 +85,58 @@ class VideoLoader(QObject):
         return element["orderCode"]
 
 
+    def extractDurationPlaylist(self, url):
+        # youtube-dl --flat-playlist --get-duration # --get-id
+        # youtube-dl --get-duration
+        args = ["youtube-dl", "--get-duration", "--get-id", "--get-title", url]
+        p = subprocess.run(args, check=True, capture_output=True)
+        return p.stdout.decode().strip("\n").strip(" ")
+
+
     def extractDuration(self, url):
         # youtube-dl --flat-playlist --get-duration # --get-id
         # youtube-dl --get-duration
         args = ["youtube-dl", "--get-duration", url]
         p = subprocess.run(args, check=True, capture_output=True)
         return p.stdout.decode().strip("\n").strip(" ")
+
+    def loadVideoDataById(self, index, videoTitle, videoId, videoDuration):
+        url = "https://youtu.be/" + videoId
+        dependencies = ""
+        infoTextLines = ["NO_TEXT_FOUND"]
+        foundVideoLink = True
+        orderCode = int(index / 3) + 1
+
+        vidData = {
+            "orderCode": orderCode,
+            "title": videoTitle,
+            "url": url,
+            "videoId": videoId,
+            "duration": videoDuration,
+            "dependencies": dependencies,
+            "infoText": infoTextLines,
+        }
+
+        if not foundVideoLink:
+            vidData = -1
+
+        return vidData
+
+    def extractVideoId(self, url):
+        videoId = ""
+        videoUrlData = []
+        if url.find("watch?v=") >= 0:
+            videoUrlData = url.split("/")[3].split("=")[1].split("?")
+        elif url.find("youtu.be") >= 0:
+            videoUrlData = url.split("/")[3].split("?")
+        else:
+            videoUrlData = [url]
+
+        if videoUrlData[0].find("http") < 0:
+            videoId = videoUrlData[0]
+
+        return videoId
+
 
     def loadVideoData(self, file_path):
         url = ""
@@ -84,6 +162,7 @@ class VideoLoader(QObject):
         videoTitle = videoTitle[nameStartIndex:].split(".")[0]
         videoTitle = videoTitle.replace("_", " ")
         duration = "00:00"
+        videoId = ""
 
         with open(file_path) as vf:
             dataLen = 1
@@ -98,7 +177,8 @@ class VideoLoader(QObject):
                         if line_l.startswith("video:"):
                             foundVideoLink = True
                             url = ":".join(line.split(":")[1:]).rstrip('\n').strip()
-                            duration = self.extractDuration(url)
+                            videoId = self.extractVideoId(url)
+                            # duration = self.extractDuration(url)
                     else:
                         line = line.rstrip("\n").rstrip()
                         if emptyStartLine and len(line.strip()) > 0:
@@ -110,6 +190,7 @@ class VideoLoader(QObject):
             "orderCode": orderCode,
             "title": videoTitle,
             "url": url,
+            "videoId": videoId,
             "duration": duration,
             "dependencies": dependencies,
             "infoText": infoTextLines,

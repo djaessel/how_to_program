@@ -14,37 +14,41 @@ ProgressPage {
     doneCount: 0
     allCount: 0
 
-    MouseArea {
-        anchors.fill: parent
-        onWheel: {
-            for (var i = 0; i < videosContainer.children.length; i++) {
-                videosContainer.children[i].y += (wheel.angleDelta.y > 0) ? 32 : -32
-            }
-        }
-    }
+    property var modelx: []
 
     function createVideoElements(videoData) {
-        for (var i = 0; i < videoData.length; i++) {
-            var component = Qt.createComponent("VideoTutorialThumbnail.qml");
-            var sprite = component.createObject(videosContainer, {});
-
-            if (sprite == null) {
-                // Error Handling
-                console.log("Error creating object");
+        var model = []
+        for (var i = 0; i < videoData.length; i+=2) {
+            if (i < videoData.length - 1) {
+                model.push([videoData[i], videoData[i + 1]])
             } else {
-                sprite.init(videoData[i], i, videosContainer)
+                model.push([videoData[i]])
             }
         }
+
+        _videoTutorials.modelx = model
+        videosContainer.model = _videoTutorials.modelx
 
         _videoTutorials.allCount = videoData.length
     }
 
     Component.onCompleted: {
-        var videoData = videoLoader.loadAllBaseOnUserMode(userModeName.toLowerCase())
+        var videoDataOLD = videoLoader.loadAllBasedOnUserMode(userModeName.toLowerCase())
+        var videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
+
+        for (var i = 0; i < videoDataOLD.length; i++) {
+            for (var j = 0; j < videoData.length; j++) {
+                if (videoData[j]["videoId"] === videoDataOLD[i]["videoId"]) {
+                    videoData[j]["infoText"] = videoDataOLD[i]["infoText"]
+                    j = videoData.length // break
+                }
+            }
+        }
+
         createVideoElements(videoData)
     }
 
-    Rectangle {
+    ListView {
         id: videosContainer
 
         anchors.top: progressTopSplit.bottom
@@ -52,13 +56,48 @@ ProgressPage {
         anchors.right: parent.right
         anchors.bottom: parent.bottom
 
-//        VideoTutorialThumbnail {
-//            id: vidTut1
-//        }
+        clip: false
 
-//        VideoTutorialThumbnail {
-//            id: vidTut2
-//        }
+        model: []
+
+        delegate: Rectangle {
+            id: rowy
+
+            width: videosContainer.width
+            height: videosContainer.height * 0.3
+
+            VideoTutorialThumbnail {
+                id: col1
+
+                anchors.left: rowy.left
+                anchors.top: rowy.top
+                anchors.bottom: rowy.bottom
+
+                width: rowy.width * 0.5
+
+                Component.onCompleted: {
+                    col1.init(_videoTutorials.modelx[index][0])
+                }
+            }
+
+            VideoTutorialThumbnail {
+                id: col2
+
+                anchors.right: rowy.right
+                anchors.top: rowy.top
+                anchors.bottom: rowy.bottom
+
+                width: rowy.width * 0.5
+
+                Component.onCompleted: {
+                    if (_videoTutorials.modelx[index].length > 1) {
+                        col2.init(_videoTutorials.modelx[index][1])
+                    } else {
+                        col2.visible = false
+                    }
+                }
+            }
+        }
 
     }
 }
