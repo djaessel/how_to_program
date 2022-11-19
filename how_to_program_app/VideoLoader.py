@@ -3,9 +3,9 @@ from PySide6.QtCore import QObject, Slot
 from PySide6.QtQml import QmlElement
 
 import os
-import sys
+# import sys
 import subprocess
-import importlib
+# import importlib
 
 
 QML_IMPORT_NAME = "VideoLoader"
@@ -14,7 +14,12 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class VideoLoader(QObject):
+    cache_dir = ".cache/"
+    cache_playlists_file = cache_dir + ".cached_playlists"
+
     def __init__(self, parent=None):
+        if not os.path.exists(VideoLoader.cache_dir):
+            os.mkdir(VideoLoader.cache_dir)
         super(VideoLoader, self).__init__(parent)
         self.checkInstallYoutubeDL()
 
@@ -58,7 +63,12 @@ class VideoLoader(QObject):
                             foundVideoLink = True
                             playlistUrl = ":".join(line.split(":")[1:]).rstrip('\n').strip()
 
-        playlist_data = self.extractDurationPlaylist(playlistUrl).split("\n")
+        cachedPlaylistData = self.getCachedPlaylistList()
+        if not playlistUrl in cachedPlaylistData:
+            playlist_data = self.extractVideoDataPlaylist(playlistUrl).split("\n")
+            self.storePlaylistData(playlistUrl, playlist_data)
+
+        playlist_data = self.loadExtractedPlaylistData(playlistUrl)
 
         videoData = []
         for i in range(0, len(playlist_data), 3):
@@ -67,6 +77,40 @@ class VideoLoader(QObject):
                 videoData.append(data)
 
         return videoData
+
+
+    def getCachedPlaylistList(self):
+        existing_playlists = []
+        if os.path.exists(VideoLoader.cache_playlists_file):
+            with open(VideoLoader.cache_playlists_file) as f:
+                for line in f:
+                    existing_playlists.append(line.rstrip("\n"))
+        return existing_playlists
+
+    def storePlaylistData(self, playlist_url, playlist_data):
+        existing_playlists = self.getCachedPlaylistList()
+        file_index = len(existing_playlists)
+        existing_playlists.append(playlist_url)
+
+        with open(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "w") as f:
+            for data in playlist_data:
+                f.write(data + "\n")
+
+        with open(VideoLoader.cache_playlists_file, "w") as f:
+            for p in existing_playlists:
+                f.write(p + "\n")
+
+
+    def loadExtractedPlaylistData(self, playlist_url):
+        playlist_data = []
+        existing_playlists = self.getCachedPlaylistList()
+        if playlist_url in existing_playlists:
+            file_index = existing_playlists.index(playlist_url)
+            with open(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "r") as f:
+                for line in f:
+                    playlist_data.append(line.rstrip("\n"))
+        return playlist_data
+
 
 
     def checkInstallYoutubeDL(self):
@@ -85,7 +129,7 @@ class VideoLoader(QObject):
         return element["orderCode"]
 
 
-    def extractDurationPlaylist(self, url):
+    def extractVideoDataPlaylist(self, url):
         # youtube-dl --flat-playlist --get-duration # --get-id
         # youtube-dl --get-duration
         args = ["youtube-dl", "--get-duration", "--get-id", "--get-title", url]

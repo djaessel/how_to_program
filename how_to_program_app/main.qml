@@ -19,22 +19,22 @@ Window {
 
     property int userMode: 0
     property var userModeTexts: [
-        "Beginner", // 4 tasks
-        "Comfortable", // 0 tasks
-        "Advanced", // 4 tasks
-        "Hooked",   // 1 tasks
-        "Insane",   // 0 tasks
-        "Hacker",   // 0 tasks
+        "beginner",     // 4 tasks
+        "comfortable",  // 0 tasks
+        "advanced",     // 4 tasks
+        "hooked",       // 1 tasks
+        "insane",       // 0 tasks
+        "hacker",       // 0 tasks
     ]
-    property string userModeName: userModeTexts[userMode]
+    property string userModeName: userModeTexts[userMode].charAt(0).toUpperCase() + userModeTexts[userMode].substring(1)
 
     property int infoLevel: 0
     property var infoLevelNames: [
-        "Standard",     // default
-        "Bonus",        // for interested ones
-        "Extra Bonus",  // if you really mean it
+        "standard",     // default
+        "bonus",        // for interested ones
+        "extra_bonus",  // if you really mean it
     ]
-    property string infoLevelName: infoLevelNames[infoLevel]
+    property string infoLevelName: (infoLevelNames[infoLevel].charAt(0).toUpperCase() + infoLevelNames[infoLevel].substring(1)).replace("_", " ")
 
     ListModel {
         id: listModel

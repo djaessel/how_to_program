@@ -11,6 +11,7 @@ from PySide6.QtQml import QQmlApplicationEngine
 from PySide6 import QtCore
 from SystemCaller import SystemCaller
 from VideoLoader import VideoLoader
+from TaskLoader import TaskLoader
 
 
 # Default message handler to be called to bypass all other warnings.
@@ -44,6 +45,9 @@ def main():
 
     videoLoader = VideoLoader()
     context.setContextProperty("videoLoader", videoLoader)
+
+    taskLoader = TaskLoader()
+    context.setContextProperty("taskLoader", taskLoader)
 
     # Auto-generated code by QtCreator
     engine.load(qml_file)
