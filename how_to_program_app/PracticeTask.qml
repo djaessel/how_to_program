@@ -8,7 +8,7 @@ SpecialPage {
     property var missi: parent
 
     Flickable {
-        id: _practiceTaskPageContent
+        id: _pageConent
 
         anchors.left: parent.left
         anchors.right: parent.right
@@ -57,7 +57,7 @@ SpecialPage {
                 anchors.right: parent.right
                 //anchors.top: parent.top
 
-                y: _practiceTaskPageContent.contentY
+                y: _pageConent.contentY
 
                 height: missi.height * 0.15
 

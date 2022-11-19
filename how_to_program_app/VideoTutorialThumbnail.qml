@@ -51,7 +51,7 @@ Rectangle {
 
         //var dependencies = videoData.dependencies
 
-        videoInfo = videoData.infoText.join("\n").replace(",\n", ", ")
+        videoInfo = videoData.infoText.join("<br>").replace(",<br>", ", ").replace("NO_TEXT_FOUND", "No explanation yet.") + "<br><br><br><br><br>"
     }
 
     property string curYoutubeVideoId: "wKqLaNqxgas" // test video id

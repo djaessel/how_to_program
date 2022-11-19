@@ -1,160 +1,171 @@
 import QtQuick
 import QtQuick.Controls
 
-ScrollView {
+SpecialPage {
     id: _vidTutorial
 
-    width: 400
-    height: 300
+    windowTitle: videoTitle
 
-    clip: true
+    property var missi: parent
 
-    Rectangle {
-        id: progressContainer
-
-        anchors.top: parent.top
-        anchors.left: parent.left
-        anchors.right: parent.right
-
-        height: 80
-
-        property int watchedVideos: 2
-        property int allVideoCount: 10
-
-        MenuButton {
-            id: backToTuts
-
-            anchors.top: parent.top
-            anchors.left: parent.left
-            anchors.bottom: parent.bottom
-
-            text: "\u276E"
-            width: titleBar.height
-
-            textItem.font.pointSize: 18
-
-            mouseItem.onClicked: {
-                stackView.pop()
-            }
-        }
-
-        Label {
-            id: videoTitleLabel
-
-            anchors.left: backToTuts.right
-            anchors.top: parent.top
-            anchors.right: parent.right
-
-            anchors.leftMargin: resizer * 32
-            anchors.topMargin: resizer * 8
-
-            height: resizer * 56
-
-            font.pointSize: resizer * 32
-
-            verticalAlignment: Text.AlignVCenter
-
-            text: "<b>" + videoTitle + "</b>"
-        }
-
-        Label {
-            id: videoTimeLabel
-
-            anchors.left: videoTitleLabel.left
-            anchors.top: videoTitleLabel.bottom
-            anchors.right: parent.right
-
-            //anchors.leftMargin: resizer * 32
-
-            height: resizer * 32
-
-            font.pointSize: resizer * 18
-
-            verticalAlignment: Text.AlignVCenter
-
-            text: "Duration: " + ((videoDurationHours > 0) ? videoDurationHours + ":" : "") + videoDurationMinutes + ":" + videoDurationSeconds
-        }
-    }
-
-    LineSplitter {
-        id: splitLine1
-
-        anchors.top: progressContainer.bottom
-    }
-
-    Image {
-        id: videoThumbnail
+    Flickable {
+        id: _pageConent
 
         anchors.left: parent.left
-        anchors.top: splitLine1.bottom
-
-        anchors.margins: resizer * 32
-
-        width: parent.width * 0.33
-
-        smooth: true
-        fillMode: Image.PreserveAspectFit
-
-        source: thumbnailUrl
-
-        cache: true
-        asynchronous: true
-
-        onStatusChanged: {
-           if (status == Image.Error) {
-              source = alternativeThumbnailUrl
-              // maybe later more will be added
-           }
-           // some are stuck in Image.Loading ???
-        }
-
-        MouseArea {
-            anchors.fill: parent
-            hoverEnabled: true
-
-            onEntered: {
-                videoThumbnail.opacity = 0.6789
-            }
-
-            onExited: {
-                videoThumbnail.opacity = 1
-            }
-
-            onClicked: {
-                systemCaller.openUrl(defaultVideoUrl)
-            }
-        }
-
-        Label {
-            z: 10
-            anchors.fill: parent
-
-            text: "\u25B6"
-
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-
-            font.pointSize: 64
-            color: "#444"
-        }
-    }
-
-    Label {
-        id: videoInfoText
-
-        anchors.left: videoThumbnail.right
-        anchors.top: videoThumbnail.top
         anchors.right: parent.right
         anchors.bottom: parent.bottom
+        anchors.top: pageTitleSplit.bottom
 
-        anchors.margins: resizer * 32
-        anchors.topMargin: 0
+        contentHeight: Math.max(videoInfoText.height, missi.height - windowTitleHeight)
 
-        wrapMode: Text.WordWrap
-        elide: Text.ElideRight
+        Rectangle {
+            id: videoRect
 
-        font.pointSize: 16
+            anchors.left: parent.left
+            anchors.top: parent.top
 
-        text: videoInfo
+            //y: _pageConent.contentY
+
+            width: missi.width * 0.33
+            height: videoThumbnail.height + videoTimeLabel.height
+
+            anchors.margins: resizer * 32
+
+            MouseArea {
+                anchors.fill: parent
+                hoverEnabled: true
+
+                onEntered: {
+                    videoRect.opacity = 0.6789
+                }
+
+                onExited: {
+                    videoRect.opacity = 1
+                }
+
+                onClicked: {
+                    systemCaller.openUrl(defaultVideoUrl)
+                }
+            }
+
+            property int extraBorderWidth: 4
+
+            Rectangle {
+                anchors.fill: videoRect
+
+                anchors.rightMargin: -videoRect.extraBorderWidth
+                anchors.leftMargin: -videoRect.extraBorderWidth
+                anchors.topMargin: -videoRect.extraBorderWidth
+                anchors.bottomMargin: -videoRect.extraBorderWidth
+
+                z: -1
+
+                color: "black"
+            }
+
+            Image {
+                id: videoThumbnail
+
+                anchors.left: parent.left
+                //anchors.top: parent.top
+                anchors.right: parent.right
+                anchors.bottom: videoTimeLabel.top
+
+                smooth: true
+                fillMode: Image.PreserveAspectFit
+
+                source: thumbnailUrl
+
+                cache: true
+                asynchronous: true
+
+                property bool loaded: false
+
+                onStatusChanged: {
+                    if (status == Image.Error) {
+                       source = alternativeThumbnailUrl
+                       // maybe later more will be added
+                    } else if (status == Image.Loading && !videoThumbnail.loaded) {
+                       restarte.restart()
+                    } else if (status == Image.Ready) {
+                       restarte.stop()
+                    }/* else {
+                       // some are stuck in Image.Loading ???
+                    }*/
+                }
+
+                // fix for image loading on start
+                Timer {
+                    id: restarte
+
+                    interval: 1500
+                    repeat: false
+
+                    onTriggered: {
+                        var orgSource = videoThumbnail.source
+                        videoThumbnail.source = ""
+                        videoThumbnail.source = orgSource
+                        videoThumbnail.loaded = true
+                    }
+                }
+
+                Label {
+                    z: 10
+                    anchors.fill: parent
+
+                    text: "\u25B6"
+
+                    horizontalAlignment: Text.AlignHCenter
+                    verticalAlignment: Text.AlignVCenter
+
+                    font.pointSize: 64
+                    color: "#444"
+                }
+            }
+
+            Label {
+                id: videoTimeLabel
+
+                anchors.left: parent.left
+                anchors.bottom: parent.bottom
+                anchors.right: parent.right
+
+                height: resizer * 32
+
+                font.pointSize: resizer * 18
+
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+
+                text: "<i>Duration: " + (
+                          ((videoDurationHours > 0) ?
+                              ((JSON.stringify(videoDurationHours).length == 1) ? "0" : "") + videoDurationHours + ":" : "") +
+                          ((JSON.stringify(videoDurationMinutes).length == 1) ? "0" : "") + videoDurationMinutes + ":" +
+                          ((JSON.stringify(videoDurationSeconds).length == 1) ? "0" : "") + videoDurationSeconds +
+                      "</i>"
+                )
+            }
+        }
+
+        Label {
+            id: videoInfoText
+
+            anchors.left: videoRect.right
+            anchors.right: parent.right
+
+            // FIXME: find a better way, maybe with correct anchors
+            Component.onCompleted: {
+                videoInfoText.y = _pageConent.contentY + resizer * 32
+            }
+
+            anchors.margins: resizer * 32
+
+            wrapMode: Text.WordWrap
+            elide: Text.ElideRight
+
+            font.pointSize: 16
+
+            text: videoInfo
+        }
     }
 }

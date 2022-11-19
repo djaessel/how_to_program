@@ -17,6 +17,18 @@ BasePage {
     clip: true
 
     Rectangle {
+        id: backgroundColorBlock
+
+        z: -1
+
+        anchors.left: parent.left
+        anchors.top: parent.top
+        anchors.right: parent.right
+
+        height: _pageConent.contentHeight
+    }
+
+    Rectangle {
         id: pageTitleContainer
 
         anchors.top: parent.top
