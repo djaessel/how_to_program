@@ -28,17 +28,18 @@ class VideoLoader(QObject):
         videoData = []
         path = "../video_tutorials/" + dir + "/"
         videoFiles = []
-        files = os.listdir(path)
-        for file in files:
-            file_path = path + file
-            if os.path.isfile(file_path):
-                videoFiles.append(file_path)
+        if os.path.exists(path) and os.path.isdir(path):
+            files = os.listdir(path)
+            for file in files:
+                file_path = path + file
+                if os.path.isfile(file_path):
+                    videoFiles.append(file_path)
 
-        for vidFile in videoFiles:
-            data = self.loadVideoData(vidFile)
-            if data != -1:
-                videoData.append(data)
-        videoData.sort(key=self.orderVideo)
+            for vidFile in videoFiles:
+                data = self.loadVideoData(vidFile)
+                if data != -1:
+                    videoData.append(data)
+            videoData.sort(key=self.orderVideo)
         return videoData
 
 
@@ -49,6 +50,9 @@ class VideoLoader(QObject):
 
 
     def loadPlaylist(self, file_path):
+        if not os.path.exists(file_path):
+            return []
+
         playlistUrl = ""
         with open(file_path) as vf:
             dataLen = 1

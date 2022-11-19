@@ -26,7 +26,7 @@ Window {
         "insane",       // 0 tasks
         "hacker",       // 0 tasks
     ]
-    property string userModeName: userModeTexts[userMode].charAt(0).toUpperCase() + userModeTexts[userMode].substring(1)
+    property string userModeName: userModeTexts[userMode].charAt(0).toUpperCase() + userModeTexts[userMode].substring(1).replace("_", " ")
 
     property int infoLevel: 0
     property var infoLevelNames: [
@@ -34,7 +34,11 @@ Window {
         "bonus",        // for interested ones
         "extra_bonus",  // if you really mean it
     ]
-    property string infoLevelName: (infoLevelNames[infoLevel].charAt(0).toUpperCase() + infoLevelNames[infoLevel].substring(1)).replace("_", " ")
+    property string infoLevelName: infoLevelNames[infoLevel].charAt(0).toUpperCase() + infoLevelNames[infoLevel].substring(1).replace("_", " ")
+
+    onUserModeNameChanged: {
+        videoTutorials.init()
+    }
 
     ListModel {
         id: listModel

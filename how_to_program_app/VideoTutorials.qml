@@ -5,8 +5,6 @@ import QtQuick.Controls
 ProgressPage {
     id: _videoTutorials
 
-    //forceDefaultData: true
-
     //SystemCaller {
     //    id: systemCaller
     //}
@@ -32,7 +30,7 @@ ProgressPage {
         _videoTutorials.allCount = videoData.length
     }
 
-    Component.onCompleted: {
+    function init() {
         var videoDataOLD = videoLoader.loadAllBasedOnUserMode(userModeName.toLowerCase())
         var videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
 
