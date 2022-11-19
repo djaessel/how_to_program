@@ -41,6 +41,11 @@ Window {
         practiceTasks.init()
     }
 
+    onInfoLevelChanged: {
+        //videoTutorials.init() // should stay the same?
+        practiceTasks.init()
+    }
+
     ListModel {
         id: listModel
 
