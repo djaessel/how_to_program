@@ -172,7 +172,7 @@ Rectangle {
            if (status == Image.Error) {
               source = alternativeThumbnailUrl
               // maybe later more will be added
-           } else if (status == Image.Loading && !loaded) {
+           } else if (status == Image.Loading && !videoThumbnail.loaded) {
               restarte.restart()
            } else if (status == Image.Ready) {
               restarte.stop()
@@ -192,7 +192,7 @@ Rectangle {
                 var orgSource = videoThumbnail.source
                 videoThumbnail.source = ""
                 videoThumbnail.source = orgSource
-                loaded = true
+                videoThumbnail.loaded = true
             }
         }
     }

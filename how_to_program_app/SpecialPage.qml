@@ -1,11 +1,15 @@
 import QtQuick
 import QtQuick.Controls
 
-ScrollView {
+BasePage {
     id: _specialPage
 
     property string windowTitle: ""
+    property int windowTitleHeight: pageTitleContainer.height + pageTitleSplit.height
+
     property int resizer: 1
+
+    property alias pageTitleSplit: pageTitleSplit
 
     width: 400
     height: 300
@@ -13,7 +17,7 @@ ScrollView {
     clip: true
 
     Rectangle {
-        id: titleContainer
+        id: pageTitleContainer
 
         anchors.top: parent.top
         anchors.left: parent.left
@@ -59,9 +63,9 @@ ScrollView {
     }
 
     LineSplitter {
-        id: splitLine1
+        id: pageTitleSplit
 
-        anchors.top: titleContainer.bottom
+        anchors.top: pageTitleContainer.bottom
     }
 
 }

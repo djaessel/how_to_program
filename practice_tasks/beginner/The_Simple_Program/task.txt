@@ -4,28 +4,23 @@ Nun geht es aber richtig los!
 Hier musst du alles wichtige mal gesehen haben.
 
 1. Erstelle folgende Funktionen:
- - multiply
-   --> Diese soll zwei Werte multiplizieren und zurückgeben
- - add
-   --> Diese soll zwei Werte addieren und zurückgeben
- - sub
-   --> Soll zwei Werte subtrahieren ...
- - div
-   --> you know the deal
-   --> Berücksichtige den DIVIDED BY ZERO Fall (z.B. gebe 0 zurück)
+ - multiply   --> Diese soll zwei Werte multiplizieren und zurückgeben
+ - add   --> Diese soll zwei Werte addieren und zurückgeben
+ - sub   --> Soll zwei Werte subtrahieren ...
+ - div   --> Dividieren... und berücksichtige den DIVIDED BY ZERO Fall (z.B. gebe 0 zurück)
 
 2. Nun erstelle noch eine Funktion, die zwei Texte miteinander verbindet und zurückgibt.
    --> Nenne sie z.B. "str_merge"
    --> Es soll ein Leerzeichen dazwischen eingesetzt werden (ähnlich wie bei print())
 
-3. Erstelle eine Funktion "info"
+3. Erstelle eine Funktion <i>info</i>
   - Es soll ein Parameter übergeben werden
   - Es soll immer der Text: "New Info:" ausgegeben werden und dann der Parameter
 
 4. Übergebe deinem Python Programm ein Konsolenargument / Befehlzeilenargument
   - Prüfe ob es ein Argument gibt
   - Prüfe auf den Wert "--no-info-msg"
-  - Wenn dieser Parameter übergeben wurde, soll in der Funktion "info" der Text "New Info:"
+  - Wenn dieser Parameter übergeben wurde, soll in der Funktion "info" der Text "New Info:" \
     nicht mehr angezeigt werden, lediglich der Parameter der Funktion "info"
   - (Du darfst das "global" keyword verwenden, wenn es nicht anders geht.)
 
@@ -39,6 +34,7 @@ Hier musst du alles wichtige mal gesehen haben.
   - schließlich noch mit einem oder mehreren falschen Werten
   - mit mehreren falschen Werten und dem "--no-info-msg" Parameter aus
   - wenn falsche Argumente übergeben werden, sollen sie ignoriert werden
+  
   Das sieht in der Konsole dann beispielsweise so aus:
   python simple_program.py
   python simple_program.py --no-info-msg

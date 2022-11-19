@@ -7,6 +7,7 @@ Rectangle {
     property string downColor: "#898"
     property string hoverColor: "#aba"
     property string extraborderColor: "#aba"
+    property string hoverDeactivatedColor: "darkgray"
 
     property alias textColor: _menuItemText.color
     property alias text: _menuItemText.text
@@ -16,17 +17,50 @@ Rectangle {
 
     property int borderWidthRight: 1
     property int borderWidthLeft: 1
+    property int borderWidthBottom: 1
+    property int borderWidthTop: 1
 
     color: defaultColor
 
     Rectangle {
         anchors.fill: parent
+
         anchors.rightMargin: -borderWidthRight
         anchors.leftMargin: -borderWidthLeft
+        anchors.topMargin: -borderWidthTop
+        anchors.bottomMargin: -borderWidthBottom
 
         z: -1
 
         color: extraborderColor
+    }
+
+    MouseArea {
+        id: _menuItemMouseArea
+
+        anchors.fill: parent
+
+        hoverEnabled: true
+
+        onEntered: {
+            if (_menuItem.enabled) {
+                _menuItem.color = hoverColor
+            } else {
+                _menuItem.color = hoverDeactivatedColor
+            }
+        }
+
+        onExited: {
+            _menuItem.color = defaultColor
+        }
+
+        onPressedChanged: {
+            if (pressed) {
+                _menuItem.color = downColor
+            } else {
+                _menuItem.color = hoverColor
+            }
+        }
     }
 
     Text {
@@ -39,29 +73,5 @@ Rectangle {
         font.pointSize: 24
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
-
-        MouseArea {
-            id: _menuItemMouseArea
-
-            anchors.fill: parent
-
-            hoverEnabled: true
-
-            onEntered: {
-                _menuItem.color = hoverColor
-            }
-
-            onExited: {
-                _menuItem.color = defaultColor
-            }
-
-            onPressedChanged: {
-                if (pressed) {
-                    _menuItem.color = downColor
-                } else {
-                    _menuItem.color = hoverColor
-                }
-            }
-        }
     }
 }

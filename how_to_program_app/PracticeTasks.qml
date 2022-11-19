@@ -23,8 +23,51 @@ ProgressPage {
             var taskInfo = taskLoader.read_task_info([taskPath, infoLevelNames, infoLevel])
 
             // remove first while empty
-            while (taskInfo[0].length == 0) {
+            while (taskInfo[0].length === 0) {
                 taskInfo.splice(0, 1)
+            }
+
+            var listActive = false
+            var lastEndedWithBack = false
+            for (var j = 0; j < taskInfo.length; j++) {
+                var orgLin = taskInfo[j]
+
+                if (taskInfo[j].startsWith(">")) {
+                    taskInfo[j] = "<i>" + taskInfo[j].replace(">", "") + "</i>"
+                }
+
+                var listObjIndex = taskInfo[j].indexOf("- ")
+                if (listObjIndex >= 0 || lastEndedWithBack) {
+                    if (!lastEndedWithBack) {
+                        var x = ""
+                        if (!listActive) {
+                            taskInfo[j - 1] = "<b>" + taskInfo[j - 1] + "</b>"
+                            x += "<ul style='list-style-position: outside'>"
+                        }
+
+                        lastEndedWithBack = orgLin.trim(" ", "\n").endsWith("\\")
+
+                        taskInfo[j] = x + "<li>" + taskInfo[j].replace("- ", " ").split("\\")[0]
+
+                        if (!lastEndedWithBack) {
+                            taskInfo[j] += "</li>"
+                        }
+                    } else {
+                        taskInfo[j] = taskInfo[j] + "</li>"
+                        lastEndedWithBack = orgLin.trim(" ", "\n").endsWith("\\")
+                    }
+
+                    listActive = true
+                } else {
+                    if (listActive) {
+                        taskInfo[j] = "</ul><br>" + taskInfo[j]
+                    }
+
+                    lastEndedWithBack = false
+                    listActive = false
+                }
+
+                taskInfo[j] = taskInfo[j].replace("-->", "\u2192").replace("<--", "\u2190")
             }
 
             newModel.push({
@@ -45,12 +88,8 @@ ProgressPage {
             description: "Lorem impsum"
         }
         ListElement {
-            title: "HOOOOOOO"
-            description: "HAAAAAAAAAAAAAEYYYYYYYYYY"
-        }
-        ListElement {
-            title: "Lorem impsum 124324346549646 485jz48h9j984j hj496"
-            description: "Master 143245645 434534 \n344345\nTTTTEST"
+            title: "Task2"
+            description: "Lorem impsum\nMultiline"
         }
     }
 
@@ -71,7 +110,7 @@ ProgressPage {
 
             titleText: _practiceTasks.myModel[index].taskName.replace("_", " ")
             path: _practiceTasks.myModel[index].taskPath
-            descriptionText: _practiceTasks.myModel[index].taskInfo.join("\n")
+            descriptionText: _practiceTasks.myModel[index].taskInfo.join("<br>") + "<br><br><br><br><br>"
         }
     }
 }
