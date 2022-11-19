@@ -38,6 +38,7 @@ Window {
 
     onUserModeNameChanged: {
         videoTutorials.init()
+        practiceTasks.init()
     }
 
     ListModel {

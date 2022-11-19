@@ -27,10 +27,11 @@ class TaskLoader(QObject):
     def load_available_tasks(self, user_mode_name):
         TaskLoader.tasks = []
         mode_base_dir = TaskLoader.base_dir + "/" + user_mode_name
-        task_dir = os.listdir(mode_base_dir)
-        for i in range(len(task_dir)):
-            if os.path.isdir(mode_base_dir + "/" + task_dir[i]):
-                TaskLoader.tasks.append(task_dir[i])
+        if os.path.exists(mode_base_dir) and os.path.isdir(mode_base_dir):
+            task_dir = os.listdir(mode_base_dir)
+            for i in range(len(task_dir)):
+                if os.path.isdir(mode_base_dir + "/" + task_dir[i]):
+                    TaskLoader.tasks.append(task_dir[i])
         return len(TaskLoader.tasks)
 
     @Slot(bool, result=str)

@@ -12,7 +12,7 @@ ProgressPage {
         doneCount = 0 // later actual count based on active and stored
     }
 
-    Component.onCompleted: {
+    function init() {
         var newModel = []
 
         var umnae = userModeName.toLowerCase()
