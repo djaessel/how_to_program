@@ -166,12 +166,34 @@ Rectangle {
         cache: true
         asynchronous: true
 
+        property bool loaded: false
+
         onStatusChanged: {
            if (status == Image.Error) {
               source = alternativeThumbnailUrl
               // maybe later more will be added
-           }
-           // some are stuck in Image.Loading ???
+           } else if (status == Image.Loading && !loaded) {
+              restarte.restart()
+           } else if (status == Image.Ready) {
+              restarte.stop()
+           }/* else {
+              // some are stuck in Image.Loading ???
+           }*/
+        }
+
+        // fix for image loading on start
+        Timer {
+            id: restarte
+
+            interval: 1500
+            repeat: false
+
+            onTriggered: {
+                var orgSource = videoThumbnail.source
+                videoThumbnail.source = ""
+                videoThumbnail.source = orgSource
+                loaded = true
+            }
         }
     }
 
