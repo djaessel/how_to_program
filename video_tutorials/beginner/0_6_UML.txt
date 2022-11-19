@@ -6,6 +6,7 @@ is used for Classes and their relations and not so much about coding itself.
 
 Examples:
 Link: https://www.visual-paradigm.com/guide/uml-unified-modeling-language/uml-class-diagram-tutorial/
+Link: https://www.visual-paradigm.com/solution/freeumltool/
 
 
 Once you are getting into object oriented programming, you want to use this or at least should have seen it.
