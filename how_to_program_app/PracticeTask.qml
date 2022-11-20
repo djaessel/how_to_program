@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 
 SpecialPage {
     id: _practiceTaskPage
@@ -6,6 +7,16 @@ SpecialPage {
     windowTitle: titleText
 
     property var missi: parent
+
+    property bool taskDone: false
+
+    function checkIsDone() {
+        if (standardButtons.isDone
+         && bonusButtons.isDone
+         && extraBonusButtons.isDone) {
+            _practiceTaskPage.taskDone = true
+        }
+    }
 
     Flickable {
         id: _pageConent
@@ -50,55 +61,26 @@ SpecialPage {
             anchors.top: parent.top
             anchors.bottom: parent.bottom
 
-            Row {
+            TaskButtonRow {
                 id: standardButtons
 
                 anchors.left: parent.left
                 anchors.right: parent.right
-                //anchors.top: parent.top
 
                 y: _pageConent.contentY
 
                 height: missi.height * 0.15
 
-                MenuButton {
-                    id: standardStartButton
+                visible: appWindow.infoLevel >= 0
 
-                    anchors.left: parent.left
-                    anchors.top: parent.top
+                programmingEnabled: true
 
-                    anchors.margins: 32
+                infoLevelText: "Standard"
 
-                    enabled: true
-
-                    height: parent.height
-                    width: parent.width * 0.45
-
-                    textItem.font.pointSize: 18
-
-                    textItem.text: "Programming Standard"
-                }
-
-                MenuButton {
-                    id: standardSolutionButton
-
-                    anchors.left: standardStartButton.right
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-
-                    anchors.margins: 32
-
-                    enabled: false
-
-                    height: parent.height
-
-                    textItem.font.pointSize: 18
-
-                    textItem.text: "Standard Solution"
-                }
+                onIsDoneChanged: _practiceTaskPage.checkIsDone()
             }
 
-            Row {
+            TaskButtonRow {
                 id: bonusButtons
 
                 anchors.left: parent.left
@@ -107,44 +89,16 @@ SpecialPage {
 
                 height: missi.height * 0.15
 
-                MenuButton {
-                    id: bonusStartButton
+                visible: appWindow.infoLevel >= 1
 
-                    anchors.left: parent.left
-                    anchors.top: parent.top
+                infoLevelText: "Bonus"
 
-                    anchors.margins: 32
+                programmingEnabled: standardButtons.isDone
 
-                    enabled: false
-
-                    height: parent.height
-                    width: parent.width * 0.45
-
-                    textItem.font.pointSize: 18
-
-                    textItem.text: "Programming Bonus"
-                }
-
-                MenuButton {
-                    id: bonusSolutionButton
-
-                    anchors.left: bonusStartButton.right
-                    anchors.right: parent.right
-                    anchors.top: parent.top
-
-                    anchors.margins: 32
-
-                    enabled: false
-
-                    height: parent.height
-
-                    textItem.font.pointSize: 18
-
-                    textItem.text: "Bonus Solution"
-                }
+                onIsDoneChanged: _practiceTaskPage.checkIsDone()
             }
 
-            Row {
+            TaskButtonRow {
                 id: extraBonusButtons
 
                 anchors.left: parent.left
@@ -153,41 +107,36 @@ SpecialPage {
 
                 height: missi.height * 0.15
 
-                MenuButton {
-                    id: extraBonusStartButton
+                visible: appWindow.infoLevel >= 2
 
-                    anchors.left: parent.left
-                    anchors.top: parent.top
+                infoLevelText: "Extra Bonus"
 
-                    anchors.margins: 32
+                programmingEnabled: bonusButtons.isDone
 
-                    enabled: false
+                onIsDoneChanged: _practiceTaskPage.checkIsDone()
+            }
 
-                    height: parent.height
-                    width: parent.width * 0.45
+            Label {
+                id: finishedMessage
 
-                    textItem.font.pointSize: 18
+                visible: _practiceTaskPage.taskDone
 
-                    textItem.text: "Programming Extra Bonus"
-                }
+                anchors.top: extraBonusButtons.bottom
+                anchors.left: parent.left
+                anchors.right: parent.right
 
-                MenuButton {
-                    id: extraBonusSolutionButton
+                anchors.margins: 32
 
-                    anchors.left: extraBonusStartButton.right
-                    anchors.right: parent.right
-                    anchors.top: parent.top
+                height: missi.height * 0.15
 
-                    anchors.margins: 32
+                verticalAlignment: Text.AlignVCenter
+                horizontalAlignment: Text.AlignRight
 
-                    enabled: false
+                font.pointSize: 32
+                font.bold: true
 
-                    height: parent.height
-
-                    textItem.font.pointSize: 18
-
-                    textItem.text: "Extra Bonus Solution"
-                }
+                text: "\u2713 TASK COMPLETE"
+                color: "#9a9"
             }
         }
     }
