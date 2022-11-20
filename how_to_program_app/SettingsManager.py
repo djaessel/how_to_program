@@ -37,6 +37,14 @@ class SettingsManager(QObject):
                 return json.dumps(d)
         return "{}"
 
+    @Slot(result=str)
+    def allVideoSaveData(self):
+        return json.dumps(self._stored_video_data)
+
+    @Slot(result=str)
+    def allTaskSaveData(self):
+        return json.dumps(self._stored_task_data)
+
     @Slot(str, result=str)
     def taskSaveData(self, task_name):
         for i, d in enumerate(self._stored_task_data):

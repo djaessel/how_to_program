@@ -95,6 +95,7 @@ Rectangle {
                 "opened": alreadyOpened,
                 "finished": markedAsDone
             }))
+            updateProgressData()
         }
     }
 
@@ -209,7 +210,7 @@ Rectangle {
         Timer {
             id: restarte
 
-            interval: 1500
+            interval: 500
             repeat: false
 
             onTriggered: {

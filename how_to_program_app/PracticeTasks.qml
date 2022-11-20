@@ -74,12 +74,14 @@ ProgressPage {
             }
 
             // fix because just calling once does not fully work ???
-            while (taskName.indexOf("_") >= 0) {
-                taskName = taskName.replace("_", " ")
+            var taskDisplayText = taskName
+            while (taskDisplayText.indexOf("_") >= 0) {
+                taskDisplayText = taskDisplayText.replace("_", " ")
             }
 
             newModel.push({
                 "taskName": taskName,
+                "taskDisplayText": taskDisplayText,
                 "taskPath": taskPath,
                 "taskInfo": taskInfo
             })
@@ -144,7 +146,7 @@ ProgressPage {
                 }
             }
 
-            titleText: _practiceTasks.myModel[index].taskName
+            titleText: _practiceTasks.myModel[index].taskDisplayText
             path: _practiceTasks.myModel[index].taskPath
             descriptionText: _practiceTasks.myModel[index].taskInfo.join("<br>") + "<br><br><br><br><br>"
         }

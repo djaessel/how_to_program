@@ -11,11 +11,13 @@ Rectangle {
     onDescriptionTextChanged: {
         var countInfo = 0 // default is 0
 
-        if (descriptionText.toLowerCase().indexOf("bonus:<br>") > 0) {
+        var curIdx = descriptionText.toLowerCase().indexOf("bonus:<br>")
+        if (curIdx > 0 && descriptionText.charAt(curIdx - 1) !== "#") {
             countInfo += 1
         }
 
-        if (descriptionText.toLowerCase().indexOf("extra bonus:<br>") > 0) {
+        curIdx = descriptionText.toLowerCase().indexOf("extra bonus:<br>")
+        if (curIdx > 0 && descriptionText.charAt(curIdx - 1) !== "#") {
             countInfo += 1
         }
 

@@ -101,7 +101,7 @@ SpecialPage {
                 Timer {
                     id: restarte
 
-                    interval: 1500
+                    interval: 500
                     repeat: false
 
                     onTriggered: {

@@ -52,12 +52,10 @@ ProgressPage {
     function updateProgressData() {
         var count = 0
 
-        // FIXME: optimize later
-        for (var i = 0; i < videosContainer.children[0].children.length; i++) {
-            for (var j = 0; j < videosContainer.children[0].children[i].children.length; j++) {
-                if (videosContainer.children[0].children[i].children[j].markedAsDone) {
-                    count += 1
-                }
+        var ally = JSON.parse(settingsManager.allVideoSaveData())
+        for (var i=0; i < ally.length; i++) {
+            if (ally[i].finished) {
+                count += 1
             }
         }
 
