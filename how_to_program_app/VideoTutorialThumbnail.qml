@@ -6,10 +6,10 @@ Rectangle {
 
     property double resizer: 0.75
 
-    property bool alreadyOpened: true
+    property bool alreadyOpened: false
     property bool markedAsDone: false
 
-    property string curYoutubeVideoId: "wKqLaNqxgas" // test video id
+    property string curYoutubeVideoId: "" // test video id
     property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId + "?t=" + videoStartTime
     property string thumbnailUrl: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
     property string alternativeThumbnailUrl: "https://i1.ytimg.com/vi/" + curYoutubeVideoId + "/hqdefault.jpg"
@@ -60,6 +60,13 @@ Rectangle {
 
             if (url.indexOf("youtu") >= 0 && url.indexOf("playlist") < 0) {
                 curYoutubeVideoId = videoId
+
+                var curSaveDataString = settingsManager.videoSaveData(videoId)
+                var curSavedData = JSON.parse(curSaveDataString)
+                if (curSaveDataString.length > 2) {
+                    alreadyOpened = curSavedData.opened
+                    markedAsDone = curSavedData.finished
+                }
             }
 
             var allVideoTimeSeconds = 0
@@ -81,6 +88,20 @@ Rectangle {
         videoInfo = videoData.infoText.join("<br>").replace(",<br>", ", ").replace("NO_TEXT_FOUND", "No explanation yet.") + "<br><br><br><br><br>"
     }
 
+    function updateVideoSaveData() {
+        if (curYoutubeVideoId != "") {
+            settingsManager.handleVideoSaveData(JSON.stringify({
+                "videoId": curYoutubeVideoId,
+                "opened": alreadyOpened,
+                "finished": markedAsDone
+            }))
+        }
+    }
+
+    onMarkedAsDoneChanged: updateVideoSaveData()
+    onAlreadyOpenedChanged: updateVideoSaveData()
+
+
     VideoTutorial {
         id: vidTut
         anchors.fill: parent
@@ -93,7 +114,6 @@ Rectangle {
 
         onClicked: {
             stackView.push(vidTut)
-            //systemCaller.openUrl(defaultVideoUrl)
         }
 
         onEntered: {

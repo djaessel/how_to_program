@@ -15,6 +15,7 @@ ApplicationWindow {
 
     color: "#cdc"
 
+
     property bool menuSmall: true
 
     property int userMode: -1
@@ -43,7 +44,10 @@ ApplicationWindow {
     }
 
     onClosing: {
-        settingsManager.save_data([((userMode & 0x0F) << 4) + (infoLevel & 0x0F)])
+        var to_be_saved_data = [
+            ((userMode & 0x0F) << 4) + (infoLevel & 0x0F),
+        ]
+        settingsManager.save_data(to_be_saved_data)
     }
 
     onUserModeChanged: {
@@ -59,6 +63,7 @@ ApplicationWindow {
         //videoTutorials.init() // should stay the same?
         practiceTasks.init()
     }
+
 
     ListModel {
         id: listModel

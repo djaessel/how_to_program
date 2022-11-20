@@ -10,6 +10,7 @@ Row {
 
     anchors.topMargin: 32
 
+    property int infoLevelUsed: -1
     property string infoLevelText: "Test"
 
     property bool programmingEnabled: false
@@ -17,6 +18,7 @@ Row {
     property bool finishedEnabled: false
     property bool isDone: false
 
+    visible: false
     enabled: programmingEnabled
 
     Dialog {
@@ -24,6 +26,30 @@ Row {
         modal: true
         standardButtons: Dialog.Ok
     }
+
+    Component.onCompleted: {
+        // on start if no data given always 1
+        if (programmingEnabled && infoLevelProgress[infoLevelUsed] <= 0) {
+            infoLevelProgress[infoLevelUsed] = 1
+        }
+
+        _buttons.programmingEnabled = (infoLevelProgress[infoLevelUsed] >= 1) || programmingEnabled
+        _buttons.solutionEnabled = (infoLevelProgress[infoLevelUsed] >= 2)
+        _buttons.finishedEnabled = (infoLevelProgress[infoLevelUsed] >= 3)
+        _buttons.isDone = (infoLevelProgress[infoLevelUsed] >= 4)
+    }
+
+    onProgrammingEnabledChanged: {
+        // on start if no data given always 1
+        if (programmingEnabled && infoLevelProgress[infoLevelUsed] <= 0) {
+            infoLevelProgress[infoLevelUsed] = 1
+        }
+        updateTaskSaveData()
+    }
+    onSolutionEnabledChanged: updateTaskSaveData()
+    onFinishedEnabledChanged: updateTaskSaveData()
+    onIsDoneChanged: updateTaskSaveData()
+
 
     function showSolution() {
         var params = [
@@ -36,6 +62,7 @@ Row {
             popupMessage.title = qsTr("Error: Solution is not available!")
             popupMessage.visible = true
         } else {
+            infoLevelProgress[infoLevelUsed] = 3
             _buttons.finishedEnabled = true
         }
     }
@@ -49,14 +76,17 @@ Row {
         var result = taskLoader.prepare_working_dir(params1)
         if ((result & 0x1) == 0x1) {
             popupMessage.title = qsTr("Warning: Task already started!")
-            popupMessage.visible = true
+//            popupMessage.visible = true
         }
 
+        infoLevelProgress[infoLevelUsed] = 2
         taskStarted = true
         _buttons.solutionEnabled = true
     }
 
     function finish() {
+        infoLevelProgress[infoLevelUsed] = 4
+
         _buttons.isDone = true
     }
 

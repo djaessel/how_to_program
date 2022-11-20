@@ -106,9 +106,23 @@ ProgressPage {
         model: testModel
 
         delegate: PracticeTaskListItem {
+            id: curTaskItem
 
             width: tasksList.width
             height: tasksList.height * 0.25
+
+            Component.onCompleted: {
+                var curTaskName = _practiceTasks.myModel[index].taskName
+                var curSaveDataString = settingsManager.taskSaveData(curTaskName)
+                var curSavedData = JSON.parse(curSaveDataString)
+                if (curSaveDataString.length > 2) {
+                    curTaskItem.taskStarted = curSavedData.started
+                    curTaskItem.taskDone = curSavedData.finished
+                    curTaskItem.infoLevelProgress[0] = parseInt(curSavedData.standard)
+                    curTaskItem.infoLevelProgress[1] = parseInt(curSavedData.bonus)
+                    curTaskItem.infoLevelProgress[2] = parseInt(curSavedData.extra_bonus)
+                }
+            }
 
             titleText: _practiceTasks.myModel[index].taskName.replace("_", " ")
             path: _practiceTasks.myModel[index].taskPath

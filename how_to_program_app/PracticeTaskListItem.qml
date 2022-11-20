@@ -11,6 +11,14 @@ Rectangle {
     property bool taskStarted: false
     property bool taskDone: false
 
+    property var infoLevelProgress: {
+        var l = []
+        for (var i = 0; i < infoLevelNames.length; i++) {
+            l.push(0)
+        }
+        return l
+    }
+
     signal clicked
 
     onClicked: {
@@ -22,6 +30,26 @@ Rectangle {
     color: "#aba"
     border.width: 1
     border.color: "gray"
+
+
+    onTaskStartedChanged: updateTaskSaveData()
+    onTaskDoneChanged: updateTaskSaveData()
+
+
+    function updateTaskSaveData() {
+        var curName = taskLoader.get_cur_task(false)
+        if (curName !== "") {
+            settingsManager.handleTaskSaveData(JSON.stringify({
+                "task_name": curName,
+                "started": taskStarted,
+                "finished": taskDone,
+                "standard": infoLevelProgress[0], // 0 no, 1 started, 2 solution, 3 finished
+                "bonus": infoLevelProgress[1], // 0 no, 1 started, 2 solution, 3 finished
+                "extra_bonus": infoLevelProgress[2] // 0 no, 1 started, 2 solution, 3 finished
+            }))
+        }
+    }
+
 
     PracticeTask {
         id: taskView
@@ -85,8 +113,6 @@ Rectangle {
         anchors.margins: 8
 
         font.pointSize: 20
-
-        //horizontalAlignment: Text.AlignJustify
 
         elide: Text.ElideRight
     }

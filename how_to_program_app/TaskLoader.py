@@ -134,7 +134,7 @@ class TaskLoader(QObject):
             user_mode_name,
         ]
         sol_dir = self.get_task_path(paramsx) + "/" + TaskLoader.solution_dir + "/"
-        sol_dir_fin = sol_dir + info_level_name
+        sol_dir_fin = sol_dir + info_level_name.capitalize().replace(" ", "_")
 
         sol_dir_fin = os.path.abspath(sol_dir_fin)
         if not os.path.exists(sol_dir_fin):

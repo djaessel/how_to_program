@@ -45,6 +45,7 @@ SpecialPage {
 
                 onClicked: {
                     systemCaller.openUrl(defaultVideoUrl)
+                    alreadyOpened = true
                 }
             }
 
@@ -174,7 +175,15 @@ SpecialPage {
         MenuButton {
             id: markAsDoneButton
 
-            anchors.top: finishedMessage.bottom
+            anchors.top: {
+                anchors.topMargin = 0
+                if (finishedMessage.visible) return finishedMessage.bottom
+                if (videoRect.visible) {
+                    anchors.topMargin = 16
+                    return videoRect.bottom
+                }
+                return parent.top
+            }
             anchors.left: videoRect.left
             anchors.right: videoRect.right
 
@@ -185,7 +194,7 @@ SpecialPage {
             text: qsTr("Mark as done")
 
             mouseItem.onClicked: {
-                //alreadyOpened = true
+                alreadyOpened = true
                 markedAsDone = true
             }
         }

@@ -69,13 +69,18 @@ SpecialPage {
 
                 height: missi.height * 0.15
 
-                visible: appWindow.infoLevel >= 0
-
+                visible: true
                 programmingEnabled: true
 
+                infoLevelUsed: 0
                 infoLevelText: "Standard"
 
-                onIsDoneChanged: _practiceTaskPage.checkIsDone()
+                onIsDoneChanged: {
+                    if (standardButtons.isDone && appWindow.infoLevel > 0) {
+                        bonusButtons.visible = true
+                    }
+                    _practiceTaskPage.checkIsDone()
+                }
             }
 
             TaskButtonRow {
@@ -87,13 +92,21 @@ SpecialPage {
 
                 height: missi.height * 0.15
 
-                visible: appWindow.infoLevel >= 1
-
+                infoLevelUsed: 1
                 infoLevelText: "Bonus"
 
-                programmingEnabled: standardButtons.isDone
+                onVisibleChanged: {
+                    if (bonusButtons.visible) {
+                        bonusButtons.programmingEnabled = standardButtons.isDone
+                    }
+                }
 
-                onIsDoneChanged: _practiceTaskPage.checkIsDone()
+                onIsDoneChanged: {
+                    if (bonusButtons.isDone && appWindow.infoLevel > 1) {
+                        extraBonusButtons.visible = true
+                    }
+                    _practiceTaskPage.checkIsDone()
+                }
             }
 
             TaskButtonRow {
@@ -105,13 +118,18 @@ SpecialPage {
 
                 height: missi.height * 0.15
 
-                visible: appWindow.infoLevel >= 2
-
+                infoLevelUsed: 2
                 infoLevelText: "Extra Bonus"
 
-                programmingEnabled: bonusButtons.isDone
+                onVisibleChanged: {
+                    if (extraBonusButtons.visible) {
+                        extraBonusButtons.programmingEnabled = bonusButtons.isDone
+                    }
+                }
 
-                onIsDoneChanged: _practiceTaskPage.checkIsDone()
+                onIsDoneChanged: {
+                    _practiceTaskPage.checkIsDone()
+                }
             }
 
             Label {
@@ -120,9 +138,9 @@ SpecialPage {
                 visible: taskDone || taskStarted
 
                 anchors.top: {
-                    if (extraBonusButtons.enabled) return extraBonusButtons.bottom
-                    if (bonusButtons.enabled) return bonusButtons.bottom
-                    if (standardButtons.enabled) return standardButtons.bottom
+                    if (extraBonusButtons.visible && bonusButtons.isDone) return extraBonusButtons.bottom
+                    if (bonusButtons.visible && standardButtons.isDone) return bonusButtons.bottom
+                    if (standardButtons.visible && standardButtons.programmingEnabled) return standardButtons.bottom
                     return parent.top
                 }
                 anchors.left: parent.left
