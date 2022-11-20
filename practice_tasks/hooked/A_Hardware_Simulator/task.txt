@@ -48,12 +48,12 @@ Example output:
    ...
 
 
-Bonus:
+# Bonus:
 
 # TODO: add more tasks
 
 
-Extra Bonus:
+# Extra Bonus:
 
 # TODO: add more tasks
 

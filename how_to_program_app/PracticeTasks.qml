@@ -73,6 +73,11 @@ ProgressPage {
                 taskInfo[j] = taskInfo[j].replace("-->", "\u2192").replace("<--", "\u2190")
             }
 
+            // fix because just calling once does not fully work ???
+            while (taskName.indexOf("_") >= 0) {
+                taskName = taskName.replace("_", " ")
+            }
+
             newModel.push({
                 "taskName": taskName,
                 "taskPath": taskPath,
@@ -139,7 +144,7 @@ ProgressPage {
                 }
             }
 
-            titleText: _practiceTasks.myModel[index].taskName.replace("_", " ")
+            titleText: _practiceTasks.myModel[index].taskName
             path: _practiceTasks.myModel[index].taskPath
             descriptionText: _practiceTasks.myModel[index].taskInfo.join("<br>") + "<br><br><br><br><br>"
         }
