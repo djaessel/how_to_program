@@ -120,6 +120,9 @@ class TaskLoader(QObject):
             for task_file in task_files:
                 shutil.copy(tf_dir + "/" + task_file, task_working_dir)
 
+        # maybe make optional (settings?)
+        os_spec.open_file_browser(task_working_dir)
+
         return result
 
 

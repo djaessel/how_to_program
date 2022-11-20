@@ -9,9 +9,17 @@ SpecialPage {
     property var missi: parent
 
     function checkIsDone() {
+        // FIXME: optimize later
         if (standardButtons.isDone
          && bonusButtons.isDone
          && extraBonusButtons.isDone) {
+            taskDone = true
+        } else if (standardButtons.isDone
+         && bonusButtons.isDone
+         && maxPossibleInfoLevel == 1) {
+            taskDone = true
+        } else if (standardButtons.isDone
+         && maxPossibleInfoLevel == 0) {
             taskDone = true
         }
     }
@@ -76,9 +84,10 @@ SpecialPage {
                 infoLevelText: "Standard"
 
                 onIsDoneChanged: {
-                    if (standardButtons.isDone && appWindow.infoLevel > 0) {
+                    if (standardButtons.isDone && appWindow.infoLevel > 0 && maxPossibleInfoLevel > 0) {
                         bonusButtons.visible = true
                     }
+
                     _practiceTaskPage.checkIsDone()
                 }
             }
@@ -102,7 +111,7 @@ SpecialPage {
                 }
 
                 onIsDoneChanged: {
-                    if (bonusButtons.isDone && appWindow.infoLevel > 1) {
+                    if (bonusButtons.isDone && appWindow.infoLevel > 1 && maxPossibleInfoLevel > 1) {
                         extraBonusButtons.visible = true
                     }
                     _practiceTaskPage.checkIsDone()
