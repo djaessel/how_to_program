@@ -6,6 +6,7 @@ import os
 # import sys
 import subprocess
 # import importlib
+from constants import WORKING_DIR
 
 
 QML_IMPORT_NAME = "VideoLoader"
@@ -14,7 +15,8 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class VideoLoader(QObject):
-    cache_dir = ".cache/"
+    vid_tut_dir = WORKING_DIR + "/../video_tutorials/"
+    cache_dir = WORKING_DIR + "/.cache/"
     cache_playlists_file = cache_dir + ".cached_playlists"
 
     def __init__(self, parent=None):
@@ -26,7 +28,7 @@ class VideoLoader(QObject):
     @Slot(str, result=list)
     def loadAllBasedOnUserMode(self, dir):
         videoData = []
-        path = "../video_tutorials/" + dir + "/"
+        path = VideoLoader.vid_tut_dir + dir + "/"
         videoFiles = []
         if os.path.exists(path) and os.path.isdir(path):
             files = os.listdir(path)
@@ -45,7 +47,7 @@ class VideoLoader(QObject):
 
     @Slot(str, result=list)
     def loadPlaylistBasedOnUserMode(self, dir):
-        path = "../video_tutorials/" + dir + "/0_1_Playlist.txt"
+        path = VideoLoader.vid_tut_dir + dir + "/0_1_Playlist.txt"
         return self.loadPlaylist(path)
 
 
@@ -190,10 +192,6 @@ class VideoLoader(QObject):
         url = ""
         dependencies = []
         infoTextLines = []
-
-        #filePathData = file_path.split("___")
-        #orderCode = filePathData[0].replace("_", ".")
-        #videoTitle = filePathData[1]
 
         videoTitle = file_path.replace("\\", "/").split("/")[-1]
         ll = videoTitle.split("_")

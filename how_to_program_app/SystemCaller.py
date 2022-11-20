@@ -3,6 +3,8 @@ from PySide6.QtCore import QUrl, QObject, Slot
 from PySide6.QtGui import QDesktopServices
 from PySide6.QtQml import QmlElement
 
+# from constants import WORKING_DIR
+
 QML_IMPORT_NAME = "SystemCaller"
 QML_IMPORT_MAJOR_VERSION = 1
 QML_IMPORT_MINOR_VERSION = 0 # Optional

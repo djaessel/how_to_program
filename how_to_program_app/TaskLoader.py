@@ -3,6 +3,7 @@ from PySide6.QtCore import QObject, Slot
 from PySide6.QtQml import QmlElement
 
 import os
+from constants import WORKING_DIR
 
 QML_IMPORT_NAME = "TaskLoader"
 QML_IMPORT_MAJOR_VERSION = 1
@@ -10,7 +11,7 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class TaskLoader(QObject):
-    base_dir = "../practice_tasks"
+    base_dir = WORKING_DIR + "/../practice_tasks"
 
     task_file = "task.txt"
     solution_dir = "solution"

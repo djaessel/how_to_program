@@ -3,6 +3,7 @@ from PySide6.QtCore import QObject, Slot
 from PySide6.QtQml import QmlElement
 
 import os
+from constants import WORKING_DIR
 
 
 QML_IMPORT_NAME = "SettingsManager"
@@ -11,7 +12,7 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class SettingsManager(QObject):
-    save_file = ".settings"
+    save_file = WORKING_DIR + "/.settings"
 
     def __init__(self, parent=None):
         super(SettingsManager, self).__init__(parent)

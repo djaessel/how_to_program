@@ -10,3 +10,6 @@ __pycache__/
 build-how_to_program_app*/
 build-how_to_program_app*/*
 
+*.pyc
+*/*.pyc
+
