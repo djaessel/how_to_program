@@ -34,8 +34,12 @@ def open_file_browser(path):
     if sys.platform.startswith("linux"):
         # this only works on Ubuntu or other linux with nautilus installed!!!
         # shell_command = f"gnome-open {path}"
-        shell_command = f"nautilus {path}"
-        os.system(shell_command)
+        shell_command = f"thunar {path}"
+        x = os.system(shell_command)
+        if x != 0:
+            shell_command = f"nautilus {path}"
+            os.system(shell_command) # maybe add more checks
+
     elif sys.platform == "win32":
         shell_command = f"start {path}"
         # shell_command = f"explorer {path}"
