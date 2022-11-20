@@ -8,7 +8,6 @@ Be sure to use the related program down below.
 There are two versions available, take the one that suits you best.  
 
 > It might be best to use the GUI version  
-> But this version is currently still in the development progress  
 
 ## Topics you might get in touch with
 
