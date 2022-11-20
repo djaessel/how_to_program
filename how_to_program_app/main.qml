@@ -17,7 +17,7 @@ ApplicationWindow {
 
     property bool menuSmall: true
 
-    property int userMode
+    property int userMode: -1
     property string userModeName
     property var userModeTexts: [
         "beginner",     // 4 tasks
@@ -28,7 +28,7 @@ ApplicationWindow {
         "hacker",       // 0 tasks
     ]
 
-    property int infoLevel
+    property int infoLevel: -1
     property string infoLevelName
     property var infoLevelNames: [
         "standard",     // default
