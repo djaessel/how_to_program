@@ -148,6 +148,49 @@ SpecialPage {
         }
 
         Label {
+            id: finishedMessage
+
+            visible: markedAsDone || alreadyOpened
+
+            anchors.top: videoRect.bottom
+            anchors.left: videoRect.left
+            anchors.right: videoRect.right
+
+            anchors.margins: 16
+            anchors.topMargin: 0
+
+            height: missi.height * 0.15
+
+            verticalAlignment: Text.AlignVCenter
+            horizontalAlignment: Text.AlignLeft
+
+            font.pointSize: 32
+            font.bold: true
+
+            text: (markedAsDone) ? "\u2713  COMPLETED" : "\uf04c  ALREADY OPENED"
+            color: "#9a9"
+        }
+
+        MenuButton {
+            id: markAsDoneButton
+
+            anchors.top: finishedMessage.bottom
+            anchors.left: videoRect.left
+            anchors.right: videoRect.right
+
+            height: missi.height * 0.15
+
+            visible: !markedAsDone
+
+            text: qsTr("Mark as done")
+
+            mouseItem.onClicked: {
+                //alreadyOpened = true
+                markedAsDone = true
+            }
+        }
+
+        Label {
             id: videoInfoText
 
             anchors.left: videoRect.right

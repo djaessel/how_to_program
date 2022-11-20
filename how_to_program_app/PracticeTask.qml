@@ -8,13 +8,11 @@ SpecialPage {
 
     property var missi: parent
 
-    property bool taskDone: false
-
     function checkIsDone() {
         if (standardButtons.isDone
          && bonusButtons.isDone
          && extraBonusButtons.isDone) {
-            _practiceTaskPage.taskDone = true
+            taskDone = true
         }
     }
 
@@ -119,9 +117,14 @@ SpecialPage {
             Label {
                 id: finishedMessage
 
-                visible: _practiceTaskPage.taskDone
+                visible: taskDone || taskStarted
 
-                anchors.top: extraBonusButtons.bottom
+                anchors.top: {
+                    if (extraBonusButtons.enabled) return extraBonusButtons.bottom
+                    if (bonusButtons.enabled) return bonusButtons.bottom
+                    if (standardButtons.enabled) return standardButtons.bottom
+                    return parent.top
+                }
                 anchors.left: parent.left
                 anchors.right: parent.right
 
@@ -130,12 +133,14 @@ SpecialPage {
                 height: missi.height * 0.15
 
                 verticalAlignment: Text.AlignVCenter
-                horizontalAlignment: Text.AlignRight
+                horizontalAlignment: Text.AlignHCenter
+
+                fontSizeMode: Text.Fit
 
                 font.pointSize: 32
                 font.bold: true
 
-                text: "\u2713 TASK COMPLETE"
+                text: (taskDone) ? "\u2713  TASK COMPLETE" : "\uf0ad  TASK IN PROGRESS"
                 color: "#9a9"
             }
         }

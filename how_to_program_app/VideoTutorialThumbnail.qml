@@ -6,6 +6,33 @@ Rectangle {
 
     property double resizer: 0.75
 
+    property bool alreadyOpened: true
+    property bool markedAsDone: false
+
+    property string curYoutubeVideoId: "wKqLaNqxgas" // test video id
+    property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId + "?t=" + videoStartTime
+    property string thumbnailUrl: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
+    property string alternativeThumbnailUrl: "https://i1.ytimg.com/vi/" + curYoutubeVideoId + "/hqdefault.jpg"
+
+    property string videoTitle: "Test Video Title"
+    property string videoInfo: "Video Info"
+
+    property int videoStartTime: 0 // maybe get this from the link
+    // TODO: get time from actual video
+    property int videoDurationAllSeconds: 3460 // test duration
+    property int videoDurationAllActualSeconds: videoDurationAllSeconds - videoStartTime
+    property int videoDurationSeconds: videoDurationAllActualSeconds % 60
+    property int videoDurationMinutes: parseInt(videoDurationAllActualSeconds % 3600 / 60)
+    property int videoDurationHours: parseInt(videoDurationAllActualSeconds / 3600)
+
+    property bool mouseInside: false
+    //property bool mouseDown: false
+
+    color: (mouseInside) ? "#9a9" : "#ded"
+    border.color: (mouseInside) ? "#aba" : "gray"
+    border.width: 1
+
+
     function init(videoData)
     {
         var orderCode = videoData.orderCode
@@ -53,32 +80,6 @@ Rectangle {
 
         videoInfo = videoData.infoText.join("<br>").replace(",<br>", ", ").replace("NO_TEXT_FOUND", "No explanation yet.") + "<br><br><br><br><br>"
     }
-
-    property string curYoutubeVideoId: "wKqLaNqxgas" // test video id
-    property string defaultVideoUrl: "https://www.youtube.com/watch?v=" + curYoutubeVideoId + "?t=" + videoStartTime
-    property string thumbnailUrl: "https://img.youtube.com/vi/" + curYoutubeVideoId + "/maxresdefault.jpg"
-    property string alternativeThumbnailUrl: "https://i1.ytimg.com/vi/" + curYoutubeVideoId + "/hqdefault.jpg"
-
-    property string videoTitle: "Test Video Title"
-    property string videoInfo: "Video Info"
-
-    property int videoStartTime: 0 // maybe get this from the link
-    // TODO: get time from actual video
-    property int videoDurationAllSeconds: 3460 // test duration
-    property int videoDurationAllActualSeconds: videoDurationAllSeconds - videoStartTime
-    property int videoDurationSeconds: videoDurationAllActualSeconds % 60
-    property int videoDurationMinutes: parseInt(videoDurationAllActualSeconds % 3600 / 60)
-    property int videoDurationHours: parseInt(videoDurationAllActualSeconds / 3600)
-
-    property bool mouseInside: false
-    //property bool mouseDown: false
-
-    color: (mouseInside) ? "#9a9" : "#ded"
-    border.color: (mouseInside) ? "#aba" : "gray"
-    border.width: 1
-
-    //width: parent.width * 0.5
-    //height: parent.height * 0.3
 
     VideoTutorial {
         id: vidTut

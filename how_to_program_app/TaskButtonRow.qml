@@ -17,6 +17,8 @@ Row {
     property bool finishedEnabled: false
     property bool isDone: false
 
+    enabled: programmingEnabled
+
     Dialog {
         id: popupMessage
         modal: true
@@ -50,6 +52,7 @@ Row {
             popupMessage.visible = true
         }
 
+        taskStarted = true
         _buttons.solutionEnabled = true
     }
 
@@ -63,6 +66,8 @@ Row {
         anchors.left: parent.left
         anchors.top: parent.top
         anchors.margins: 32
+
+        visible: programmingEnabled
 
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
@@ -82,7 +87,7 @@ Row {
 
         anchors.margins: 32
 
-        enabled: programmingEnabled
+        visible: programmingEnabled
 
         height: parent.height
         width: parent.width * 0.2
@@ -102,7 +107,7 @@ Row {
 
         anchors.margins: 32
 
-        enabled: solutionEnabled
+        visible: solutionEnabled
 
         height: parent.height
         width: parent.width * 0.2
@@ -123,7 +128,7 @@ Row {
 
         anchors.margins: 32
 
-        enabled: finishedEnabled
+        visible: finishedEnabled && !isDone
 
         height: parent.height
 
@@ -132,5 +137,28 @@ Row {
         textItem.text: "Finished"
 
         mouseItem.onClicked: _buttons.finish()
+    }
+
+    Label {
+        id: infoFinishedMessage
+
+        anchors.left: standardSolutionButton.right
+        anchors.right: parent.right
+        anchors.top: parent.top
+
+        anchors.margins: 32
+
+        height: parent.height
+
+        visible: isDone
+
+        verticalAlignment: Text.AlignVCenter
+        horizontalAlignment: Text.AlignHCenter
+
+        font.pointSize: 64
+        font.bold: true
+
+        text: "\u2713"
+        color: "#9a9"
     }
 }

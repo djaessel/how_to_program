@@ -7,12 +7,7 @@ TODO:
 - Eine Verknüpfung bzw. Abhängigkeit zwischen Aufgabe und Video Tutorials
   * du solltest erst alle Tutorials die benötigt werden gesehen haben
   * vielleicht werden auch Aufgabe erst angezeigt, wenn du ein Tutorial gesehen hast
-- Verschiedene Lernstufen:
-  * Beginner
-  * (Comfortable)
-  * Advanced
-  * Hooked
-  * ...
+
 - verschiedene Programmiersprachen zur Auswahl
   * Alles wird mit Python gemacht (wenn möglich)
   * danach kannst du wahlweise Aufgabe auch (nochmal) in anderen Sprachen lösen (z.B. in C/C++)
@@ -21,6 +16,7 @@ TODO:
   * du kannst Beschwerden für Aufgaben (und VIdeos) anlegen
   * die Möglichkeit Verbesserungen am Lernprogramm einreichen
   * (ich werde das vermutlich mit Github koppeln, aber darum musst du dich nicht kümmern :) )
+
 - Video Tutorials
   * Es wird auch allgemeine Videotutorials geben (z.B. über Linux, Virtuelle Maschinen, usw.)
   * Zu jedem Video werde ich noch Erklärungen und Infos packen (falls notwendig)

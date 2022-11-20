@@ -8,6 +8,9 @@ Rectangle {
     property alias descriptionText: taskShortDescription.text
     property string path: ""
 
+    property bool taskStarted: false
+    property bool taskDone: false
+
     signal clicked
 
     onClicked: {
