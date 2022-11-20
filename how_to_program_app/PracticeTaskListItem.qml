@@ -8,6 +8,12 @@ Rectangle {
     property alias descriptionText: taskShortDescription.text
     property string path: ""
 
+    signal clicked
+
+    onClicked: {
+        taskLoader.select_path(index)
+    }
+
     anchors.margins: 16
 
     color: "#aba"
@@ -44,6 +50,7 @@ Rectangle {
 
         onClicked: {
             stackView.push(taskView)
+            _practice_task_list_item.clicked()
         }
     }
 

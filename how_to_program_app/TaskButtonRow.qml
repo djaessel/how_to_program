@@ -17,6 +17,46 @@ Row {
     property bool finishedEnabled: false
     property bool isDone: false
 
+    Dialog {
+        id: popupMessage
+        modal: true
+        standardButtons: Dialog.Ok
+    }
+
+    function showSolution() {
+        var params = [
+            userModeName.toLowerCase(),
+            infoLevelText.toLowerCase().replace(" ", "_")
+        ]
+
+        var success = taskLoader.show_solution(params)
+        if (!success) {
+            popupMessage.title = qsTr("Error: Solution is not available!")
+            popupMessage.visible = true
+        } else {
+            _buttons.finishedEnabled = true
+        }
+    }
+
+    function startProgramming() {
+        var params1 = [
+            userModeName.toLowerCase(),
+            false // do not override for now
+        ]
+
+        var result = taskLoader.prepare_working_dir(params1)
+        if ((result & 0x1) == 0x1) {
+            popupMessage.title = qsTr("Warning: Task already started!")
+            popupMessage.visible = true
+        }
+
+        _buttons.solutionEnabled = true
+    }
+
+    function finish() {
+        _buttons.isDone = true
+    }
+
     Label {
         id: standardLabel
 
@@ -51,9 +91,7 @@ Row {
 
         textItem.text: "Programming"
 
-        mouseItem.onClicked: {
-            _buttons.solutionEnabled = true
-        }
+        mouseItem.onClicked: _buttons.startProgramming()
     }
 
     MenuButton {
@@ -73,9 +111,7 @@ Row {
 
         textItem.text: "Solution"
 
-        mouseItem.onClicked: {
-            _buttons.finishedEnabled = true
-        }
+        mouseItem.onClicked: _buttons.showSolution()
     }
 
     MenuButton {
@@ -95,8 +131,6 @@ Row {
 
         textItem.text: "Finished"
 
-        mouseItem.onClicked: {
-            _buttons.isDone = true
-        }
+        mouseItem.onClicked: _buttons.finish()
     }
 }

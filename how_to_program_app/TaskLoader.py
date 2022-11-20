@@ -3,6 +3,8 @@ from PySide6.QtCore import QObject, Slot
 from PySide6.QtQml import QmlElement
 
 import os
+import shutil
+import os_specific as os_spec
 from constants import WORKING_DIR
 
 QML_IMPORT_NAME = "TaskLoader"
@@ -16,7 +18,7 @@ class TaskLoader(QObject):
     task_file = "task.txt"
     solution_dir = "solution"
     task_files_dir = "task_files"
-    working_dir = "./working_area"
+    working_dir = WORKING_DIR + "/../working_area"
 
     tasks = []
     current_task_index = -1
@@ -37,7 +39,7 @@ class TaskLoader(QObject):
 
     @Slot(bool, result=str)
     def get_cur_task(self, fixed=False):
-        cur_index = TaskLoader.current_task_index
+        cur_index = self.current_task_index
         if cur_index >= 0 and cur_index < len(TaskLoader.tasks):
             cur_task = TaskLoader.tasks[cur_index]
             if fixed:
@@ -80,4 +82,71 @@ class TaskLoader(QObject):
                     if access_granted:
                         lines.append(line.rstrip("\n"))
         return lines
+
+    @Slot(int, result=bool)
+    def select_path(self, index):
+        if index >= 0 and index < len(TaskLoader.tasks):
+            self.current_task_index = index
+            return True
+        return False
+
+    @Slot(list, result=int)
+    def prepare_working_dir(self, params):
+        allowed = True
+        result = 0x0
+
+        user_mode_name = params[0]
+        override_workdir = eval(str(params[1]).capitalize())
+
+        cur_task = self.get_cur_task()
+        params = [
+            cur_task,
+            user_mode_name,
+        ]
+        tf_dir = self.get_task_path(params) + "/" + TaskLoader.task_files_dir
+        task_files = os.listdir(tf_dir)
+
+        if not os.path.exists(TaskLoader.working_dir):
+            os.mkdir(TaskLoader.working_dir)
+
+        task_working_dir = TaskLoader.working_dir + "/" + cur_task
+        if not os.path.exists(task_working_dir):
+            os.mkdir(task_working_dir)
+        else:
+            allowed = override_workdir
+            result = 0x1 # Warning: Task already started!
+
+        if allowed:
+            for task_file in task_files:
+                shutil.copy(tf_dir + "/" + task_file, task_working_dir)
+
+        return result
+
+
+    @Slot(list, result=bool)
+    def show_solution(self, params):
+        user_mode_name = params[0]
+        info_level_name = params[1]
+
+        cur_task = self.get_cur_task()
+        paramsx = [
+            cur_task,
+            user_mode_name,
+        ]
+        sol_dir = self.get_task_path(paramsx) + "/" + TaskLoader.solution_dir + "/"
+        sol_dir_fin = sol_dir + info_level_name
+
+        sol_dir_fin = os.path.abspath(sol_dir_fin)
+        if not os.path.exists(sol_dir_fin):
+            sol_dir_fin = sol_dir + info_level_name.lower()
+
+        sol_dir_fin = os.path.abspath(sol_dir_fin)
+        if os.path.exists(sol_dir_fin):
+            # print(f"Opening file explorer for {info_level_name} solution...")
+            os_spec.open_file_browser(sol_dir_fin)
+            return True
+        return False
+
+
+
 
