@@ -1,6 +1,5 @@
 # This Python file uses the following encoding: utf-8
 # Auto-generated code by QtCreator
-import os
 import sys
 from pathlib import Path
 
