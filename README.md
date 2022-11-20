@@ -114,9 +114,6 @@ Simply start the `startGUI.bat` or `startGUI.sh` file.
 
 This should start the main GUI program and otherwise will give you some information about how to make it run.
 
-> The GUI version is still work in progress and does not much at the moment.  
-> Which does not mean that it isn't worth a quick look. :)  
-
 ### Advanced way to start the program  
 
 Run the following command inside this folder in a terminal:  
