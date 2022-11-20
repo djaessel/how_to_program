@@ -59,7 +59,7 @@ class TaskLoader(QObject):
 
     @Slot(list, result=list)
     def read_task_info(self, params):
-        path = params[0]
+        path = params[0].rstrip("/")
         path = path + "/" + TaskLoader.task_file
         info_level_keys = params[1]
         info_level = params[2]

@@ -6,6 +6,8 @@ BasePage {
 
     //forceDefaultData: true
 
+    property bool loaded: false
+
     Label {
         id: userModeLabel
 
@@ -24,6 +26,14 @@ BasePage {
     ComboBox {
         id: selectUserMode
 
+        property bool donny: false
+
+        onDonnyChanged: {
+            if (selectInfoLevel.donny && selectUserMode.donny) {
+                _userSettingsPage.loaded = true
+            }
+        }
+
         Component.onCompleted: {
             var curS = ""
             var myModel = []
@@ -32,6 +42,7 @@ BasePage {
                 myModel.push(curS)
             }
             selectUserMode.model = myModel
+            selectUserMode.donny = true
         }
 
         anchors.left: parent.left
@@ -46,7 +57,9 @@ BasePage {
         font.pointSize: 32
 
         onCurrentTextChanged: {
-            userMode = selectUserMode.currentIndex
+            if (_userSettingsPage.loaded) {
+                userMode = selectUserMode.currentIndex
+            }
         }
 
         contentItem: Text {
@@ -95,6 +108,14 @@ BasePage {
     ComboBox {
         id: selectInfoLevel
 
+        property bool donny: false
+
+        onDonnyChanged: {
+            if (selectInfoLevel.donny && selectUserMode.donny) {
+                _userSettingsPage.loaded = true
+            }
+        }
+
         Component.onCompleted: {
             var curS = ""
             var myModel = []
@@ -102,7 +123,9 @@ BasePage {
                 curS = infoLevelNames[i].charAt(0).toUpperCase() + infoLevelNames[i].substring(1).replace("_", " ")
                 myModel.push(curS)
             }
+
             selectInfoLevel.model = myModel
+            selectInfoLevel.donny = true
         }
 
         anchors.left: parent.left
@@ -117,7 +140,9 @@ BasePage {
         font.pointSize: 32
 
         onCurrentTextChanged: {
-            infoLevel = selectInfoLevel.currentIndex
+            if (_userSettingsPage.loaded) {
+                infoLevel = selectInfoLevel.currentIndex
+            }
         }
 
         contentItem: Text {

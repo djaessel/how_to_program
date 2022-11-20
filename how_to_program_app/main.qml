@@ -1,7 +1,7 @@
 import QtQuick
 import QtQuick.Controls
 
-Window {
+ApplicationWindow {
     id: appWindow
 
     flags: Qt.Window | Qt.FramelessWindowHint
@@ -17,7 +17,8 @@ Window {
 
     property bool menuSmall: true
 
-    property int userMode: 0
+    property int userMode
+    property string userModeName
     property var userModeTexts: [
         "beginner",     // 4 tasks
         "comfortable",  // 0 tasks
@@ -26,22 +27,35 @@ Window {
         "insane",       // 0 tasks
         "hacker",       // 0 tasks
     ]
-    property string userModeName: userModeTexts[userMode].charAt(0).toUpperCase() + userModeTexts[userMode].substring(1).replace("_", " ")
 
-    property int infoLevel: 0
+    property int infoLevel
+    property string infoLevelName
     property var infoLevelNames: [
         "standard",     // default
         "bonus",        // for interested ones
         "extra_bonus",  // if you really mean it
     ]
-    property string infoLevelName: infoLevelNames[infoLevel].charAt(0).toUpperCase() + infoLevelNames[infoLevel].substring(1).replace("_", " ")
 
-    onUserModeNameChanged: {
+    Component.onCompleted: {
+        settingsManager.read_saved_data()
+        appWindow.userMode = settingsManager.get_user_mode()
+        appWindow.infoLevel = settingsManager.get_info_level()
+    }
+
+    onClosing: {
+        settingsManager.save_data([((userMode & 0x0F) << 4) + (infoLevel & 0x0F)])
+    }
+
+    onUserModeChanged: {
+        appWindow.userModeName = appWindow.userModeTexts[appWindow.userMode].charAt(0).toUpperCase() + appWindow.userModeTexts[appWindow.userMode].substring(1).replace("_", " ")
+
         videoTutorials.init()
         practiceTasks.init()
     }
 
     onInfoLevelChanged: {
+        appWindow.infoLevelName = appWindow.infoLevelNames[appWindow.infoLevel].charAt(0).toUpperCase() + appWindow.infoLevelNames[appWindow.infoLevel].substring(1).replace("_", " ")
+
         //videoTutorials.init() // should stay the same?
         practiceTasks.init()
     }

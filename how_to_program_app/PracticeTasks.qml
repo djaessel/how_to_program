@@ -15,12 +15,14 @@ ProgressPage {
     function init() {
         var newModel = []
 
-        var umnae = userModeName.toLowerCase()
-        var count = taskLoader.load_available_tasks(umnae)
+        var umName = userModeName.toLowerCase()
+        var count = taskLoader.load_available_tasks(umName)
         for (var i = 0; i < count; i++) {
             var taskName = taskLoader.get_task(i)
-            var taskPath = taskLoader.get_task_path([taskName, umnae])
-            var taskInfo = taskLoader.read_task_info([taskPath, infoLevelNames, infoLevel])
+            var params1 = [taskName, umName]
+            var taskPath = taskLoader.get_task_path(params1)
+            var params2 = [taskPath, infoLevelNames, infoLevel]
+            var taskInfo = taskLoader.read_task_info(params2)
 
             // remove first while empty
             while (taskInfo[0].length === 0) {
