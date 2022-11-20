@@ -1,0 +1,3 @@
+{
+    "files": ["AutoClickerButton.qml","main.qml","ClickerButton.qml","ncounter_gui.py","SaveGame.py","settings.json"]
+}

@@ -53,13 +53,48 @@ and so on...
 
 Maybe make a different window and or menu for that.
 
-The autoclicker should add the value of the buttons click every 5 seconds.
+The autoclicker should add the value of the buttons click by some duration in seconds.
+For the first 100 milliseconds.
+For the second 1.5 seconds.
+For the third 2 seconds.
+...
+
 Make sure to set that up correct.
 You can update all buttons in one go if you want.
 
 
 Extra Bonus:
 
-# TODO: Add extra bonus task! :)
+Now that you got yourself a little clicker game,
+how about adding something to save the current points.
+Then you could save them on exit and reload them when starting again.
+So you keep all the points for the next run.
+
+The same goes for the autoclickers, whether they were activated or not.
+
+Great, isn't it?! :P
+
+Another thing would be to add achievements.
+Something you can unlock after you reach a certain amount of points.
+
+How about the following:
+
+Points	| Message / Name
+1337	| "One Liter of wine.exe"
+2500	| "A well planned investment"
+5000	| "5 bucks, please, kay?"
+6789	| "You got a road!"
+10000	| "Millionare in cents"
+28689	| "Nice!"
+43605	| "MAGIC NUMBER"
+49178	| "Want some coke?"
+57005	| "You are DEAD"
+100000  | "Are you alright?"
+1000000 | "Millionare for real!"
+1234567 | "Joking around"
+9999999 | "OVER 9 9 9 9 9 9 9 THOUSAND!"
+
+
+You can of course use your own, as always, but some of these have a "secret" message. :D
 
 
