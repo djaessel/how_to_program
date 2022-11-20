@@ -9,10 +9,11 @@ ProgressPage {
     //    id: systemCaller
     //}
 
-    doneCount: 0
-    allCount: 0
-
     property var modelx: []
+
+    onModelxChanged: {
+        updateProgressData()
+    }
 
     function createVideoElements(videoData) {
         var model = []
@@ -28,6 +29,8 @@ ProgressPage {
         videosContainer.model = _videoTutorials.modelx
 
         _videoTutorials.allCount = videoData.length
+
+        updateProgressData()
     }
 
     function init() {
@@ -45,6 +48,22 @@ ProgressPage {
 
         createVideoElements(videoData)
     }
+
+    function updateProgressData() {
+        var count = 0
+
+        // FIXME: optimize later
+        for (var i = 0; i < videosContainer.children[0].children.length; i++) {
+            for (var j = 0; j < videosContainer.children[0].children[i].children.length; j++) {
+                if (videosContainer.children[0].children[i].children[j].markedAsDone) {
+                    count += 1
+                }
+            }
+        }
+
+        _videoTutorials.doneCount = count
+    }
+
 
     ListView {
         id: videosContainer

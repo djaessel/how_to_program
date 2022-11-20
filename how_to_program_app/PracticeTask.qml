@@ -143,10 +143,11 @@ SpecialPage {
                     if (standardButtons.visible && standardButtons.programmingEnabled) return standardButtons.bottom
                     return parent.top
                 }
-                anchors.left: parent.left
-                anchors.right: parent.right
+                anchors.left: buttonRect.left
+                anchors.right: buttonRect.right
 
-                anchors.margins: 32
+                anchors.margins: 16
+                anchors.leftMargin: buttonRect.width * 0.25
 
                 height: missi.height * 0.15
 

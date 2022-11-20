@@ -9,7 +9,8 @@ ProgressPage {
         tasksList.model = myModel
 
         allCount = myModel.length
-        doneCount = 0 // later actual count based on active and stored
+
+        updateProgressData()
     }
 
     function init() {
@@ -81,6 +82,20 @@ ProgressPage {
 
         _practiceTasks.myModel = newModel
     }
+
+    function updateProgressData() {
+        var count = 0
+
+        // FIXME: optimize later
+        for (var i = 0; i < tasksList.children[0].children.length; i++) {
+            if (tasksList.children[0].children[i].taskDone) {
+                count += 1
+            }
+        }
+
+        _practiceTasks.doneCount = count
+    }
+
 
     ListModel {
         id: testModel

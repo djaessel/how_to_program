@@ -31,6 +31,8 @@ SpecialPage {
 
             anchors.margins: resizer * 32
 
+            color: "#010"
+
             MouseArea {
                 anchors.fill: parent
                 hoverEnabled: true
@@ -134,6 +136,8 @@ SpecialPage {
                 height: resizer * 32
 
                 font.pointSize: resizer * 18
+
+                color: "#ddd"
 
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter

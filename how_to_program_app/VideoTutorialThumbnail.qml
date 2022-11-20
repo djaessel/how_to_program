@@ -98,7 +98,10 @@ Rectangle {
         }
     }
 
-    onMarkedAsDoneChanged: updateVideoSaveData()
+    onMarkedAsDoneChanged: {
+        updateProgressData()
+        updateVideoSaveData()
+    }
     onAlreadyOpenedChanged: updateVideoSaveData()
 
 

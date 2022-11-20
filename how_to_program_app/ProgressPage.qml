@@ -4,10 +4,11 @@ import QtQuick.Controls
 BasePage {
     id: _progressPage
 
-    property alias doneCount: progressContainer.doneCount
-    property alias allCount: progressContainer.allCount
+    property int doneCount: 0
+    property int allCount: 0
 
     property alias progressTopSplit: progressTopSplit
+
 
     Rectangle {
         id: progressContainer
@@ -17,9 +18,6 @@ BasePage {
         anchors.right: parent.right
 
         height: 128
-
-        property int doneCount: 0
-        property int allCount: 0
 
         Text {
             id: progressInfoLabel
@@ -34,7 +32,7 @@ BasePage {
             font.pointSize: 24
 
             text: "<i><b>" + qsTr("Current Progress") +
-                  " ( " + doneCount + " / " + allCount + " )</b></i>" +
+                  " ( " + _progressPage.doneCount + " / " + _progressPage.allCount + " )</b></i>" +
                   " <i>" + parseInt(progressBar.value * 100) + " %</i>"
         }
 
@@ -49,7 +47,7 @@ BasePage {
 
             height: 24
 
-            value: (doneCount / allCount)
+            value: (_progressPage.doneCount / _progressPage.allCount)
         }
     }
 

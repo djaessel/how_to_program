@@ -33,7 +33,10 @@ Rectangle {
 
 
     onTaskStartedChanged: updateTaskSaveData()
-    onTaskDoneChanged: updateTaskSaveData()
+    onTaskDoneChanged: {
+        updateProgressData()
+        updateTaskSaveData()
+    }
 
 
     function updateTaskSaveData() {
