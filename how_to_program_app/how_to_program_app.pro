@@ -2,16 +2,27 @@ QT += quick
 
 SOURCES += \
         main.cpp \
-        systemcaller.cpp
+        settingsmanager.cpp \
+        systemcaller.cpp \
+        taskloader.cpp \
+        videoloader.cpp
 
 resources.files = main.qml \
-MenuButton.qml \
 BasePage.qml \
-WelcomePage.qml \
-VideoTutorials.qml \
+LineSplitter.qml \
+MenuButton.qml \
+PracticeTaskListItem.qml \
+PracticeTask.qml \
 PracticeTasks.qml \
+ProgressPage.qml \
 SettingsPage.qml \
-UserSettingsPage.qml
+SpecialPage.qml \
+UserSettingsPage.qml \
+VideoTutorial.qml \
+VideoTutorials.qml \
+VideoTutorialThumbnail.qml \
+WelcomePage.qml
+
 
 resources.prefix = /$${TARGET}
 RESOURCES += resources
@@ -29,12 +40,22 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 DISTFILES += \
     BasePage.qml \
+    LineSplitter.qml \
     MenuButton.qml \
+    PracticeTaskListItem.qml \
+    PracticeTask.qml \
     PracticeTasks.qml \
+    ProgressPage.qml \
     SettingsPage.qml \
+    SpecialPage.qml \
     UserSettingsPage.qml \
+    VideoTutorial.qml \
     VideoTutorials.qml \
+    VideoTutorialThumbnail.qml \
     WelcomePage.qml
 
 HEADERS += \
-    systemcaller.h
+    settingsmanager.h \
+    systemcaller.h \
+    taskloader.h \
+    videoloader.h

@@ -1,14 +1,16 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
 
 #include "systemcaller.h"
+#include "settingsmanager.h"
+#include "videoloader.h"
+#include "taskloader.h"
 
 
 int main(int argc, char *argv[])
 {
   QGuiApplication app(argc, argv);
-
-  qmlRegisterType<SystemCaller>("SystemCaller", 1, 0, "SystemCaller");
 
   // This is auto-generated code by QtCreator
   QQmlApplicationEngine engine;
@@ -18,6 +20,21 @@ int main(int argc, char *argv[])
     if (!obj && url == objUrl)
       QCoreApplication::exit(-1);
   }, Qt::QueuedConnection);
+
+  QQmlContext* context = engine.rootContext();
+
+  SystemCaller systemCaller;
+  context->setContextProperty(QString("systemCaller"), &systemCaller);
+
+  SettingsManager settingsManager;
+  context->setContextProperty(QString("settingsManager"), &settingsManager);
+
+  VideoLoader videoLoader;
+  context->setContextProperty(QString("videoLoader"), &videoLoader);
+
+  TaskLoader taskLoader;
+  context->setContextProperty(QString("taskLoader"), &taskLoader);
+
   engine.load(url);
 
   return app.exec();
