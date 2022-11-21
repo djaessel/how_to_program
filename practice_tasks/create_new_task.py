@@ -96,7 +96,9 @@ def create_folders_and_files(name, program_name, mode):
         with open(program_file_path, "w") as f:
             f.write("#!/usr/bin/python3\n")
             f.write("\n")
-            f.write("# TODO: your code goes here :)\n")
+            f.write('if __name__ == "__main__":\n')
+            f.write("    # TODO: your code goes here :)\n")
+            f.write("    pass\n")
             f.write("\n")
 
         for mode in info_modes:
