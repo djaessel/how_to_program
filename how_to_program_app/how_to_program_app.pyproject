@@ -1,3 +1,3 @@
 {
-    "files": ["VideoTutorials.qml","BasePage.qml","SystemCaller.py","PracticeTask.qml","SettingsManager.py","LineSplitter.qml","PracticeTasks.qml","TaskLoader.py","ProgressPage.qml","VideoLoader.py","PracticeTaskListItem.qml","SpecialPage.qml","main.qml","UserSettingsPage.qml","constants.py","WelcomePage.qml","TODO","VideoTutorialThumbnail.qml","SettingsPage.qml","VideoTutorial.qml","TaskButtonRow.qml","MenuButton.qml","how_to_program_app.py","os_specific.py"]
+    "files": ["VideoTutorial.qml","MenuButton.qml","VideoTutorialThumbnail.qml","SettingsPage.qml","TaskButtonRow.qml","VideoTutorials.qml","PracticeTaskListItem.qml","PracticeTasks.qml","TaskLoader.py","WelcomePage.qml","TODO","os_specific.py","SystemCaller.py","LineSplitter.qml","main.qml","VideoLoader.py","constants.py","how_to_program_app.py","PracticeTask.qml","SpecialPage.qml","BasePage.qml","UserSettingsPage.qml","ProgressPage.qml","SettingsManager.py","startGUI.py"]
 }

@@ -5,7 +5,9 @@ import sys
 
 # adding course_program to the system path
 sys.path.insert(0, './how_to_program_app')
+sys.path.insert(0, '../how_to_program_app')
 sys.path.insert(0, './course_program')
+sys.path.insert(0, '../course_program')
 
 import version_check as ver
 
