@@ -21,7 +21,8 @@ def open_coding_terminal(command):
         os.system(shell_command)
     elif sys.platform == "win32":
         # Windows
-        shell_command = f"start cmd /k \"{command}\""
+        # shell_command = f"start cmd /k \"{command}\""
+        shell_command = f"start /B \"{command}\""
         os.system(shell_command)
     else:
         print("ERROR: Unknown operating system!")
