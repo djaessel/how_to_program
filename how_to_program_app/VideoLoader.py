@@ -6,7 +6,7 @@ import os
 # import sys
 import subprocess
 # import importlib
-from constants import WORKING_DIR
+from constants import WORKING_DIR, open_latin
 
 
 QML_IMPORT_NAME = "VideoLoader"
@@ -56,7 +56,7 @@ class VideoLoader(QObject):
             return []
 
         playlistUrl = ""
-        with open(file_path) as vf:
+        with open_latin(file_path) as vf:
             dataLen = 1
             foundVideoLink = False
             while dataLen > 0 and not foundVideoLink:
@@ -88,7 +88,7 @@ class VideoLoader(QObject):
     def getCachedPlaylistList(self):
         existing_playlists = []
         if os.path.exists(VideoLoader.cache_playlists_file):
-            with open(VideoLoader.cache_playlists_file) as f:
+            with open_latin(VideoLoader.cache_playlists_file) as f:
                 for line in f:
                     existing_playlists.append(line.rstrip("\n"))
         return existing_playlists
@@ -98,11 +98,11 @@ class VideoLoader(QObject):
         file_index = len(existing_playlists)
         existing_playlists.append(playlist_url)
 
-        with open(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "w") as f:
+        with open_latin(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "w") as f:
             for data in playlist_data:
                 f.write(data + "\n")
 
-        with open(VideoLoader.cache_playlists_file, "w") as f:
+        with open_latin(VideoLoader.cache_playlists_file, "w") as f:
             for p in existing_playlists:
                 f.write(p + "\n")
 
@@ -112,7 +112,7 @@ class VideoLoader(QObject):
         existing_playlists = self.getCachedPlaylistList()
         if playlist_url in existing_playlists:
             file_index = existing_playlists.index(playlist_url)
-            with open(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "r") as f:
+            with open_latin(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "r") as f:
                 for line in f:
                     playlist_data.append(line.rstrip("\n"))
         return playlist_data
@@ -128,7 +128,7 @@ class VideoLoader(QObject):
 #            p = subprocess.run(args, check=True, capture_output=True)
 #            return len(p.stdout.decode()) > 0
 #        return True
-        return False
+        return Fals
 
 
     def orderVideo(self, element):
@@ -211,7 +211,7 @@ class VideoLoader(QObject):
         duration = "00:00"
         videoId = ""
 
-        with open(file_path) as vf:
+        with open_latin(file_path) as vf:
             dataLen = 1
             emptyStartLine = True
             foundVideoLink = False

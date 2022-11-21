@@ -25,6 +25,8 @@ def customMessageHandler(type, context, msg):
 
 
 def main():
+    # Set default encoding
+    # only works for stdin, stdout and stdere
     # os.environ["PYTHONIOENCODING"] = "utf-8"
     os.environ["PYTHONIOENCODING"] = "latin-1"
 
