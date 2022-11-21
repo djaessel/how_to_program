@@ -26,7 +26,7 @@ def customMessageHandler(type, context, msg):
 
 def main():
     # Set default encoding
-    # os.environ["PYTHONIOENCODING"] = "utf-8"
+    os.environ["PYTHONIOENCODING"] = "utf-8"
 
     # Auto-generated code by QtCreator
     app = QGuiApplication(sys.argv)

@@ -42,6 +42,7 @@ BasePage {
                 myModel.push(curS)
             }
             selectUserMode.model = myModel
+            selectUserMode.currentIndex = userMode
             selectUserMode.donny = true
         }
 
@@ -125,6 +126,7 @@ BasePage {
             }
 
             selectInfoLevel.model = myModel
+            selectInfoLevel.currentIndex = infoLevel
             selectInfoLevel.donny = true
         }
 
