@@ -3,7 +3,7 @@
 import os
 
 from functools import partial
-open_latin = partial(open, encoding='LATIN-1')
+open_latin = partial(open, encoding='UTF-8')
 
 WORKING_DIR = os.path.dirname(os.path.abspath(__file__))
 
