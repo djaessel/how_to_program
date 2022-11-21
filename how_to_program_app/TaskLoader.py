@@ -80,7 +80,7 @@ class TaskLoader(QObject):
                         if info_level < info_level_keys.index(info_level_check):
                             access_granted = False
                     if access_granted:
-                        lines.append(line.rstrip("\\n"))
+                        lines.append(line.rstrip("\n"))
         return lines
 
     @Slot(int, result=bool)
