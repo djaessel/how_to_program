@@ -128,7 +128,7 @@ class VideoLoader(QObject):
 #            p = subprocess.run(args, check=True, capture_output=True)
 #            return len(p.stdout.decode()) > 0
 #        return True
-        return Fals
+        return False
 
 
     def orderVideo(self, element):
