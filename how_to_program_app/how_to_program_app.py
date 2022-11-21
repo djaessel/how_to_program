@@ -1,7 +1,7 @@
 # This Python file uses the following encoding: utf-8
 # Auto-generated code by QtCreator
+import os
 import sys
-import importlib
 from pathlib import Path
 
 # Auto-generated code by QtCreator
@@ -25,9 +25,8 @@ def customMessageHandler(type, context, msg):
 
 
 def main():
-    # sys.setdefaultencoding() does not exist, here!
-    importlib.reload(sys)  # Reload does the trick!
-    sys.setdefaultencoding('latin-1')
+    # os.environ["PYTHONIOENCODING"] = "utf-8"
+    os.environ["PYTHONIOENCODING"] = "latin-1"
 
     # Auto-generated code by QtCreator
     app = QGuiApplication(sys.argv)
