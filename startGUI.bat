@@ -1,5 +1,7 @@
 @echo off
 
 cd how_to_program_app
-pythonw startGUI.py
+start /B pythonw startGUI.py
+
+REM pause
 

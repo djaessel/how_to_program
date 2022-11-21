@@ -1,4 +1,4 @@
 @echo off
 
-start python "./course_program/start.py"
+start /B python ./course_program/start.py
 
