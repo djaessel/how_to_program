@@ -13,7 +13,7 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class SettingsManager(QObject):
-    save_file = WORKING_DIR + "\\.settings_gui"
+    save_file = os.path.join(WORKING_DIR, ".settings_gui")
 
     def __init__(self, parent=None):
         super(SettingsManager, self).__init__(parent)
@@ -136,14 +136,17 @@ class SettingsManager(QObject):
             self._stored_user_mode = (run_mode >> 4) & 0x0F
             self._stored_info_level = run_mode & 0x0F
             f.write('"run_mode": ' + str(run_mode))
+            f.write('\n')
 
-            f.write('\n"videos":')
+            f.write('"videos":')
             video_data = self._stored_video_data
             f.write(",\n".join(json.dumps(video_data).split(",")))
+            f.write('\n')
 
-            f.write('\n"tasks":')
+            f.write('"tasks":')
             task_data = self._stored_task_data
             f.write(",\n".join(json.dumps(task_data).split(",")))
+            f.write('\n')
 
-            f.write('\n"end": true') # just for better loading
-
+            f.write('"end": true') # just for better loading
+            # f.write('\n')

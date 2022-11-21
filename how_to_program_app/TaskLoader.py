@@ -13,12 +13,12 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class TaskLoader(QObject):
-    base_dir = WORKING_DIR + "\\..\\practice_tasks"
+    base_dir = os.path.join(WORKING_DIR, "..", "practice_tasks")
+    working_dir = os.path.join(WORKING_DIR, "..", "working_area")
 
     task_file = "task.txt"
     solution_dir = "solution"
     task_files_dir = "task_files"
-    working_dir = WORKING_DIR + "\\..\\working_area"
 
     tasks = []
     current_task_index = -1
@@ -29,11 +29,11 @@ class TaskLoader(QObject):
     @Slot(str, result=int)
     def load_available_tasks(self, user_mode_name):
         TaskLoader.tasks = []
-        mode_base_dir = TaskLoader.base_dir + "\\" + user_mode_name
+        mode_base_dir = os.path.join(TaskLoader.base_dir, user_mode_name)
         if os.path.exists(mode_base_dir) and os.path.isdir(mode_base_dir):
             task_dir = os.listdir(mode_base_dir)
             for i in range(len(task_dir)):
-                if os.path.isdir(mode_base_dir + "\\" + task_dir[i]):
+                if os.path.isdir(os.path.join(mode_base_dir, task_dir[i])):
                     TaskLoader.tasks.append(task_dir[i])
         return len(TaskLoader.tasks)
 
@@ -58,12 +58,12 @@ class TaskLoader(QObject):
     def get_task_path(self, params):
         task_name = params[0]
         user_mode_name = params[1]
-        return TaskLoader.base_dir + "\\" + user_mode_name + "\\" + task_name
+        return os.path.join(TaskLoader.base_dir, user_mode_name, task_name)
 
     @Slot(list, result=list)
     def read_task_info(self, params):
-        path = params[0].rstrip("\\")
-        path = path + "\\" + TaskLoader.task_file
+        path = params[0].rstrip("\\").rstrip("/")
+        path = os.path.join(path, TaskLoader.task_file)
         info_level_keys = params[1]
         info_level = params[2]
 
@@ -103,13 +103,13 @@ class TaskLoader(QObject):
             cur_task,
             user_mode_name,
         ]
-        tf_dir = self.get_task_path(params) + "\\" + TaskLoader.task_files_dir
+        tf_dir = os.path.join(self.get_task_path(params), TaskLoader.task_files_dir)
         task_files = os.listdir(tf_dir)
 
         if not os.path.exists(TaskLoader.working_dir):
             os.mkdir(TaskLoader.working_dir)
 
-        task_working_dir = TaskLoader.working_dir + "\\" + cur_task
+        task_working_dir = os.path.join(TaskLoader.working_dir, cur_task)
         if not os.path.exists(task_working_dir):
             os.mkdir(task_working_dir)
         else:
@@ -118,7 +118,7 @@ class TaskLoader(QObject):
 
         if allowed:
             for task_file in task_files:
-                shutil.copy(tf_dir + "\\" + task_file, task_working_dir)
+                shutil.copy(os.path.join(tf_dir, task_file), task_working_dir)
 
         # maybe make optional (settings?)
         os_spec.open_file_browser(task_working_dir)
@@ -136,16 +136,15 @@ class TaskLoader(QObject):
             cur_task,
             user_mode_name,
         ]
-        sol_dir = self.get_task_path(paramsx) + "\\" + TaskLoader.solution_dir + "\\"
-        sol_dir_fin = sol_dir + info_level_name.capitalize().replace(" ", "_")
+        sol_dir = os.path.join(self.get_task_path(paramsx), TaskLoader.solution_dir)
+        sol_dir_fin = os.path.join(sol_dir, info_level_name.capitalize().replace(" ", "_"))
 
         sol_dir_fin = os.path.abspath(sol_dir_fin)
         if not os.path.exists(sol_dir_fin):
-            sol_dir_fin = sol_dir + info_level_name.lower()
+            sol_dir_fin = os.path.join(sol_dir, info_level_name.lower())
 
         sol_dir_fin = os.path.abspath(sol_dir_fin)
         if os.path.exists(sol_dir_fin):
-            # print(f"Opening file explorer for {info_level_name} solution...")
             os_spec.open_file_browser(sol_dir_fin)
             return True
         return False

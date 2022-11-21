@@ -3,9 +3,7 @@ from PySide6.QtCore import QObject, Slot
 from PySide6.QtQml import QmlElement
 
 import os
-# import sys
 import subprocess
-# import importlib
 from constants import WORKING_DIR, open_latin
 
 
@@ -15,25 +13,24 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class VideoLoader(QObject):
-    vid_tut_dir = WORKING_DIR + "\\..\\video_tutorials\\"
-    cache_dir = WORKING_DIR + "\\.cache\\"
-    cache_playlists_file = cache_dir + ".cached_playlists"
+    vid_tut_dir = os.path.join(WORKING_DIR, "..", "video_tutorials")
+    cache_dir = os.path.join(WORKING_DIR, ".cache")
+    cache_playlists_file = os.path.join(cache_dir, ".cached_playlists")
 
     def __init__(self, parent=None):
         if not os.path.exists(VideoLoader.cache_dir):
             os.mkdir(VideoLoader.cache_dir)
         super(VideoLoader, self).__init__(parent)
-        self.checkInstallYoutubeDL()
 
     @Slot(str, result=list)
     def loadAllBasedOnUserMode(self, dir):
         videoData = []
-        path = VideoLoader.vid_tut_dir + dir + "\\"
+        path = os.path.join(VideoLoader.vid_tut_dir, dir)
         videoFiles = []
         if os.path.exists(path) and os.path.isdir(path):
             files = os.listdir(path)
             for file in files:
-                file_path = path + file
+                file_path = os.path.join(path, file)
                 if os.path.isfile(file_path):
                     videoFiles.append(file_path)
 
@@ -47,7 +44,7 @@ class VideoLoader(QObject):
 
     @Slot(str, result=list)
     def loadPlaylistBasedOnUserMode(self, dir):
-        path = VideoLoader.vid_tut_dir + dir + "\\0_1_Playlist.txt"
+        path = os.path.join(VideoLoader.vid_tut_dir, dir, "0_1_Playlist.txt")
         return self.loadPlaylist(path)
 
 
@@ -98,7 +95,7 @@ class VideoLoader(QObject):
         file_index = len(existing_playlists)
         existing_playlists.append(playlist_url)
 
-        with open_latin(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "w") as f:
+        with open_latin(os.path.join(VideoLoader.cache_dir, f".cached_pl_{file_index}"), "w") as f:
             for data in playlist_data:
                 f.write(data + "\n")
 
@@ -112,23 +109,10 @@ class VideoLoader(QObject):
         existing_playlists = self.getCachedPlaylistList()
         if playlist_url in existing_playlists:
             file_index = existing_playlists.index(playlist_url)
-            with open_latin(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "r") as f:
+            with open_latin(os.path.join(VideoLoader.cache_dir, f".cached_pl_{file_index}"), "r") as f:
                 for line in f:
                     playlist_data.append(line.rstrip("\n"))
         return playlist_data
-
-
-
-    def checkInstallYoutubeDL(self):
-#        spec = importlib.util.find_spec("youtube_dl")
-#        found = spec is not None
-#        print("Check Youtube-DL:", found, spec)
-#        if not found:
-#            args = [sys.executable, "-m", "pip", "install", "youtube-dl"]
-#            p = subprocess.run(args, check=True, capture_output=True)
-#            return len(p.stdout.decode()) > 0
-#        return True
-        return False
 
 
     def orderVideo(self, element):
@@ -143,12 +127,12 @@ class VideoLoader(QObject):
         # Check correct encoding!!!
         return p.stdout.decode().strip("\n").strip(" ")
 
-
     def extractDuration(self, url):
         # youtube-dl --flat-playlist --get-duration # --get-id
         # youtube-dl --get-duration
         args = ["youtube-dl", "--get-duration", url]
         p = subprocess.run(args, check=True, capture_output=True)
+        # Check correct encoding!!!
         return p.stdout.decode().strip("\n").strip(" ")
 
     def loadVideoDataById(self, index, videoTitle, videoId, videoDuration):

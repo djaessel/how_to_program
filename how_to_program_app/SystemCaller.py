@@ -21,5 +21,5 @@ class SystemCaller(QObject):
 
     @Slot(str)
     def urlOpened(self, url):
-        print("Opened Url:", url)
+        # print("Opened Url:", url)
         pass
