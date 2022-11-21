@@ -1,4 +1,4 @@
 #!/usr/bin/bash
 
-./how_to_program_app/startGUI.py
+python ./how_to_program_app/startGUI.py
 
