@@ -11,6 +11,10 @@ import version_check as ver
 
 
 if ver.is_python_3():
+   err = os.system("pip3 install PySide6")
+   if err != 0:
+       err = os.system("pip install PySide6")
+
    import how_to_program_app as app
    app.main()
 else:
