@@ -4,7 +4,7 @@ from PySide6.QtQml import QmlElement
 
 import os
 import json
-from constants import WORKING_DIR, open_latin
+from constants import WORKING_DIR
 
 
 QML_IMPORT_NAME = "SettingsManager"
@@ -108,7 +108,7 @@ class SettingsManager(QObject):
         task_info = []
 
         if os.path.exists(SettingsManager.save_file):
-            with open_latin(SettingsManager.save_file, "r") as f:
+            with open(SettingsManager.save_file, "r", encoding="utf-8") as f:
                 lastLine = f.readline().rstrip("\n")
                 modes = int(lastLine.split(":")[1].strip())
                 if modes >= 0xFF:
@@ -131,7 +131,7 @@ class SettingsManager(QObject):
 
     @Slot(list)
     def save_data(self, data):
-        with open_latin(SettingsManager.save_file, "w") as f:
+        with open(SettingsManager.save_file, "w", encoding="utf-8") as f:
             run_mode = data[0] & 0xFF
             self._stored_user_mode = (run_mode >> 4) & 0x0F
             self._stored_info_level = run_mode & 0x0F

@@ -5,7 +5,7 @@ from PySide6.QtQml import QmlElement
 import os
 import shutil
 import os_specific as os_spec
-from constants import WORKING_DIR, open_latin
+from constants import WORKING_DIR
 
 QML_IMPORT_NAME = "TaskLoader"
 QML_IMPORT_MAJOR_VERSION = 1
@@ -68,7 +68,7 @@ class TaskLoader(QObject):
         info_level = params[2]
 
         lines = []
-        with open_latin(path, "r") as f:
+        with open(path, "r", encoding="utf-8") as f:
             data_len = 1
             access_granted = True
             while data_len > 0:

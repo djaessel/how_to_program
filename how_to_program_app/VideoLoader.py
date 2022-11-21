@@ -4,7 +4,7 @@ from PySide6.QtQml import QmlElement
 
 import os
 import subprocess
-from constants import WORKING_DIR, open_latin
+from constants import WORKING_DIR
 
 
 QML_IMPORT_NAME = "VideoLoader"
@@ -53,7 +53,7 @@ class VideoLoader(QObject):
             return []
 
         playlistUrl = ""
-        with open_latin(file_path) as vf:
+        with open(file_path, "r", encoding="utf-8") as vf:
             dataLen = 1
             foundVideoLink = False
             while dataLen > 0 and not foundVideoLink:
@@ -85,7 +85,7 @@ class VideoLoader(QObject):
     def getCachedPlaylistList(self):
         existing_playlists = []
         if os.path.exists(VideoLoader.cache_playlists_file):
-            with open_latin(VideoLoader.cache_playlists_file) as f:
+            with open(VideoLoader.cache_playlists_file, "r", encoding="utf-8") as f:
                 for line in f:
                     existing_playlists.append(line.rstrip("\n"))
         return existing_playlists
@@ -95,11 +95,11 @@ class VideoLoader(QObject):
         file_index = len(existing_playlists)
         existing_playlists.append(playlist_url)
 
-        with open_latin(os.path.join(VideoLoader.cache_dir, f".cached_pl_{file_index}"), "w") as f:
+        with open(os.path.join(VideoLoader.cache_dir, f".cached_pl_{file_index}"), "w", encoding="utf-8") as f:
             for data in playlist_data:
                 f.write(data + "\n")
 
-        with open_latin(VideoLoader.cache_playlists_file, "w") as f:
+        with open(VideoLoader.cache_playlists_file, "w", encoding="utf-8") as f:
             for p in existing_playlists:
                 f.write(p + "\n")
 
@@ -109,7 +109,7 @@ class VideoLoader(QObject):
         existing_playlists = self.getCachedPlaylistList()
         if playlist_url in existing_playlists:
             file_index = existing_playlists.index(playlist_url)
-            with open_latin(os.path.join(VideoLoader.cache_dir, f".cached_pl_{file_index}"), "r") as f:
+            with open(os.path.join(VideoLoader.cache_dir, f".cached_pl_{file_index}"), "r", encoding="utf-8") as f:
                 for line in f:
                     playlist_data.append(line.rstrip("\n"))
         return playlist_data
@@ -195,7 +195,7 @@ class VideoLoader(QObject):
         duration = "00:00"
         videoId = ""
 
-        with open_latin(file_path) as vf:
+        with open(file_path, "r", encoding="utf-8") as vf:
             dataLen = 1
             emptyStartLine = True
             foundVideoLink = False
