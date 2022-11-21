@@ -41,7 +41,11 @@ def main():
 
     # Auto-generated code by QtCreator
     engine = QQmlApplicationEngine()
-    qml_file = Path(__file__).resolve().parent / "main.qml"
+
+    # qml_file = Path(__file__).resolve().parent / "main.qml"
+    # for PySide2 and lower PySide6 versions
+    qml_file = os.path.join(Path(__file__).resolve().parent, "main.qml")
+    qml_file = str(qml_file)
 
     # This is the alternative, which works for now
     # But later we might want to add Custom Python QmlElements
