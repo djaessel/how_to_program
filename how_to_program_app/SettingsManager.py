@@ -13,7 +13,7 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class SettingsManager(QObject):
-    save_file = WORKING_DIR + "/.settings_gui"
+    save_file = WORKING_DIR + "\.settings_gui"
 
     def __init__(self, parent=None):
         super(SettingsManager, self).__init__(parent)

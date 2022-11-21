@@ -15,8 +15,8 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class VideoLoader(QObject):
-    vid_tut_dir = WORKING_DIR + "/../video_tutorials/"
-    cache_dir = WORKING_DIR + "/.cache/"
+    vid_tut_dir = WORKING_DIR + "\..\video_tutorials\"
+    cache_dir = WORKING_DIR + "\.cache\"
     cache_playlists_file = cache_dir + ".cached_playlists"
 
     def __init__(self, parent=None):
@@ -28,7 +28,7 @@ class VideoLoader(QObject):
     @Slot(str, result=list)
     def loadAllBasedOnUserMode(self, dir):
         videoData = []
-        path = VideoLoader.vid_tut_dir + dir + "/"
+        path = VideoLoader.vid_tut_dir + dir + "\\"
         videoFiles = []
         if os.path.exists(path) and os.path.isdir(path):
             files = os.listdir(path)
@@ -47,7 +47,7 @@ class VideoLoader(QObject):
 
     @Slot(str, result=list)
     def loadPlaylistBasedOnUserMode(self, dir):
-        path = VideoLoader.vid_tut_dir + dir + "/0_1_Playlist.txt"
+        path = VideoLoader.vid_tut_dir + dir + "\0_1_Playlist.txt"
         return self.loadPlaylist(path)
 
 
