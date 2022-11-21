@@ -1,4 +1,5 @@
 @echo off
 
-pythonw ./how_to_program_app/startGUI.py
+cd how_to_program_app
+pythonw startGUI.py
 
