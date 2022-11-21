@@ -140,6 +140,8 @@ class VideoLoader(QObject):
         # youtube-dl --get-duration
         args = ["youtube-dl", "--get-duration", "--get-id", "--get-title", url]
         p = subprocess.run(args, check=True, capture_output=True)
+        print("DEFAULT:", p.stdout)
+        print("DECODED:", p.stdout.decode())
         return p.stdout.decode().strip("\n").strip(" ")
 
 
