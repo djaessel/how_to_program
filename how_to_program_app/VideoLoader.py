@@ -15,8 +15,8 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class VideoLoader(QObject):
-    vid_tut_dir = WORKING_DIR + "\..\video_tutorials\"
-    cache_dir = WORKING_DIR + "\.cache\"
+    vid_tut_dir = WORKING_DIR + "\\..\\video_tutorials\\"
+    cache_dir = WORKING_DIR + "\\.cache\\"
     cache_playlists_file = cache_dir + ".cached_playlists"
 
     def __init__(self, parent=None):
@@ -47,7 +47,7 @@ class VideoLoader(QObject):
 
     @Slot(str, result=list)
     def loadPlaylistBasedOnUserMode(self, dir):
-        path = VideoLoader.vid_tut_dir + dir + "\0_1_Playlist.txt"
+        path = VideoLoader.vid_tut_dir + dir + "\\0_1_Playlist.txt"
         return self.loadPlaylist(path)
 
 
@@ -67,18 +67,18 @@ class VideoLoader(QObject):
                     if line_l.startswith("video:") or line_l.startswith("link:"):
                         if line_l.startswith("video:"):
                             foundVideoLink = True
-                            playlistUrl = ":".join(line.split(":")[1:]).rstrip('\n').strip()
+                            playlistUrl = ":".join(line.split(":")[1:]).rstrip('\\n').strip()
 
         cachedPlaylistData = self.getCachedPlaylistList()
         if not playlistUrl in cachedPlaylistData:
-            playlist_data = self.extractVideoDataPlaylist(playlistUrl).split("\n")
+            playlist_data = self.extractVideoDataPlaylist(playlistUrl).split("\\n")
             self.storePlaylistData(playlistUrl, playlist_data)
 
         playlist_data = self.loadExtractedPlaylistData(playlistUrl)
 
         videoData = []
         for i in range(0, len(playlist_data), 3):
-            data = self.loadVideoDataById(i, playlist_data[i], playlist_data[i+1], playlist_data[i+2].rstrip("\r"))
+            data = self.loadVideoDataById(i, playlist_data[i], playlist_data[i+1], playlist_data[i+2].rstrip("\\r"))
             if data != -1:
                 videoData.append(data)
 
@@ -90,7 +90,7 @@ class VideoLoader(QObject):
         if os.path.exists(VideoLoader.cache_playlists_file):
             with open(VideoLoader.cache_playlists_file) as f:
                 for line in f:
-                    existing_playlists.append(line.rstrip("\n"))
+                    existing_playlists.append(line.rstrip("\\n"))
         return existing_playlists
 
     def storePlaylistData(self, playlist_url, playlist_data):
@@ -100,11 +100,11 @@ class VideoLoader(QObject):
 
         with open(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "w") as f:
             for data in playlist_data:
-                f.write(data + "\n")
+                f.write(data + "\\n")
 
         with open(VideoLoader.cache_playlists_file, "w") as f:
             for p in existing_playlists:
-                f.write(p + "\n")
+                f.write(p + "\\n")
 
 
     def loadExtractedPlaylistData(self, playlist_url):
@@ -114,7 +114,7 @@ class VideoLoader(QObject):
             file_index = existing_playlists.index(playlist_url)
             with open(f"{VideoLoader.cache_dir}.cached_pl_{file_index}", "r") as f:
                 for line in f:
-                    playlist_data.append(line.rstrip("\n"))
+                    playlist_data.append(line.rstrip("\\n"))
         return playlist_data
 
 
@@ -140,7 +140,7 @@ class VideoLoader(QObject):
         # youtube-dl --get-duration
         args = ["youtube-dl", "--get-duration", "--get-id", "--get-title", url]
         p = subprocess.run(args, check=True, capture_output=True)
-        return p.stdout.decode().strip("\n").strip(" ")
+        return p.stdout.decode().strip("\\n").strip(" ")
 
 
     def extractDuration(self, url):
@@ -148,7 +148,7 @@ class VideoLoader(QObject):
         # youtube-dl --get-duration
         args = ["youtube-dl", "--get-duration", url]
         p = subprocess.run(args, check=True, capture_output=True)
-        return p.stdout.decode().strip("\n").strip(" ")
+        return p.stdout.decode().strip("\\n").strip(" ")
 
     def loadVideoDataById(self, index, videoTitle, videoId, videoDuration):
         url = "https://youtu.be/" + videoId
@@ -222,11 +222,11 @@ class VideoLoader(QObject):
                     if line_l.startswith("video:") or line_l.startswith("link:"):
                         if line_l.startswith("video:"):
                             foundVideoLink = True
-                            url = ":".join(line.split(":")[1:]).rstrip('\n').strip()
+                            url = ":".join(line.split(":")[1:]).rstrip('\\n').strip()
                             videoId = self.extractVideoId(url)
                             # duration = self.extractDuration(url)
                     else:
-                        line = line.rstrip("\n").rstrip()
+                        line = line.rstrip("\\n").rstrip()
                         if emptyStartLine and len(line.strip()) > 0:
                             emptyStartLine = False
                         if not emptyStartLine:

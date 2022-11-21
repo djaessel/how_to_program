@@ -13,12 +13,12 @@ QML_IMPORT_MINOR_VERSION = 0 # Optional
 
 @QmlElement
 class TaskLoader(QObject):
-    base_dir = WORKING_DIR + "\..\practice_tasks"
+    base_dir = WORKING_DIR + "\\..\\practice_tasks"
 
     task_file = "task.txt"
     solution_dir = "solution"
     task_files_dir = "task_files"
-    working_dir = WORKING_DIR + "\..\working_area"
+    working_dir = WORKING_DIR + "\\..\\working_area"
 
     tasks = []
     current_task_index = -1
@@ -80,7 +80,7 @@ class TaskLoader(QObject):
                         if info_level < info_level_keys.index(info_level_check):
                             access_granted = False
                     if access_granted:
-                        lines.append(line.rstrip("\n"))
+                        lines.append(line.rstrip("\\n"))
         return lines
 
     @Slot(int, result=bool)
