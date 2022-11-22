@@ -1,7 +1,6 @@
 TODO:
 
 - Lernfortschrittsanzeige
-  * geschaute Videos und gemachte Aufgabe werden gemerkt und verrechnet
   * Es gibt Punkte je nach Schwierigkeit und gelösten Aufgaben(-teilen)
 
 - Eine Verknüpfung bzw. Abhängigkeit zwischen Aufgabe und Video Tutorials
@@ -17,9 +16,3 @@ TODO:
   * die Möglichkeit Verbesserungen am Lernprogramm einreichen
   * (ich werde das vermutlich mit Github koppeln, aber darum musst du dich nicht kümmern :) )
 
-- Video Tutorials
-  * Es wird auch allgemeine Videotutorials geben (z.B. über Linux, Virtuelle Maschinen, usw.)
-  * Zu jedem Video werde ich noch Erklärungen und Infos packen (falls notwendig)
-  * es gibt einen Fortschritt für Tutorials
-
-- ...
