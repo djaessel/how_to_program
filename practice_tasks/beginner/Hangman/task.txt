@@ -1,0 +1,87 @@
+
+You might know the game about guessing a name, right?
+
+Like from school maybe?
+
+Someone draws some lines on the board and then people can say letters.
+Each time a the letter is in the word, the letter will be put on to the lines.
+All occurrences of this letter.
+
+But when the letter was not in the word, a hangman would get another line drawn.
+For each wrong letter another line until the hangman is done.
+
+If someone guessed the word and or all letters included were said, the game is won.
+If the hangman is complete, the game is lost.
+Either way it is over.
+
+For the start you got a little list with words to randomly choose from.
+You can add or use your own words if you like.
+But all of these should be lower case (for now).
+
+Spaces should be ignored for the guessing, but recognized.
+
+Example BEGIN
+
+Guess: 
+       _ _ _ _
+
+Hangman:
+
+
+Say a letter: a
+
+Guess:   a
+       _ _ _ _
+
+Hangman:
+
+
+Say a letter: i
+
+Guess:   a   i
+       _ _ _ _
+
+Hangman:
+
+
+Say a letter: e
+
+Guess:   a   i
+       _ _ _ _
+
+Hangman:
+
+
+
+
+
+
+
+  _______
+
+Example END
+
+
+The final result would be:
+
+Guess: t a x i
+       _ _ _ _
+
+The final Hangman would be:
+      _______
+     |/      |
+     |      (_)
+     |      \|/
+     |       |
+     |      / \
+     |
+  ___|___
+
+
+#Bonus
+# TODO: add bonus
+
+
+#Extra bonus
+# TODO: add extra bonus
+
