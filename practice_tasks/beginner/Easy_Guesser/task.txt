@@ -1,0 +1,31 @@
+
+Today your task is to create a guesser.
+
+But not your typical guessing for numbers.
+Make a guesser for letters.
+
+The goal is to have a program that asks a few questions.
+
+Questions like:
+ - Comes your letter before the guessed one?
+ - Does your letter come after my guess?
+
+And then the user should enter "yes" or "no" (well or just the first letter of these).
+
+In the end the program should guess the correct letter/character.
+
+Allowed are a-z and A-Z
+
+
+Bonus:
+
+Now that you got it working, why not add another feature.
+Make the program able to both guess a number and a letter.
+
+Let the guessing limits be 0 - 100 (including) for the numbers.
+
+
+#Bonus extra:
+
+# TODO: add extra task
+
