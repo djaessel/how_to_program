@@ -75,6 +75,7 @@ class TaskLoader(QObject):
                 line = f.readline()
                 data_len = len(line)
                 if data_len > 0:
+                    # TODO: save this in json format and then read objects and check their names/ids for info_level!!!
                     info_level_check = line.strip().rstrip(":").replace(" ", "_").lower()
                     if info_level_check in info_level_keys:
                         if info_level < info_level_keys.index(info_level_check):
