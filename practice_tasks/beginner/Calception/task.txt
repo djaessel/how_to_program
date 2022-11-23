@@ -1,0 +1,52 @@
+
+Today we are going to take a look into recursion and kinda reusing the same code again and again.
+
+There is a difference between loops and recursion.
+
+A look is usually based on some condition and then executes code and when the condition is met, it stops.
+Well and continues with the code after.
+
+Recursion is something that works in a way similar at times, but is technically completely different.
+
+You can for example write a funtion that calls itself.
+And that would in theory work, but practically crash the program at some point or who knows what...
+
+So you might want to add a condition to it and only call itself as long as that is either true or false,
+depending on what you want to check and so on.
+
+The goal should be, that the function does indeed stop at some point, 
+but would have been called multiple times by itself prior to its end.
+
+One example would be to write a basic character removal function.
+
+So lets do that.
+
+Task:
+- write a program that can remove characters from strings
+- each character should be removed at a time (not all occurences at once - in a way)
+- make it reusable and kinda safe
+- work with the given set of characters that should be removed
+- use the test txt files for the function and save the resulting texts in another file
+- dont use any special "pyton magic" (if possible)
+- meaning no use of already implemented functions from python that do such things
+- only basic functions like range, your own functions and file reading/writing functions are allowed
+
+(In the Bonus part we will look at better methods.)
+
+
+The characters you shall use for filtering are in the file: "filter_characters.txt"
+In this file are all characters separated by TABULATOR, which is a special text file format, sometimes used by companies (e.g. Amazon).
+
+Try to decode the hidden messages :)
+Have fun!
+
+
+
+#Bonus:
+
+# TODO: create this
+
+#Extra bonus:
+
+# TODO: create this
+
