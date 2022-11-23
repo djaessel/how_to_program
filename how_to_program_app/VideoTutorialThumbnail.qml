@@ -28,7 +28,7 @@ Rectangle {
     property bool mouseInside: false
     //property bool mouseDown: false
 
-    color: (mouseInside) ? "#9a9" : "#ded"
+    color: (mouseInside) ? "#9a9" : ((markedAsDone) ? "#565" : "#ded")
     border.color: (mouseInside) ? "#aba" : "gray"
     border.width: 1
 
@@ -145,6 +145,8 @@ Rectangle {
 
         verticalAlignment: Text.AlignVCenter
 
+        color: (markedAsDone) ? "lightgray" : "black"
+
         text: "<b>" + videoTitle + "</b>"
     }
 
@@ -162,6 +164,8 @@ Rectangle {
         font.pointSize: resizer * 18
 
         verticalAlignment: Text.AlignVCenter
+
+        color: (markedAsDone) ? "lightgray" : "black"
 
         text: "Duration: " + (
                   ((videoDurationHours > 0) ?
@@ -190,6 +194,8 @@ Rectangle {
 
         cache: true
         asynchronous: true
+
+        opacity: (markedAsDone) ? 0.65 : 1
 
         property bool loaded: false
 
@@ -220,6 +226,23 @@ Rectangle {
                 videoThumbnail.loaded = true
             }
         }
+
+        Text {
+            id: taskAlreadyDoneChecker
+
+            anchors.centerIn: parent
+
+            horizontalAlignment: Text.AlignHCenter
+            verticalAlignment: Text.AlignVCenter
+
+            font.pointSize: 100
+            font.bold: true
+
+            visible: markedAsDone
+
+            text: "\u2713"
+            color: "#232"
+        }
     }
 
     Label {
@@ -237,6 +260,8 @@ Rectangle {
         elide: Text.ElideRight
 
         font.pointSize: 16
+
+        color: (markedAsDone) ? "lightgray" : "black"
 
         text: videoInfo
     }

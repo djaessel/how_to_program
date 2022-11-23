@@ -107,10 +107,31 @@ Rectangle {
     }
 
     Text {
+        id: taskAlreadyDoneChecker
+
+        anchors.left: parent.left
+        anchors.top: parent.top
+
+        anchors.bottom: parent.bottom
+        horizontalAlignment: Text.AlignHCenter
+        verticalAlignment: Text.AlignVCenter
+
+        font.pointSize: 64
+        font.bold: true
+
+        visible: taskDone
+
+        width: (taskDone) ? parent.width * 0.1 : 0
+
+        text: "\u2713"
+        color: "#232"
+    }
+
+    Text {
         id: taskTitle
 
         anchors.top: parent.top
-        anchors.left: parent.left
+        anchors.left: taskAlreadyDoneChecker.right
         anchors.bottom: parent.bottom
 
         horizontalAlignment: Text.AlignHCenter
@@ -118,7 +139,11 @@ Rectangle {
 
         font.pointSize: 24
 
-        width: parent.width * 0.35
+        width: {
+            var potty = parent.width * 0.35
+            var newx = potty - taskAlreadyDoneChecker.width
+            return newx
+        }
 
         wrapMode: Text.WordWrap
     }
