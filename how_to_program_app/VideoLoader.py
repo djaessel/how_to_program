@@ -66,12 +66,13 @@ class VideoLoader(QObject):
                             foundVideoLink = True
                             playlistUrl = ":".join(line.split(":")[1:]).rstrip('\n').strip()
 
-        cachedPlaylistData = self.getCachedPlaylistList()
-        if not playlistUrl in cachedPlaylistData:
-            playlist_data = self.extractVideoDataPlaylist(playlistUrl).split("\n")
-            self.storePlaylistData(playlistUrl, playlist_data)
-
-        playlist_data = self.loadExtractedPlaylistData(playlistUrl)
+        #cachedPlaylistData = self.getCachedPlaylistList()
+        #if not playlistUrl in cachedPlaylistData:
+        #    playlist_data = self.extractVideoDataPlaylist(playlistUrl).split("\n")
+        #    self.storePlaylistData(playlistUrl, playlist_data)
+        #
+        #playlist_data = self.loadExtractedPlaylistData(playlistUrl)
+        playlist_data = self.extractVideoDataPlaylist(playlistUrl).split("\n") # youtube-dl is fast enough it seems
 
         videoData = []
         for i in range(0, len(playlist_data), 3):
@@ -122,7 +123,7 @@ class VideoLoader(QObject):
     def extractVideoDataPlaylist(self, url):
         # youtube-dl --flat-playlist --get-duration # --get-id
         # youtube-dl --get-duration
-        args = ["youtube-dl", "--get-duration", "--get-id", "--get-title", url]
+        args = ["youtube-dl", "--flat-playlist", "--get-duration", "--get-id", "--get-title", url]
         p = subprocess.run(args, check=True, capture_output=True)
         # Check correct encoding!!!
         return p.stdout.decode().strip("\n").strip(" ")
