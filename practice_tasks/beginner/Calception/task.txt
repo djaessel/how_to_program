@@ -42,11 +42,69 @@ Have fun!
 
 
 
-#Bonus:
+Bonus:
 
-# TODO: create this
+Now get got ourselves some new decrypted files.
+First we still need to remove some characters as before and then we also need to get the correct words out.
 
-#Extra bonus:
+Ignore the old test files for the bonus and just use the "bonus_test*" files.
 
-# TODO: create this
+I hope you are familiar with the way the romans encrypted their messages.
+If not, here a short summary:
+- They used a stick and rotated characters around it
+- depending on the given rotation count all characters were moved
+- to decrypt one simply had to wrap around the stick and rotate the given number
+
+So you should add a rotation through all possible characters (basic ASCII characters A-Z) and 
+print out the decrypted result. When the result makes sense, the user can give input and save the result.
+Otherwise it rotates until then end and stops.
+
+
+To make it a little easier to reuse, maintain and modify the code for removing "invalid" characters,
+try to use a regular expression.
+
+If you don't know what it is, take a look at: <a href='https://regexr.com/'>RegExr.com</a>
+There are a lot of examples and explanations.
+
+In short, regular expressions are use to filter data with certain keywords and some logic,
+without writing a lot of code to do it. Since the regular expression does most of the work by returning true or false.
+So no long an complex if elif structures, just one or two maybe.
+
+We also can get rid of looping through all characters and maybe just store the regular expression in the filter file.
+Or if you want you can simply put it directly in the code, do as you like.
+
+To make it a little easier.
+
+The following should be allowed:
+- basic numbers (e.g. 1235, 994, 0, -143354, 3.634)
+- letters A-Z upper and lower
+- spaces, commas, colon (no semi colon!)
+
+All else should be declared invalid from now on and should be filtered out.
+
+
+Extra bonus:
+
+We already got a bit of help for the decoding, but it is still a little bit of a pain.
+Especially with the latest files some evil super power created!
+These messages are almost impossible to crack, but maybe you find a way to crack them anyway.
+
+Hint: According to allied spies, some of the messages start with the same two words!
+      Maybe it helps to decrypt the other messages as well.
+
+
+Student: Is that an enigma we are...?
+Teacher: Are we in the middle of WWII?
+Student: Eh... no, of course not?!
+Teacher: So why are you asking then?
+Student: I...
+Teacher: OF COURSE IT IS AN ENIGMA!
+Student: Damn...
+Teacher: Get to work Turing!
+Student: Sir?!
+Teacher: TO WORK!!!
+Student: Alright, alright Mister Pickelton.
+
+
+Something happened here, but no one knows. o_o
 
