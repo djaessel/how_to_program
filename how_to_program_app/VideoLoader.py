@@ -229,7 +229,8 @@ class VideoLoader(QObject):
         }
 
         if not foundVideoLink:
-            vidData = -1
+            # vidData = -1
+            pass
 
         return vidData
 

@@ -38,11 +38,18 @@ ProgressPage {
         var videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
 
         for (var i = 0; i < videoDataOLD.length; i++) {
+            var found = false
             for (var j = 0; j < videoData.length; j++) {
                 if (videoData[j]["videoId"] === videoDataOLD[i]["videoId"]) {
                     videoData[j]["infoText"] = videoDataOLD[i]["infoText"]
+                    found = true
                     j = videoData.length // break
                 }
+            }
+
+            if (!found) {
+                console.log(JSON.stringify(videoDataOLD[i]))
+                //videoData.push(videoDataOLD[i])
             }
         }
 
