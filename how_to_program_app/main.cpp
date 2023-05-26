@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 
   // This is auto-generated code by QtCreator
   QQmlApplicationEngine engine;
-  const QUrl url(u"qrc:/how_to_program_app/main.qml"_qs);
+  const QUrl url("qrc:/how_to_program_app/main.qml");
   QObject::connect(&engine, &QQmlApplicationEngine::objectCreated,
                    &app, [url](QObject *obj, const QUrl &objUrl) {
     if (!obj && url == objUrl)

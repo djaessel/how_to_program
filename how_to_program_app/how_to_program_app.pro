@@ -17,6 +17,7 @@ PracticeTasks.qml \
 ProgressPage.qml \
 SettingsPage.qml \
 SpecialPage.qml \
+TaskButtonRow.qml \
 UserSettingsPage.qml \
 VideoTutorial.qml \
 VideoTutorials.qml \
@@ -48,6 +49,7 @@ DISTFILES += \
     ProgressPage.qml \
     SettingsPage.qml \
     SpecialPage.qml \
+    TaskButtonRow.qml \
     UserSettingsPage.qml \
     VideoTutorial.qml \
     VideoTutorials.qml \
