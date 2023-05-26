@@ -35,7 +35,8 @@ ProgressPage {
 
     function init() {
         var videoDataOLD = videoLoader.loadAllBasedOnUserMode(userModeName.toLowerCase())
-        var videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
+        //var videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
+        var videoData = videoDataOLD
 
         for (var i = 0; i < videoDataOLD.length; i++) {
             var found = false
