@@ -35,8 +35,15 @@ ProgressPage {
 
     function init() {
         var videoDataOLD = videoLoader.loadAllBasedOnUserMode(userModeName.toLowerCase())
-        //var videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
-        var videoData = videoDataOLD
+        var videoData = []
+        try {
+            videoData = videoLoader.loadPlaylistBasedOnUserMode(userModeName.toLowerCase())
+        } catch (e) {
+            console.log("Playlist not found or not working!")
+            console.log(userModeName.toLowerCase())
+            console.log(e)
+            videoData = videoDataOLD
+        }
 
         for (var i = 0; i < videoDataOLD.length; i++) {
             var found = false
