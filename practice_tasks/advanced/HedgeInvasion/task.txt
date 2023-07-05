@@ -1,0 +1,35 @@
+Create a 2D shooter game with invasions.
+
+You should have a player character on the left side with a HP bar or just some info about the HP.
+There also should be a bullet element visible, as if the player shoots from the left to the right.
+
+Then there shall be a few enemies with HP bars or just some info as well, who approach the player from the right.
+
+When an enemy reaches the player, the player loses HP points.
+Once the player has no HP points left, the game is lost.
+So print such a message to show it is over and stop the ability to shoot.
+
+
+Hint: Use Qt Animations for this.
+Hint: Use C++ and QML (with focus on QML for easier use)
+
+
+Bonus:
+
+Add a new enemy type that moves up and down, so the player has to actually aim a little.
+Set the aiming range in between a 30° angle, if possible.
+
+Make the enemy as if it flies and when it got hit, make it fall down.
+
+
+Extra Bonus:
+
+Add a second wave with more enemies.
+If you have fun, add another wave, basically implementing a wave system here.
+
+At the end of each round say that it is over.
+
+From here on, have fun and do whatever you want with the game,
+well... or nothing, since it was just a practice for you.
+
+
