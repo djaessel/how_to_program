@@ -70,20 +70,23 @@ ApplicationWindow {
 
         ListElement {
             textx: "Dashboard | Home"
-            //icon: "\u2302"
-            icon: "\ue49f"
+            icon: "\u2302"
+            //icon: "\ue49f"
         }
         ListElement {
             textx: "Video Tutorials"
-            icon: "\uf03d"
+            //icon: "\uf03d"
+            icon: "\u25B6"
         }
         ListElement {
             textx: "Practice Tasks"
-            icon: "\uf120"
+            //icon: "\uf120"
+            icon: "\u2692"
         }
         ListElement {
             textx: "User Account Settings"
-            icon: "\uf183"
+            //icon: "\uf183"
+            icon: "\u1330"
         }
     }
 
@@ -157,7 +160,8 @@ ApplicationWindow {
             anchors.right: exitButton.left
             anchors.bottom: parent.bottom
 
-            text: "\uf0c9"
+            //text: "\uf0c9"
+            text: "\u269F"
             width: titleBar.height
 
             mouseItem.onClicked: {
@@ -173,7 +177,8 @@ ApplicationWindow {
             anchors.bottom: parent.bottom
 
             //text: "\uf057"
-            text: "\uf2d3"
+            //text: "\uf2d3"
+            text: "x"
             width: titleBar.height
 
             mouseItem.onClicked: {
