@@ -161,5 +161,6 @@ Rectangle {
         font.pointSize: 20
 
         elide: Text.ElideRight
+        wrapMode: Text.WrapAtWordBoundaryOrAnywhere
     }
 }

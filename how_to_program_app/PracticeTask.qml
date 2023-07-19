@@ -56,6 +56,7 @@ SpecialPage {
                 font.pointSize: 15
 
                 text: descriptionText
+                wrapMode: Text.WrapAtWordBoundaryOrAnywhere
             }
         }
 
